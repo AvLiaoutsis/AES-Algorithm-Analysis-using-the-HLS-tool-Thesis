@@ -1,0 +1,5 @@
+lappend pragmaStatus0 {pragma "UNROLL" source "C:/Users/Lincoln/Desktop/Professor/Second/CCodedFiles/2nd/AES_Encrypt.c" location "KeyExpansion/Unroll" found 0 funcFound 1 applied 0 ambiguous 0 reason "Directive 'UNROLL' cannot be applied: Label 'Unroll' does not exist in function 'KeyExpansion'. "}
+lappend pragmaStatus1 {pragma "UNROLL" source "C:/Users/Lincoln/Desktop/Professor/Second/CCodedFiles/2nd/AES_Encrypt.c" location "KeyExpansion/KeyExpansion_label17" found 1 funcFound 1 applied 1 ambiguous 0 reason "null"}
+lappend pragmaStatus2 {pragma "PIPELINE" source "C:/Users/Lincoln/Desktop/Professor/Second/CCodedFiles/2nd/AES_Encrypt.c" location "KeyExpansion/KeyExpansion_label4" found 1 funcFound 1 applied 1 ambiguous 0 reason "null"}
+lappend pragmaStatus3 {pragma "UNROLL" source "C:/Users/Lincoln/Desktop/Professor/Second/CCodedFiles/2nd/AES_Encrypt.c" location "AddRoundKey/AddRoundKey_label19" found 1 funcFound 1 applied 1 ambiguous 0 reason "null"}
+lappend pragmaStatus4 {pragma "PIPELINE" source "C:/Users/Lincoln/Desktop/Professor/Second/CCodedFiles/2nd/AES_Encrypt.c" location "Cipher/Cipher_label34" found 1 funcFound 1 applied 1 ambiguous 0 reason "null"}

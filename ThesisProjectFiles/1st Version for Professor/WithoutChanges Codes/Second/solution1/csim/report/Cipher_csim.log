@@ -1,0 +1,9 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+make: `csim.exe' is up to date.
+
+Text after encryption:
+69 c4 e0 d8 6a 7b 04 30 d8 cd b7 80 70 b4 c5 5a 
+
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

@@ -1,0 +1,69 @@
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "C:/Xilinx/Vivado/2017.2/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2017.2
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2017.2/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_Cipher_top -prj Cipher.prj -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 --initfile C:/Xilinx/Vivado/2017.2/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s Cipher 
+Multi-threading is on. Using 4 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/deutero/solution1/sim/verilog/AddRoundKey.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AddRoundKey
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/deutero/solution1/sim/verilog/AESL_automem_out_r.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_out_r
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/deutero/solution1/sim/verilog/Cipher.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_Cipher_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/deutero/solution1/sim/verilog/Cipher.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Cipher
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/deutero/solution1/sim/verilog/Cipher_in_r.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Cipher_in_r_rom
+INFO: [VRFC 10-311] analyzing module Cipher_in_r
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/deutero/solution1/sim/verilog/Cipher_Key.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Cipher_Key_ram
+INFO: [VRFC 10-311] analyzing module Cipher_Key
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/deutero/solution1/sim/verilog/Cipher_RoundKey.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Cipher_RoundKey_ram
+INFO: [VRFC 10-311] analyzing module Cipher_RoundKey
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/deutero/solution1/sim/verilog/Cipher_state.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Cipher_state_ram
+INFO: [VRFC 10-311] analyzing module Cipher_state
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/deutero/solution1/sim/verilog/Cipher_temp1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Cipher_temp1_rom
+INFO: [VRFC 10-311] analyzing module Cipher_temp1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/deutero/solution1/sim/verilog/KeyExpansion.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeyExpansion
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/deutero/solution1/sim/verilog/KeyExpansion_Rcon.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeyExpansion_Rcon_rom
+INFO: [VRFC 10-311] analyzing module KeyExpansion_Rcon
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/deutero/solution1/sim/verilog/KeyExpansion_sbox.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeyExpansion_sbox_rom
+INFO: [VRFC 10-311] analyzing module KeyExpansion_sbox
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/deutero/solution1/sim/verilog/SubBytes.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SubBytes
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/deutero/solution1/sim/verilog/SubBytes_sbox.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SubBytes_sbox_rom
+INFO: [VRFC 10-311] analyzing module SubBytes_sbox
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.Cipher_temp1_rom
+Compiling module xil_defaultlib.Cipher_temp1(DataWidth=4,Address...
+Compiling module xil_defaultlib.Cipher_in_r_rom
+Compiling module xil_defaultlib.Cipher_in_r(DataWidth=8,AddressR...
+Compiling module xil_defaultlib.Cipher_RoundKey_ram
+Compiling module xil_defaultlib.Cipher_RoundKey(DataWidth=8,Addr...
+Compiling module xil_defaultlib.Cipher_Key_ram
+Compiling module xil_defaultlib.Cipher_Key(DataWidth=4,AddressRa...
+Compiling module xil_defaultlib.Cipher_state_ram
+Compiling module xil_defaultlib.Cipher_state(DataWidth=8,Address...
+Compiling module xil_defaultlib.KeyExpansion_sbox_rom
+Compiling module xil_defaultlib.KeyExpansion_sbox(DataWidth=8,Ad...
+Compiling module xil_defaultlib.KeyExpansion_Rcon_rom
+Compiling module xil_defaultlib.KeyExpansion_Rcon(DataWidth=8,Ad...
+Compiling module xil_defaultlib.KeyExpansion
+Compiling module xil_defaultlib.AddRoundKey
+Compiling module xil_defaultlib.SubBytes_sbox_rom
+Compiling module xil_defaultlib.SubBytes_sbox(DataWidth=8,Addres...
+Compiling module xil_defaultlib.SubBytes
+Compiling module xil_defaultlib.Cipher
+Compiling module xil_defaultlib.AESL_automem_out_r
+Compiling module xil_defaultlib.apatb_Cipher_top
+Built simulation snapshot Cipher

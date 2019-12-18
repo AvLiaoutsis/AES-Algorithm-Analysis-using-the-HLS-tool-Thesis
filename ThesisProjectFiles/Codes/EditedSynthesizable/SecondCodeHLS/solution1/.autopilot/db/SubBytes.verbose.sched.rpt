@@ -1,0 +1,238 @@
+
+
+================================================================
+== Vivado HLS Report for 'SubBytes'
+================================================================
+* Date:           Fri Apr  6 16:31:25 2018
+
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Project:        deutero
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu7eg-ffvf1517-1lv-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      2.14|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   57|   57|   57|   57|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1     |   56|   56|        14|          -|          -|     4|    no    |
+        | + Loop 1.1  |   12|   12|         3|          -|          -|     4|    no    |
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 5
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond1)
+3 --> 
+	4  / (!exitcond)
+	2  / (exitcond)
+4 --> 
+	5  / true
+5 --> 
+	3  / true
+* FSM state operations: 
+
+ <State 1>: 0.49ns
+ST_1: StgValue_6 (3)  [1/1] 0.49ns  loc: Edited/2nd/AES_Encrypt.c:121
+:0  br label %.loopexit
+
+
+ <State 2>: 0.86ns
+ST_2: i (5)  [1/1] 0.00ns
+.loopexit:0  %i = phi i3 [ 0, %0 ], [ %i_1, %.loopexit.loopexit ]
+
+ST_2: tmp (6)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:121
+.loopexit:1  %tmp = call i5 @_ssdm_op_BitConcatenate.i5.i3.i2(i3 %i, i2 0)
+
+ST_2: tmp_1_cast (7)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:121
+.loopexit:2  %tmp_1_cast = zext i5 %tmp to i6
+
+ST_2: exitcond1 (8)  [1/1] 0.18ns  loc: Edited/2nd/AES_Encrypt.c:121
+.loopexit:3  %exitcond1 = icmp eq i3 %i, -4
+
+ST_2: empty (9)  [1/1] 0.00ns
+.loopexit:4  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
+
+ST_2: i_1 (10)  [1/1] 0.86ns  loc: Edited/2nd/AES_Encrypt.c:121
+.loopexit:5  %i_1 = add i3 %i, 1
+
+ST_2: StgValue_13 (11)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:121
+.loopexit:6  br i1 %exitcond1, label %2, label %.preheader.preheader
+
+ST_2: StgValue_14 (13)  [1/1] 0.49ns  loc: Edited/2nd/AES_Encrypt.c:125
+.preheader.preheader:0  br label %.preheader
+
+ST_2: StgValue_15 (34)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:129
+:0  ret void
+
+
+ <State 3>: 1.70ns
+ST_3: j (15)  [1/1] 0.00ns
+.preheader:0  %j = phi i3 [ %j_1, %1 ], [ 0, %.preheader.preheader ]
+
+ST_3: j_cast1_cast (16)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:125
+.preheader:1  %j_cast1_cast = zext i3 %j to i6
+
+ST_3: tmp_2 (17)  [1/1] 0.91ns  loc: Edited/2nd/AES_Encrypt.c:125
+.preheader:2  %tmp_2 = add i6 %tmp_1_cast, %j_cast1_cast
+
+ST_3: tmp_2_cast (18)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:125
+.preheader:3  %tmp_2_cast = zext i6 %tmp_2 to i32
+
+ST_3: state_addr (19)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:125
+.preheader:4  %state_addr = getelementptr [16 x i32]* %state, i32 0, i32 %tmp_2_cast
+
+ST_3: exitcond (20)  [1/1] 0.18ns  loc: Edited/2nd/AES_Encrypt.c:123
+.preheader:5  %exitcond = icmp eq i3 %j, -4
+
+ST_3: empty_28 (21)  [1/1] 0.00ns
+.preheader:6  %empty_28 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
+
+ST_3: j_1 (22)  [1/1] 0.86ns  loc: Edited/2nd/AES_Encrypt.c:123
+.preheader:7  %j_1 = add i3 %j, 1
+
+ST_3: StgValue_24 (23)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:123
+.preheader:8  br i1 %exitcond, label %.loopexit.loopexit, label %1
+
+ST_3: state_load (25)  [2/2] 0.79ns  loc: Edited/2nd/AES_Encrypt.c:125
+:0  %state_load = load i32* %state_addr, align 4
+
+ST_3: StgValue_26 (32)  [1/1] 0.00ns
+.loopexit.loopexit:0  br label %.loopexit
+
+
+ <State 4>: 2.14ns
+ST_4: state_load (25)  [1/2] 0.79ns  loc: Edited/2nd/AES_Encrypt.c:125
+:0  %state_load = load i32* %state_addr, align 4
+
+ST_4: sbox_addr (26)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:27->Edited/2nd/AES_Encrypt.c:125
+:1  %sbox_addr = getelementptr [256 x i8]* @sbox, i32 0, i32 %state_load
+
+ST_4: sbox_load (27)  [2/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:27->Edited/2nd/AES_Encrypt.c:125
+:2  %sbox_load = load i8* %sbox_addr, align 1
+
+
+ <State 5>: 2.14ns
+ST_5: sbox_load (27)  [1/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:27->Edited/2nd/AES_Encrypt.c:125
+:2  %sbox_load = load i8* %sbox_addr, align 1
+
+ST_5: sbox_load_cast (28)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:27->Edited/2nd/AES_Encrypt.c:125
+:3  %sbox_load_cast = zext i8 %sbox_load to i32
+
+ST_5: StgValue_32 (29)  [1/1] 0.79ns  loc: Edited/2nd/AES_Encrypt.c:125
+:4  store i32 %sbox_load_cast, i32* %state_addr, align 4
+
+ST_5: StgValue_33 (30)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:123
+:5  br label %.preheader
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.489ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', Edited/2nd/AES_Encrypt.c:121) [5]  (0.489 ns)
+
+ <State 2>: 0.856ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', Edited/2nd/AES_Encrypt.c:121) [5]  (0 ns)
+	'add' operation ('i', Edited/2nd/AES_Encrypt.c:121) [10]  (0.856 ns)
+
+ <State 3>: 1.7ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', Edited/2nd/AES_Encrypt.c:123) [15]  (0 ns)
+	'add' operation ('tmp_2', Edited/2nd/AES_Encrypt.c:125) [17]  (0.913 ns)
+	'getelementptr' operation ('state_addr', Edited/2nd/AES_Encrypt.c:125) [19]  (0 ns)
+	'load' operation ('num', Edited/2nd/AES_Encrypt.c:125) on array 'state' [25]  (0.79 ns)
+
+ <State 4>: 2.14ns
+The critical path consists of the following:
+	'load' operation ('num', Edited/2nd/AES_Encrypt.c:125) on array 'state' [25]  (0.79 ns)
+	'getelementptr' operation ('sbox_addr', Edited/2nd/AES_Encrypt.c:27->Edited/2nd/AES_Encrypt.c:125) [26]  (0 ns)
+	'load' operation ('sbox_load', Edited/2nd/AES_Encrypt.c:27->Edited/2nd/AES_Encrypt.c:125) on array 'sbox' [27]  (1.35 ns)
+
+ <State 5>: 2.14ns
+The critical path consists of the following:
+	'load' operation ('sbox_load', Edited/2nd/AES_Encrypt.c:27->Edited/2nd/AES_Encrypt.c:125) on array 'sbox' [27]  (1.35 ns)
+	'store' operation (Edited/2nd/AES_Encrypt.c:125) of variable 'sbox_load_cast', Edited/2nd/AES_Encrypt.c:27->Edited/2nd/AES_Encrypt.c:125 on array 'state' [29]  (0.79 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

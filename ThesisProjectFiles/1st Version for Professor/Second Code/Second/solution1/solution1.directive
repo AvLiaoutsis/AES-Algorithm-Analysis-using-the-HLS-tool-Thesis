@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+  <sourceFile>
+    <directive functionName="KeyExpansion" label="Unroll" functionLabel="">
+      <pragma name="UNROLL"/>
+    </directive>
+    <directive functionName="KeyExpansion" label="KeyExpansion_label17" functionLabel="">
+      <pragma name="UNROLL"/>
+    </directive>
+    <directive functionName="AddRoundKey" label="AddRoundKey_label19" functionLabel="">
+      <pragma name="UNROLL"/>
+    </directive>
+    <directive functionName="Cipher" label="Cipher_label34" functionLabel="">
+      <pragma name="PIPELINE"/>
+    </directive>
+  </sourceFile>
+  <sourceFile name="CCodedFiles/2nd/AES_Encrypt.c">
+    <directive functionName="KeyExpansion" label="KeyExpansion_label4" functionLabel=" ">
+      <pragma name="PIPELINE"/>
+    </directive>
+  </sourceFile>
+</AutoPilot:ProjectResources>

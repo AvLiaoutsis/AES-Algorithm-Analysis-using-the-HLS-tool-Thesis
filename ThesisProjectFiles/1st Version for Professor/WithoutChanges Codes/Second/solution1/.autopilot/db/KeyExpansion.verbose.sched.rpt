@@ -1,0 +1,649 @@
+
+
+================================================================
+== Vivado HLS Report for 'KeyExpansion'
+================================================================
+* Date:           Sun Apr 22 18:01:29 2018
+
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Project:        Second
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu7eg-ffvf1517-1l-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      2.70|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  534|  534|  534|  534|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1     |   12|   12|         3|          -|          -|     4|    no    |
+        |- Loop 2     |  520|  520|        13|          -|          -|    40|    no    |
+        | + Loop 2.1  |    8|    8|         2|          -|          -|     4|    no    |
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 10
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond2)
+	5  / (exitcond2)
+3 --> 
+	4  / true
+4 --> 
+	2  / true
+5 --> 
+	6  / (!exitcond1)
+6 --> 
+	7  / (!exitcond)
+	8  / (exitcond)
+7 --> 
+	6  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	5  / true
+* FSM state operations: 
+
+ <State 1>: 0.49ns
+ST_1: StgValue_11 (5)  [1/1] 0.49ns  loc: CCodedFiles/2nd/AES_Encrypt.c:41
+:0  br label %1
+
+
+ <State 2>: 1.35ns
+ST_2: i (7)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:41
+:0  %i = phi i3 [ 0, %0 ], [ %tmp_3, %2 ]
+
+ST_2: exitcond2 (8)  [1/1] 0.18ns  loc: CCodedFiles/2nd/AES_Encrypt.c:41
+:1  %exitcond2 = icmp eq i3 %i, -4
+
+ST_2: empty (9)  [1/1] 0.00ns
+:2  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
+
+ST_2: tmp_3 (10)  [1/1] 0.86ns  loc: CCodedFiles/2nd/AES_Encrypt.c:41
+:3  %tmp_3 = add i3 %i, 1
+
+ST_2: StgValue_16 (11)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:41
+:4  br i1 %exitcond2, label %.preheader3.preheader, label %2
+
+ST_2: tmp_14 (13)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:41
+:0  %tmp_14 = trunc i3 %i to i2
+
+ST_2: tmp (14)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:43
+:1  %tmp = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %tmp_14, i2 0)
+
+ST_2: tmp_cast (15)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:43
+:2  %tmp_cast = zext i4 %tmp to i32
+
+ST_2: Key_addr (16)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:43
+:3  %Key_addr = getelementptr [32 x i32]* %Key, i32 0, i32 %tmp_cast
+
+ST_2: Key_load (17)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:43
+:4  %Key_load = load i32* %Key_addr, align 4
+
+ST_2: tmp_s (20)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:44
+:7  %tmp_s = or i4 %tmp, 1
+
+ST_2: tmp_cast_29 (21)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:44
+:8  %tmp_cast_29 = zext i4 %tmp_s to i32
+
+ST_2: Key_addr_1 (22)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:44
+:9  %Key_addr_1 = getelementptr [32 x i32]* %Key, i32 0, i32 %tmp_cast_29
+
+ST_2: Key_load_1 (23)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:44
+:10  %Key_load_1 = load i32* %Key_addr_1, align 4
+
+ST_2: StgValue_26 (40)  [1/1] 0.49ns  loc: CCodedFiles/2nd/AES_Encrypt.c:50
+.preheader3.preheader:0  br label %.preheader3
+
+
+ <State 3>: 2.70ns
+ST_3: Key_load (17)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:43
+:4  %Key_load = load i32* %Key_addr, align 4
+
+ST_3: RoundKey_addr (18)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:43
+:5  %RoundKey_addr = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %tmp_cast
+
+ST_3: StgValue_29 (19)  [1/1] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:43
+:6  store i32 %Key_load, i32* %RoundKey_addr, align 4
+
+ST_3: Key_load_1 (23)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:44
+:10  %Key_load_1 = load i32* %Key_addr_1, align 4
+
+ST_3: RoundKey_addr_1 (24)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:44
+:11  %RoundKey_addr_1 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %tmp_cast_29
+
+ST_3: StgValue_32 (25)  [1/1] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:44
+:12  store i32 %Key_load_1, i32* %RoundKey_addr_1, align 4
+
+ST_3: tmp_1 (26)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:45
+:13  %tmp_1 = or i4 %tmp, 2
+
+ST_3: tmp_1_cast (27)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:45
+:14  %tmp_1_cast = zext i4 %tmp_1 to i32
+
+ST_3: Key_addr_2 (28)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:45
+:15  %Key_addr_2 = getelementptr [32 x i32]* %Key, i32 0, i32 %tmp_1_cast
+
+ST_3: Key_load_2 (29)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:45
+:16  %Key_load_2 = load i32* %Key_addr_2, align 4
+
+ST_3: tmp_2 (32)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:46
+:19  %tmp_2 = or i4 %tmp, 3
+
+ST_3: tmp_2_cast (33)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:46
+:20  %tmp_2_cast = zext i4 %tmp_2 to i32
+
+ST_3: Key_addr_3 (34)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:46
+:21  %Key_addr_3 = getelementptr [32 x i32]* %Key, i32 0, i32 %tmp_2_cast
+
+ST_3: Key_load_3 (35)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:46
+:22  %Key_load_3 = load i32* %Key_addr_3, align 4
+
+
+ <State 4>: 2.70ns
+ST_4: Key_load_2 (29)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:45
+:16  %Key_load_2 = load i32* %Key_addr_2, align 4
+
+ST_4: RoundKey_addr_2 (30)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:45
+:17  %RoundKey_addr_2 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %tmp_1_cast
+
+ST_4: StgValue_43 (31)  [1/1] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:45
+:18  store i32 %Key_load_2, i32* %RoundKey_addr_2, align 4
+
+ST_4: Key_load_3 (35)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:46
+:22  %Key_load_3 = load i32* %Key_addr_3, align 4
+
+ST_4: RoundKey_addr_3 (36)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:46
+:23  %RoundKey_addr_3 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %tmp_2_cast
+
+ST_4: StgValue_46 (37)  [1/1] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:46
+:24  store i32 %Key_load_3, i32* %RoundKey_addr_3, align 4
+
+ST_4: StgValue_47 (38)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:41
+:25  br label %1
+
+
+ <State 5>: 0.84ns
+ST_5: temp_3 (42)  [1/1] 0.00ns
+.preheader3:0  %temp_3 = phi i32 [ %temp_3_1, %_ifconv24 ], [ undef, %.preheader3.preheader ]
+
+ST_5: temp_2 (43)  [1/1] 0.00ns
+.preheader3:1  %temp_2 = phi i32 [ %temp_2_1, %_ifconv24 ], [ undef, %.preheader3.preheader ]
+
+ST_5: temp_1 (44)  [1/1] 0.00ns
+.preheader3:2  %temp_1 = phi i32 [ %temp_1_1, %_ifconv24 ], [ undef, %.preheader3.preheader ]
+
+ST_5: temp (45)  [1/1] 0.00ns
+.preheader3:3  %temp = phi i32 [ %temp_0_2, %_ifconv24 ], [ undef, %.preheader3.preheader ]
+
+ST_5: i_1 (46)  [1/1] 0.00ns
+.preheader3:4  %i_1 = phi i6 [ %i_2, %_ifconv24 ], [ 4, %.preheader3.preheader ]
+
+ST_5: exitcond1 (47)  [1/1] 0.84ns  loc: CCodedFiles/2nd/AES_Encrypt.c:50
+.preheader3:5  %exitcond1 = icmp eq i6 %i_1, -20
+
+ST_5: empty_30 (48)  [1/1] 0.00ns
+.preheader3:6  %empty_30 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 40, i64 40, i64 40)
+
+ST_5: StgValue_55 (49)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:50
+.preheader3:7  br i1 %exitcond1, label %3, label %.preheader.preheader
+
+ST_5: tmp_4 (51)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:54
+.preheader.preheader:0  %tmp_4 = call i8 @_ssdm_op_BitConcatenate.i8.i6.i2(i6 %i_1, i2 0)
+
+ST_5: tmp_4_cast (52)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:54
+.preheader.preheader:1  %tmp_4_cast = zext i8 %tmp_4 to i32
+
+ST_5: StgValue_58 (53)  [1/1] 0.49ns  loc: CCodedFiles/2nd/AES_Encrypt.c:52
+.preheader.preheader:2  br label %.preheader
+
+ST_5: StgValue_59 (145)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:99
+:0  ret void
+
+
+ <State 6>: 2.30ns
+ST_6: num_assign_2 (55)  [1/1] 0.00ns
+.preheader:0  %num_assign_2 = phi i32 [ %temp_3, %.preheader.preheader ], [ %temp_3_3, %_ifconv ]
+
+ST_6: num_assign_1 (56)  [1/1] 0.00ns
+.preheader:1  %num_assign_1 = phi i32 [ %temp_2, %.preheader.preheader ], [ %temp_3_4, %_ifconv ]
+
+ST_6: temp_3_5 (57)  [1/1] 0.00ns
+.preheader:2  %temp_3_5 = phi i32 [ %temp_1, %.preheader.preheader ], [ %temp_3_7, %_ifconv ]
+
+ST_6: temp_3_8 (58)  [1/1] 0.00ns
+.preheader:3  %temp_3_8 = phi i32 [ %temp, %.preheader.preheader ], [ %temp_3_9, %_ifconv ]
+
+ST_6: j (59)  [1/1] 0.00ns
+.preheader:4  %j = phi i3 [ 0, %.preheader.preheader ], [ %j_2, %_ifconv ]
+
+ST_6: exitcond (60)  [1/1] 0.18ns  loc: CCodedFiles/2nd/AES_Encrypt.c:52
+.preheader:5  %exitcond = icmp eq i3 %j, -4
+
+ST_6: empty_31 (61)  [1/1] 0.00ns
+.preheader:6  %empty_31 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
+
+ST_6: j_2 (62)  [1/1] 0.86ns  loc: CCodedFiles/2nd/AES_Encrypt.c:52
+.preheader:7  %j_2 = add i3 %j, 1
+
+ST_6: StgValue_68 (63)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:52
+.preheader:8  br i1 %exitcond, label %_ifconv24, label %_ifconv
+
+ST_6: tmp1 (65)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:52 (grouped into LUT with out node sum8)
+_ifconv:0  %tmp1 = xor i3 %j, -4
+
+ST_6: tmp29_cast (66)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:52 (grouped into LUT with out node sum8)
+_ifconv:1  %tmp29_cast = sext i3 %tmp1 to i8
+
+ST_6: sum8 (67)  [1/1] 0.95ns  loc: CCodedFiles/2nd/AES_Encrypt.c:52 (out node of the LUT)
+_ifconv:2  %sum8 = add i8 %tmp29_cast, %tmp_4
+
+ST_6: sum8_cast (68)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:52
+_ifconv:3  %sum8_cast = zext i8 %sum8 to i32
+
+ST_6: RoundKey_addr_4 (69)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:54
+_ifconv:4  %RoundKey_addr_4 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %sum8_cast
+
+ST_6: temp_0 (70)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:54
+_ifconv:5  %temp_0 = load i32* %RoundKey_addr_4, align 4
+
+ST_6: tmp_16 (71)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:52
+_ifconv:6  %tmp_16 = trunc i3 %j to i2
+
+ST_6: tmp_15 (85)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:50
+_ifconv24:0  %tmp_15 = trunc i6 %i_1 to i2
+
+ST_6: tmp_7 (86)  [1/1] 0.12ns  loc: CCodedFiles/2nd/AES_Encrypt.c:56
+_ifconv24:1  %tmp_7 = icmp eq i2 %tmp_15, 0
+
+ST_6: sbox_addr (87)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:24->CCodedFiles/2nd/AES_Encrypt.c:75
+_ifconv24:2  %sbox_addr = getelementptr [256 x i8]* @sbox, i32 0, i32 %temp_3_5
+
+ST_6: sbox_load (88)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:24->CCodedFiles/2nd/AES_Encrypt.c:75
+_ifconv24:3  %sbox_load = load i8* %sbox_addr, align 1
+
+ST_6: sbox_addr_1 (89)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:24->CCodedFiles/2nd/AES_Encrypt.c:76
+_ifconv24:4  %sbox_addr_1 = getelementptr [256 x i8]* @sbox, i32 0, i32 %num_assign_1
+
+ST_6: temp_1_32 (90)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:24->CCodedFiles/2nd/AES_Encrypt.c:76
+_ifconv24:5  %temp_1_32 = load i8* %sbox_addr_1, align 1
+
+ST_6: sbox_addr_2 (92)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:24->CCodedFiles/2nd/AES_Encrypt.c:77
+_ifconv24:7  %sbox_addr_2 = getelementptr [256 x i8]* @sbox, i32 0, i32 %num_assign_2
+
+ST_6: temp_2_33 (93)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:24->CCodedFiles/2nd/AES_Encrypt.c:77
+_ifconv24:8  %temp_2_33 = load i8* %sbox_addr_2, align 1
+
+ST_6: sbox_addr_3 (95)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:24->CCodedFiles/2nd/AES_Encrypt.c:78
+_ifconv24:10  %sbox_addr_3 = getelementptr [256 x i8]* @sbox, i32 0, i32 %temp_3_8
+
+ST_6: temp_3_34 (96)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:24->CCodedFiles/2nd/AES_Encrypt.c:78
+_ifconv24:11  %temp_3_34 = load i8* %sbox_addr_3, align 1
+
+ST_6: p_lshr_f_cast (98)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:81
+_ifconv24:13  %p_lshr_f_cast = call i4 @_ssdm_op_PartSelect.i4.i6.i32.i32(i6 %i_1, i32 2, i32 5)
+
+ST_6: tmp_9 (99)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:81
+_ifconv24:14  %tmp_9 = zext i4 %p_lshr_f_cast to i32
+
+ST_6: Rcon_addr (100)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:81
+_ifconv24:15  %Rcon_addr = getelementptr [255 x i8]* @Rcon, i32 0, i32 %tmp_9
+
+ST_6: Rcon_load (101)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:81
+_ifconv24:16  %Rcon_load = load i8* %Rcon_addr, align 1
+
+ST_6: sum (108)  [1/1] 0.95ns  loc: CCodedFiles/2nd/AES_Encrypt.c:54
+_ifconv24:23  %sum = add i8 -16, %tmp_4
+
+ST_6: sum_cast (109)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:54
+_ifconv24:24  %sum_cast = zext i8 %sum to i32
+
+ST_6: RoundKey_addr_5 (110)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:93
+_ifconv24:25  %RoundKey_addr_5 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %sum_cast
+
+ST_6: RoundKey_load (111)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:93
+_ifconv24:26  %RoundKey_load = load i32* %RoundKey_addr_5, align 4
+
+ST_6: sum1 (115)  [1/1] 0.95ns  loc: CCodedFiles/2nd/AES_Encrypt.c:54
+_ifconv24:30  %sum1 = add i8 -15, %tmp_4
+
+ST_6: sum1_cast (116)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:54
+_ifconv24:31  %sum1_cast = zext i8 %sum1 to i32
+
+ST_6: RoundKey_addr_7 (117)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:94
+_ifconv24:32  %RoundKey_addr_7 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %sum1_cast
+
+ST_6: RoundKey_load_1 (118)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:94
+_ifconv24:33  %RoundKey_load_1 = load i32* %RoundKey_addr_7, align 4
+
+ST_6: i_2 (142)  [1/1] 0.89ns  loc: CCodedFiles/2nd/AES_Encrypt.c:97
+_ifconv24:57  %i_2 = add i6 1, %i_1
+
+
+ <State 7>: 1.45ns
+ST_7: temp_0 (70)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:54
+_ifconv:5  %temp_0 = load i32* %RoundKey_addr_4, align 4
+
+ST_7: sel_tmp (72)  [1/1] 0.12ns  loc: CCodedFiles/2nd/AES_Encrypt.c:52
+_ifconv:7  %sel_tmp = icmp eq i2 %tmp_16, -2
+
+ST_7: sel_tmp2 (73)  [1/1] 0.12ns  loc: CCodedFiles/2nd/AES_Encrypt.c:52
+_ifconv:8  %sel_tmp2 = icmp eq i2 %tmp_16, 1
+
+ST_7: sel_tmp4 (74)  [1/1] 0.12ns  loc: CCodedFiles/2nd/AES_Encrypt.c:52
+_ifconv:9  %sel_tmp4 = icmp eq i2 %tmp_16, 0
+
+ST_7: or_cond (75)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:52
+_ifconv:10  %or_cond = or i1 %sel_tmp4, %sel_tmp2
+
+ST_7: newSel (76)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:52 (grouped into LUT with out node temp_3_3)
+_ifconv:11  %newSel = select i1 %sel_tmp, i32 %num_assign_2, i32 %temp_0
+
+ST_7: temp_3_3 (77)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:52 (out node of the LUT)
+_ifconv:12  %temp_3_3 = select i1 %or_cond, i32 %num_assign_2, i32 %newSel
+
+ST_7: newSel2 (78)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:52 (grouped into LUT with out node temp_3_4)
+_ifconv:13  %newSel2 = select i1 %sel_tmp, i32 %temp_0, i32 %num_assign_1
+
+ST_7: temp_3_4 (79)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:52 (out node of the LUT)
+_ifconv:14  %temp_3_4 = select i1 %or_cond, i32 %num_assign_1, i32 %newSel2
+
+ST_7: temp_3_6 (80)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:52 (grouped into LUT with out node temp_3_7)
+_ifconv:15  %temp_3_6 = select i1 %sel_tmp2, i32 %temp_0, i32 %temp_3_5
+
+ST_7: temp_3_7 (81)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:52 (out node of the LUT)
+_ifconv:16  %temp_3_7 = select i1 %sel_tmp4, i32 %temp_3_5, i32 %temp_3_6
+
+ST_7: temp_3_9 (82)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:52
+_ifconv:17  %temp_3_9 = select i1 %sel_tmp4, i32 %temp_0, i32 %temp_3_8
+
+ST_7: StgValue_111 (83)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:52
+_ifconv:18  br label %.preheader
+
+
+ <State 8>: 2.30ns
+ST_8: sbox_load (88)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:24->CCodedFiles/2nd/AES_Encrypt.c:75
+_ifconv24:3  %sbox_load = load i8* %sbox_addr, align 1
+
+ST_8: temp_1_32 (90)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:24->CCodedFiles/2nd/AES_Encrypt.c:76
+_ifconv24:5  %temp_1_32 = load i8* %sbox_addr_1, align 1
+
+ST_8: temp_1_cast (91)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:24->CCodedFiles/2nd/AES_Encrypt.c:76
+_ifconv24:6  %temp_1_cast = zext i8 %temp_1_32 to i32
+
+ST_8: temp_2_33 (93)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:24->CCodedFiles/2nd/AES_Encrypt.c:77
+_ifconv24:8  %temp_2_33 = load i8* %sbox_addr_2, align 1
+
+ST_8: temp_2_cast (94)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:24->CCodedFiles/2nd/AES_Encrypt.c:77
+_ifconv24:9  %temp_2_cast = zext i8 %temp_2_33 to i32
+
+ST_8: temp_3_34 (96)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:24->CCodedFiles/2nd/AES_Encrypt.c:78
+_ifconv24:11  %temp_3_34 = load i8* %sbox_addr_3, align 1
+
+ST_8: temp_3_cast (97)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:24->CCodedFiles/2nd/AES_Encrypt.c:78
+_ifconv24:12  %temp_3_cast = zext i8 %temp_3_34 to i32
+
+ST_8: Rcon_load (101)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:81
+_ifconv24:16  %Rcon_load = load i8* %Rcon_addr, align 1
+
+ST_8: temp_0_1 (102)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:81 (grouped into LUT with out node temp_0_2)
+_ifconv24:17  %temp_0_1 = xor i8 %Rcon_load, %sbox_load
+
+ST_8: temp_0_1_cast (103)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:81 (grouped into LUT with out node temp_0_2)
+_ifconv24:18  %temp_0_1_cast = zext i8 %temp_0_1 to i32
+
+ST_8: temp_3_1 (104)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:56
+_ifconv24:19  %temp_3_1 = select i1 %tmp_7, i32 %temp_3_cast, i32 %num_assign_2
+
+ST_8: temp_2_1 (105)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:56
+_ifconv24:20  %temp_2_1 = select i1 %tmp_7, i32 %temp_2_cast, i32 %num_assign_1
+
+ST_8: temp_1_1 (106)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:56
+_ifconv24:21  %temp_1_1 = select i1 %tmp_7, i32 %temp_1_cast, i32 %temp_3_5
+
+ST_8: temp_0_2 (107)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:56 (out node of the LUT)
+_ifconv24:22  %temp_0_2 = select i1 %tmp_7, i32 %temp_0_1_cast, i32 %temp_3_8
+
+ST_8: RoundKey_load (111)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:93
+_ifconv24:26  %RoundKey_load = load i32* %RoundKey_addr_5, align 4
+
+ST_8: tmp_5 (112)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:93
+_ifconv24:27  %tmp_5 = xor i32 %RoundKey_load, %temp_0_2
+
+ST_8: RoundKey_load_1 (118)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:94
+_ifconv24:33  %RoundKey_load_1 = load i32* %RoundKey_addr_7, align 4
+
+ST_8: tmp_6 (119)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:94
+_ifconv24:34  %tmp_6 = xor i32 %RoundKey_load_1, %temp_1_1
+
+ST_8: sum2 (124)  [1/1] 0.95ns  loc: CCodedFiles/2nd/AES_Encrypt.c:54
+_ifconv24:39  %sum2 = add i8 -14, %tmp_4
+
+ST_8: sum2_cast (125)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:54
+_ifconv24:40  %sum2_cast = zext i8 %sum2 to i32
+
+ST_8: RoundKey_addr_9 (126)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:95
+_ifconv24:41  %RoundKey_addr_9 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %sum2_cast
+
+ST_8: RoundKey_load_2 (127)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:95
+_ifconv24:42  %RoundKey_load_2 = load i32* %RoundKey_addr_9, align 4
+
+ST_8: sum3 (133)  [1/1] 0.95ns  loc: CCodedFiles/2nd/AES_Encrypt.c:54
+_ifconv24:48  %sum3 = add i8 -13, %tmp_4
+
+ST_8: sum3_cast (134)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:54
+_ifconv24:49  %sum3_cast = zext i8 %sum3 to i32
+
+ST_8: RoundKey_addr_11 (135)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:96
+_ifconv24:50  %RoundKey_addr_11 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %sum3_cast
+
+ST_8: RoundKey_load_3 (136)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:96
+_ifconv24:51  %RoundKey_load_3 = load i32* %RoundKey_addr_11, align 4
+
+
+ <State 9>: 1.42ns
+ST_9: RoundKey_addr_6 (113)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:93
+_ifconv24:28  %RoundKey_addr_6 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %tmp_4_cast
+
+ST_9: StgValue_139 (114)  [1/1] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:93
+_ifconv24:29  store i32 %tmp_5, i32* %RoundKey_addr_6, align 4
+
+ST_9: tmp_8 (120)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:94
+_ifconv24:35  %tmp_8 = or i8 %tmp_4, 1
+
+ST_9: tmp_12_cast (121)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:94
+_ifconv24:36  %tmp_12_cast = zext i8 %tmp_8 to i32
+
+ST_9: RoundKey_addr_8 (122)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:94
+_ifconv24:37  %RoundKey_addr_8 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %tmp_12_cast
+
+ST_9: StgValue_143 (123)  [1/1] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:94
+_ifconv24:38  store i32 %tmp_6, i32* %RoundKey_addr_8, align 4
+
+ST_9: RoundKey_load_2 (127)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:95
+_ifconv24:42  %RoundKey_load_2 = load i32* %RoundKey_addr_9, align 4
+
+ST_9: tmp_10 (128)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:95
+_ifconv24:43  %tmp_10 = xor i32 %RoundKey_load_2, %temp_2_1
+
+ST_9: RoundKey_load_3 (136)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:96
+_ifconv24:51  %RoundKey_load_3 = load i32* %RoundKey_addr_11, align 4
+
+ST_9: tmp_12 (137)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:96
+_ifconv24:52  %tmp_12 = xor i32 %RoundKey_load_3, %temp_3_1
+
+
+ <State 10>: 1.35ns
+ST_10: tmp_11 (129)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:95
+_ifconv24:44  %tmp_11 = or i8 %tmp_4, 2
+
+ST_10: tmp_14_cast (130)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:95
+_ifconv24:45  %tmp_14_cast = zext i8 %tmp_11 to i32
+
+ST_10: RoundKey_addr_10 (131)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:95
+_ifconv24:46  %RoundKey_addr_10 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %tmp_14_cast
+
+ST_10: StgValue_151 (132)  [1/1] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:95
+_ifconv24:47  store i32 %tmp_10, i32* %RoundKey_addr_10, align 4
+
+ST_10: tmp_13 (138)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:96
+_ifconv24:53  %tmp_13 = or i8 %tmp_4, 3
+
+ST_10: tmp_16_cast (139)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:96
+_ifconv24:54  %tmp_16_cast = zext i8 %tmp_13 to i32
+
+ST_10: RoundKey_addr_12 (140)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:96
+_ifconv24:55  %RoundKey_addr_12 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %tmp_16_cast
+
+ST_10: StgValue_155 (141)  [1/1] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:96
+_ifconv24:56  store i32 %tmp_12, i32* %RoundKey_addr_12, align 4
+
+ST_10: StgValue_156 (143)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:98
+_ifconv24:58  br label %.preheader3
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.489ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i', CCodedFiles/2nd/AES_Encrypt.c:41) with incoming values : ('tmp_3', CCodedFiles/2nd/AES_Encrypt.c:41) [7]  (0.489 ns)
+
+ <State 2>: 1.35ns
+The critical path consists of the following:
+	'phi' operation ('i', CCodedFiles/2nd/AES_Encrypt.c:41) with incoming values : ('tmp_3', CCodedFiles/2nd/AES_Encrypt.c:41) [7]  (0 ns)
+	'or' operation ('tmp_s', CCodedFiles/2nd/AES_Encrypt.c:44) [20]  (0 ns)
+	'getelementptr' operation ('Key_addr_1', CCodedFiles/2nd/AES_Encrypt.c:44) [22]  (0 ns)
+	'load' operation ('Key_load_1', CCodedFiles/2nd/AES_Encrypt.c:44) on array 'Key' [23]  (1.35 ns)
+
+ <State 3>: 2.7ns
+The critical path consists of the following:
+	'load' operation ('Key_load', CCodedFiles/2nd/AES_Encrypt.c:43) on array 'Key' [17]  (1.35 ns)
+	'store' operation (CCodedFiles/2nd/AES_Encrypt.c:43) of variable 'Key_load', CCodedFiles/2nd/AES_Encrypt.c:43 on array 'RoundKey' [19]  (1.35 ns)
+
+ <State 4>: 2.7ns
+The critical path consists of the following:
+	'load' operation ('Key_load_2', CCodedFiles/2nd/AES_Encrypt.c:45) on array 'Key' [29]  (1.35 ns)
+	'store' operation (CCodedFiles/2nd/AES_Encrypt.c:45) of variable 'Key_load_2', CCodedFiles/2nd/AES_Encrypt.c:45 on array 'RoundKey' [31]  (1.35 ns)
+
+ <State 5>: 0.841ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', CCodedFiles/2nd/AES_Encrypt.c:97) [46]  (0 ns)
+	'icmp' operation ('exitcond1', CCodedFiles/2nd/AES_Encrypt.c:50) [47]  (0.841 ns)
+
+ <State 6>: 2.3ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', CCodedFiles/2nd/AES_Encrypt.c:52) [59]  (0 ns)
+	'xor' operation ('tmp1', CCodedFiles/2nd/AES_Encrypt.c:52) [65]  (0 ns)
+	'add' operation ('sum8', CCodedFiles/2nd/AES_Encrypt.c:52) [67]  (0.945 ns)
+	'getelementptr' operation ('RoundKey_addr_4', CCodedFiles/2nd/AES_Encrypt.c:54) [69]  (0 ns)
+	'load' operation ('temp[0]', CCodedFiles/2nd/AES_Encrypt.c:54) on array 'RoundKey' [70]  (1.35 ns)
+
+ <State 7>: 1.45ns
+The critical path consists of the following:
+	'load' operation ('temp[0]', CCodedFiles/2nd/AES_Encrypt.c:54) on array 'RoundKey' [70]  (1.35 ns)
+	'select' operation ('temp[3]', CCodedFiles/2nd/AES_Encrypt.c:52) [80]  (0 ns)
+	'select' operation ('temp[3]', CCodedFiles/2nd/AES_Encrypt.c:52) [81]  (0.1 ns)
+
+ <State 8>: 2.3ns
+The critical path consists of the following:
+	'add' operation ('sum2', CCodedFiles/2nd/AES_Encrypt.c:54) [124]  (0.945 ns)
+	'getelementptr' operation ('RoundKey_addr_9', CCodedFiles/2nd/AES_Encrypt.c:95) [126]  (0 ns)
+	'load' operation ('RoundKey_load_2', CCodedFiles/2nd/AES_Encrypt.c:95) on array 'RoundKey' [127]  (1.35 ns)
+
+ <State 9>: 1.42ns
+The critical path consists of the following:
+	'load' operation ('RoundKey_load_2', CCodedFiles/2nd/AES_Encrypt.c:95) on array 'RoundKey' [127]  (1.35 ns)
+	'xor' operation ('tmp_10', CCodedFiles/2nd/AES_Encrypt.c:95) [128]  (0.064 ns)
+
+ <State 10>: 1.35ns
+The critical path consists of the following:
+	'or' operation ('tmp_11', CCodedFiles/2nd/AES_Encrypt.c:95) [129]  (0 ns)
+	'getelementptr' operation ('RoundKey_addr_10', CCodedFiles/2nd/AES_Encrypt.c:95) [131]  (0 ns)
+	'store' operation (CCodedFiles/2nd/AES_Encrypt.c:95) of variable 'tmp_10', CCodedFiles/2nd/AES_Encrypt.c:95 on array 'RoundKey' [132]  (1.35 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

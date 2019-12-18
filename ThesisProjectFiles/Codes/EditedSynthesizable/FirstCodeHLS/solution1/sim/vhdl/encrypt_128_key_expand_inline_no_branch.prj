@@ -1,0 +1,7 @@
+vhdl xil_defaultlib "AESL_sim_pkg.vhd"
+vhdl xil_defaultlib "AESL_automem_key.vhd"
+vhdl xil_defaultlib "AESL_automem_state.vhd"
+vhdl xil_defaultlib "encrypt_128_key_ebkb.vhd"
+vhdl xil_defaultlib "encrypt_128_key_expand_inline_no_branch.autotb.vhd"
+vhdl xil_defaultlib "encrypt_128_key_expand_inline_no_branch.vhd"
+

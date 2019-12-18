@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# xsim v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Thu Dec  7 12:25:53 2017
+# Process ID: 5696
+# Current directory: C:/Users/Lincoln/Desktop/ThesisSuccess/First/solution1/sim/vhdl
+# Command line: xsim.exe -mode tcl -source {xsim.dir/encrypt_128_key_expand_inline_no_branch/xsim_script.tcl}
+# Log file: C:/Users/Lincoln/Desktop/ThesisSuccess/First/solution1/sim/vhdl/xsim.log
+# Journal file: C:/Users/Lincoln/Desktop/ThesisSuccess/First/solution1/sim/vhdl\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/encrypt_128_key_expand_inline_no_branch/xsim_script.tcl
+# xsim {encrypt_128_key_expand_inline_no_branch} -autoloadwcfg -tclbatch {encrypt_128_key_expand_inline_no_branch.tcl}
+Vivado Simulator 2017.2
+Time resolution is 1 ps
+source encrypt_128_key_expand_inline_no_branch.tcl
+## run all
+Note: simulation done!
+Time: 695 ns  Iteration: 1  Process: /apatb_encrypt_128_key_expand_inline_no_branch_top/generate_sim_done_proc  File: C:/Users/Lincoln/Desktop/ThesisSuccess/First/solution1/sim/vhdl/encrypt_128_key_expand_inline_no_branch.autotb.vhd
+Failure: NORMAL EXIT (note: failure is to force the simulator to stop)
+Time: 695 ns  Iteration: 1  Process: /apatb_encrypt_128_key_expand_inline_no_branch_top/generate_sim_done_proc  File: C:/Users/Lincoln/Desktop/ThesisSuccess/First/solution1/sim/vhdl/encrypt_128_key_expand_inline_no_branch.autotb.vhd
+$finish called at time : 695 ns
+## quit
+INFO: [Common 17-206] Exiting xsim at Thu Dec  7 12:26:02 2017...

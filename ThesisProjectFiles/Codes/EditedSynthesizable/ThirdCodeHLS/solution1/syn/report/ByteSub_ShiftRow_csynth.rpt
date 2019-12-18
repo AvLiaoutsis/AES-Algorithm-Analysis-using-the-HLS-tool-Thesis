@@ -1,0 +1,152 @@
+
+
+================================================================
+== Vivado HLS Report for 'ByteSub_ShiftRow'
+================================================================
+* Date:           Fri Apr  6 15:28:26 2018
+
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Project:        trito
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu7eg-ffvf1517-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      1.81|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   15|   15|   15|   15|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       -|       -|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|       -|       -|    -|
+|Memory           |        1|      -|       0|       0|    -|
+|Multiplexer      |        -|      -|       -|     457|    -|
+|Register         |        -|      -|     112|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        1|      0|     112|     457|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      624|   1728|  460800|  230400|   96|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |    ~0   |      0|   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    +--------+------------------+---------+---+----+------+-----+------+-------------+
+    | Memory |      Module      | BRAM_18K| FF| LUT| Words| Bits| Banks| W*Bits*Banks|
+    +--------+------------------+---------+---+----+------+-----+------+-------------+
+    |Sbox_U  |KeySchedule_Sbox  |        1|  0|   0|   256|    8|     1|         2048|
+    +--------+------------------+---------+---+----+------+-----+------+-------------+
+    |Total   |                  |        1|  0|   0|   256|    8|     1|         2048|
+    +--------+------------------+---------+---+----+------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    +------------------+----+-----------+-----+-----------+
+    |       Name       | LUT| Input Size| Bits| Total Bits|
+    +------------------+----+-----------+-----+-----------+
+    |Sbox_address0     |  49|          9|    8|         72|
+    |Sbox_address1     |  49|          9|    8|         72|
+    |ap_NS_fsm         |  81|         17|    1|         17|
+    |reg_342           |   9|          2|    8|         16|
+    |reg_347           |   9|          2|    8|         16|
+    |statemt_address0  |  81|         17|    5|         85|
+    |statemt_address1  |  81|         17|    5|         85|
+    |statemt_d0        |  49|          9|   32|        288|
+    |statemt_d1        |  49|          9|   32|        288|
+    +------------------+----+-----------+-----+-----------+
+    |Total             | 457|         91|  107|        939|
+    +------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------+----+----+-----+-----------+
+    |         Name         | FF | LUT| Bits| Const Bits|
+    +----------------------+----+----+-----+-----------+
+    |Sbox_load_10_reg_593  |   8|   0|    8|          0|
+    |Sbox_load_4_reg_503   |   8|   0|    8|          0|
+    |Sbox_load_6_reg_533   |   8|   0|    8|          0|
+    |Sbox_load_8_reg_568   |   8|   0|    8|          0|
+    |Sbox_load_9_reg_588   |   8|   0|    8|          0|
+    |ap_CS_fsm             |  16|   0|   16|          0|
+    |reg_338               |   8|   0|    8|          0|
+    |reg_342               |   8|   0|    8|          0|
+    |reg_347               |   8|   0|    8|          0|
+    |reg_352               |   8|   0|    8|          0|
+    |temp_1_reg_498        |   8|   0|    8|          0|
+    |temp_2_reg_528        |   8|   0|    8|          0|
+    |temp_3_reg_563        |   8|   0|    8|          0|
+    +----------------------+----+----+-----+-----------+
+    |Total                 | 112|   0|  112|          0|
+    +----------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------+-----+-----+------------+------------------+--------------+
+|     RTL Ports    | Dir | Bits|  Protocol  |   Source Object  |    C Type    |
++------------------+-----+-----+------------+------------------+--------------+
+|ap_clk            |  in |    1| ap_ctrl_hs | ByteSub_ShiftRow | return value |
+|ap_rst            |  in |    1| ap_ctrl_hs | ByteSub_ShiftRow | return value |
+|ap_start          |  in |    1| ap_ctrl_hs | ByteSub_ShiftRow | return value |
+|ap_done           | out |    1| ap_ctrl_hs | ByteSub_ShiftRow | return value |
+|ap_idle           | out |    1| ap_ctrl_hs | ByteSub_ShiftRow | return value |
+|ap_ready          | out |    1| ap_ctrl_hs | ByteSub_ShiftRow | return value |
+|statemt_address0  | out |    5|  ap_memory |      statemt     |     array    |
+|statemt_ce0       | out |    1|  ap_memory |      statemt     |     array    |
+|statemt_we0       | out |    1|  ap_memory |      statemt     |     array    |
+|statemt_d0        | out |   32|  ap_memory |      statemt     |     array    |
+|statemt_q0        |  in |   32|  ap_memory |      statemt     |     array    |
+|statemt_address1  | out |    5|  ap_memory |      statemt     |     array    |
+|statemt_ce1       | out |    1|  ap_memory |      statemt     |     array    |
+|statemt_we1       | out |    1|  ap_memory |      statemt     |     array    |
+|statemt_d1        | out |   32|  ap_memory |      statemt     |     array    |
+|statemt_q1        |  in |   32|  ap_memory |      statemt     |     array    |
++------------------+-----+-----+------------+------------------+--------------+
+

@@ -1,0 +1,29 @@
+#-----------------------------------------------------------
+# xsim v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Fri Apr  6 12:37:57 2018
+# Process ID: 8028
+# Current directory: C:/Users/Lincoln/Desktop/ThesisRaw/trito/solution1/sim/verilog
+# Command line: xsim.exe -mode tcl -source {xsim.dir/aes_main/xsim_script.tcl}
+# Log file: C:/Users/Lincoln/Desktop/ThesisRaw/trito/solution1/sim/verilog/xsim.log
+# Journal file: C:/Users/Lincoln/Desktop/ThesisRaw/trito/solution1/sim/verilog\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/aes_main/xsim_script.tcl
+# xsim {aes_main} -autoloadwcfg -tclbatch {aes_main.tcl}
+Vivado Simulator 2017.2
+Time resolution is 1 ps
+source aes_main.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [0.00%] @ "125000"
+// RTL Simulation : 1 / 1 [0.00%] @ "11065000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 11105 ns : File "C:/Users/Lincoln/Desktop/ThesisRaw/trito/solution1/sim/verilog/aes_main.autotb.v" Line 338
+## quit
+INFO: [Common 17-206] Exiting xsim at Fri Apr  6 12:38:20 2018...

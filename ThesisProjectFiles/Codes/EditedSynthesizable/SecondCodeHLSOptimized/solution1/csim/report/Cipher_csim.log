@@ -1,0 +1,15 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling(apcc) ../../../../CCodedFiles/2nd/AES_Encrypt.c in debug mode
+INFO: [HLS 200-10] Running 'c:/Xilinx/Vivado_HLS/2017.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'Lincoln' on host 'desktop-cof76il' (Windows NT_amd64 version 6.2) on Fri Apr 13 19:28:07 +0300 2018
+INFO: [HLS 200-10] In directory 'C:/Users/Lincoln/Desktop/ThesisSuccess/Second/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Generating csim.exe
+
+Text after encryption:
+69c4e0d86a7b0430d8cdb78070b4c55a
+
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

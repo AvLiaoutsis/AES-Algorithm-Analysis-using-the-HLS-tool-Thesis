@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'Rcon0' will not be exposed as RTL port." projectName="trito" solutionName="solution1" date="2018-04-06T15:28:28.190+0300" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'Sbox' will not be exposed as RTL port." projectName="trito" solutionName="solution1" date="2018-04-06T15:28:28.166+0300" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'worda' will not be exposed as RTL port." projectName="trito" solutionName="solution1" date="2018-04-06T15:28:28.149+0300" type="Warning"/>
+        <logs message="WARNING: [SYN 201-107] Renaming port name 'aes_main/out' to 'aes_main/out_r' to avoid the conflict with HDL keywords or other object names." projectName="trito" solutionName="solution1" date="2018-04-06T15:28:22.661+0300" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-631] Renaming function 'MixColumn_AddRoundKey' (Edited/3rd/aes.c:459:23) into MixColumn_AddRoundKe." projectName="trito" solutionName="solution1" date="2018-04-06T15:28:22.583+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Edited/3rd/aes.c:629:12: warning: passing 'word *' (aka 'unsigned int *') to parameter of type 'int *' converts between pointers to integer types with different sign [-Wpointer-sign]&#xD;&#xA;  encrypt (statemt, key, 128128,out);&#xD;&#xA;           ^~~~~~~&#xD;&#xA;Edited/3rd/aes.c:95:18: note: passing argument to parameter 'statemt' here&#xD;&#xA;int encrypt (int statemt[32], int key[32], int type,int out[32])&#xD;&#xA;                 ^&#xD;&#xA;Edited/3rd/aes.c:629:21: warning: passing 'word *' (aka 'unsigned int *') to parameter of type 'int *' converts between pointers to integer types with different sign [-Wpointer-sign]&#xD;&#xA;  encrypt (statemt, key, 128128,out);&#xD;&#xA;                    ^~~&#xD;&#xA;Edited/3rd/aes.c:95:35: note: passing argument to parameter 'key' here&#xD;&#xA;int encrypt (int statemt[32], int key[32], int type,int out[32])&#xD;&#xA;                                  ^&#xD;&#xA;Edited/3rd/aes.c:629:33: warning: passing 'word *' (aka 'unsigned int *') to parameter of type 'int *' converts between pointers to integer types with different sign [-Wpointer-sign]&#xD;&#xA;  encrypt (statemt, key, 128128,out);&#xD;&#xA;                                ^~~&#xD;&#xA;Edited/3rd/aes.c:95:57: note: passing argument to parameter 'out' here&#xD;&#xA;int encrypt (int statemt[32], int key[32], int type,int out[32])&#xD;&#xA;                                                        ^&#xD;&#xA;3 warnings generated." projectName="trito" solutionName="solution1" date="2018-04-06T15:28:19.084+0300" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

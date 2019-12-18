@@ -1,0 +1,1732 @@
+
+
+================================================================
+== Vivado HLS Report for 'SubBytes'
+================================================================
+* Date:           Fri Apr  6 17:58:44 2018
+
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Project:        Second
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu7eg-ffvf1517-1l-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      2.80|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |   23|   23|   24|   24| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 24, depth = 24
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 24
+* Pipeline: 1
+  Pipeline-0: II = 24, D = 24, States = { 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+* FSM state operations: 
+
+ <State 1>: 1.35ns
+ST_1: round_read (5)  [1/1] 0.00ns
+.preheader12.preheader.0:0  %round_read = call i6 @_ssdm_op_Read.ap_auto.i6(i6 %round)
+
+ST_1: state_addr (6)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:1  %state_addr = getelementptr [16 x i32]* %state, i32 0, i32 0
+
+ST_1: state_addr_1 (7)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:2  %state_addr_1 = getelementptr [16 x i32]* %state, i32 0, i32 1
+
+ST_1: state_load (22)  [2/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:17  %state_load = load i32* %state_addr, align 4
+
+ST_1: state_load_1 (27)  [2/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:22  %state_load_1 = load i32* %state_addr_1, align 4
+
+ST_1: tmp_5 (101)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:130
+.preheader12.preheader.0:96  %tmp_5 = trunc i6 %round_read to i5
+
+ST_1: tmp_4 (102)  [1/1] 0.47ns  loc: CCodedFiles/2nd/AES_Encrypt.c:130
+.preheader12.preheader.0:97  %tmp_4 = icmp slt i5 %tmp_5, 10
+
+ST_1: RoundKey_addr_16 (105)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:0  %RoundKey_addr_16 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 160
+
+ST_1: RoundKey_load_16 (106)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:1  %RoundKey_load_16 = load i32* %RoundKey_addr_16, align 4
+
+ST_1: RoundKey_addr_17 (109)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:4  %RoundKey_addr_17 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 161
+
+ST_1: RoundKey_load_17 (110)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:5  %RoundKey_load_17 = load i32* %RoundKey_addr_17, align 4
+
+ST_1: tmp_46 (282)  [1/1] 0.00ns
+.preheader11.0:112  %tmp_46 = trunc i6 %round_read to i4
+
+ST_1: tmp_8 (283)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:113  %tmp_8 = call i8 @_ssdm_op_BitConcatenate.i8.i4.i4(i4 %tmp_46, i4 0)
+
+ST_1: tmp_8_cast (284)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:114  %tmp_8_cast = zext i8 %tmp_8 to i32
+
+ST_1: RoundKey_addr (285)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:115  %RoundKey_addr = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %tmp_8_cast
+
+ST_1: RoundKey_load (286)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:116  %RoundKey_load = load i32* %RoundKey_addr, align 4
+
+ST_1: sum29_0_s (291)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:121  %sum29_0_s = or i8 %tmp_8, 1
+
+ST_1: sum29_0_cast (292)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:122  %sum29_0_cast = zext i8 %sum29_0_s to i32
+
+ST_1: RoundKey_addr_1 (293)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:123  %RoundKey_addr_1 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %sum29_0_cast
+
+ST_1: RoundKey_load_1 (294)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:124  %RoundKey_load_1 = load i32* %RoundKey_addr_1, align 4
+
+
+ <State 2>: 2.14ns
+ST_2: state_addr_2 (8)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:3  %state_addr_2 = getelementptr [16 x i32]* %state, i32 0, i32 2
+
+ST_2: state_addr_3 (9)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:4  %state_addr_3 = getelementptr [16 x i32]* %state, i32 0, i32 3
+
+ST_2: state_load (22)  [1/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:17  %state_load = load i32* %state_addr, align 4
+
+ST_2: sbox_addr (23)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:18  %sbox_addr = getelementptr [256 x i8]* @sbox, i32 0, i32 %state_load
+
+ST_2: sbox_load (24)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:19  %sbox_load = load i8* %sbox_addr, align 1
+
+ST_2: state_load_1 (27)  [1/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:22  %state_load_1 = load i32* %state_addr_1, align 4
+
+ST_2: state_load_2 (32)  [2/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:27  %state_load_2 = load i32* %state_addr_2, align 4
+
+ST_2: state_load_3 (37)  [2/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:32  %state_load_3 = load i32* %state_addr_3, align 4
+
+ST_2: RoundKey_load_16 (106)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:1  %RoundKey_load_16 = load i32* %RoundKey_addr_16, align 4
+
+ST_2: RoundKey_load_17 (110)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:5  %RoundKey_load_17 = load i32* %RoundKey_addr_17, align 4
+
+ST_2: RoundKey_addr_18 (113)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:8  %RoundKey_addr_18 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 162
+
+ST_2: RoundKey_load_18 (114)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:9  %RoundKey_load_18 = load i32* %RoundKey_addr_18, align 4
+
+ST_2: RoundKey_addr_19 (117)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:12  %RoundKey_addr_19 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 163
+
+ST_2: RoundKey_load_19 (118)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:13  %RoundKey_load_19 = load i32* %RoundKey_addr_19, align 4
+
+ST_2: RoundKey_load (286)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:116  %RoundKey_load = load i32* %RoundKey_addr, align 4
+
+ST_2: RoundKey_load_1 (294)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:124  %RoundKey_load_1 = load i32* %RoundKey_addr_1, align 4
+
+ST_2: sum29_0_1 (299)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:129  %sum29_0_1 = or i8 %tmp_8, 2
+
+ST_2: sum29_0_1_cast (300)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:130  %sum29_0_1_cast = zext i8 %sum29_0_1 to i32
+
+ST_2: RoundKey_addr_2 (301)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:131  %RoundKey_addr_2 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %sum29_0_1_cast
+
+ST_2: RoundKey_load_2 (302)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:132  %RoundKey_load_2 = load i32* %RoundKey_addr_2, align 4
+
+ST_2: sum29_0_2 (307)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:137  %sum29_0_2 = or i8 %tmp_8, 3
+
+ST_2: sum29_0_2_cast (308)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:138  %sum29_0_2_cast = zext i8 %sum29_0_2 to i32
+
+ST_2: RoundKey_addr_3 (309)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:139  %RoundKey_addr_3 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %sum29_0_2_cast
+
+ST_2: RoundKey_load_3 (310)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:140  %RoundKey_load_3 = load i32* %RoundKey_addr_3, align 4
+
+
+ <State 3>: 1.35ns
+ST_3: state_addr_4 (10)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:5  %state_addr_4 = getelementptr [16 x i32]* %state, i32 0, i32 4
+
+ST_3: state_addr_5 (11)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:6  %state_addr_5 = getelementptr [16 x i32]* %state, i32 0, i32 5
+
+ST_3: sbox_load (24)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:19  %sbox_load = load i8* %sbox_addr, align 1
+
+ST_3: sbox_addr_1 (28)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:23  %sbox_addr_1 = getelementptr [256 x i8]* @sbox, i32 0, i32 %state_load_1
+
+ST_3: sbox_load_1 (29)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:24  %sbox_load_1 = load i8* %sbox_addr_1, align 1
+
+ST_3: state_load_2 (32)  [1/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:27  %state_load_2 = load i32* %state_addr_2, align 4
+
+ST_3: state_load_3 (37)  [1/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:32  %state_load_3 = load i32* %state_addr_3, align 4
+
+ST_3: state_load_4 (42)  [2/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:37  %state_load_4 = load i32* %state_addr_4, align 4
+
+ST_3: state_load_5 (45)  [2/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:40  %state_load_5 = load i32* %state_addr_5, align 4
+
+ST_3: RoundKey_load_18 (114)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:9  %RoundKey_load_18 = load i32* %RoundKey_addr_18, align 4
+
+ST_3: RoundKey_load_19 (118)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:13  %RoundKey_load_19 = load i32* %RoundKey_addr_19, align 4
+
+ST_3: RoundKey_addr_20 (121)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:16  %RoundKey_addr_20 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 164
+
+ST_3: RoundKey_load_20 (122)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:17  %RoundKey_load_20 = load i32* %RoundKey_addr_20, align 4
+
+ST_3: RoundKey_addr_21 (125)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:20  %RoundKey_addr_21 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 165
+
+ST_3: RoundKey_load_21 (126)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:21  %RoundKey_load_21 = load i32* %RoundKey_addr_21, align 4
+
+ST_3: RoundKey_load_2 (302)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:132  %RoundKey_load_2 = load i32* %RoundKey_addr_2, align 4
+
+ST_3: RoundKey_load_3 (310)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:140  %RoundKey_load_3 = load i32* %RoundKey_addr_3, align 4
+
+ST_3: tmp_41_1_s (315)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:145  %tmp_41_1_s = or i8 %tmp_8, 4
+
+ST_3: tmp_41_1_cast (316)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:146  %tmp_41_1_cast = zext i8 %tmp_41_1_s to i32
+
+ST_3: RoundKey_addr_4 (317)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:147  %RoundKey_addr_4 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %tmp_41_1_cast
+
+ST_3: RoundKey_load_4 (318)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:148  %RoundKey_load_4 = load i32* %RoundKey_addr_4, align 4
+
+ST_3: sum29_1_s (323)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:153  %sum29_1_s = or i8 %tmp_8, 5
+
+ST_3: sum29_1_cast (324)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:154  %sum29_1_cast = zext i8 %sum29_1_s to i32
+
+ST_3: RoundKey_addr_5 (325)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:155  %RoundKey_addr_5 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %sum29_1_cast
+
+ST_3: RoundKey_load_5 (326)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:156  %RoundKey_load_5 = load i32* %RoundKey_addr_5, align 4
+
+
+ <State 4>: 1.35ns
+ST_4: state_addr_6 (12)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:7  %state_addr_6 = getelementptr [16 x i32]* %state, i32 0, i32 6
+
+ST_4: state_addr_7 (13)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:8  %state_addr_7 = getelementptr [16 x i32]* %state, i32 0, i32 7
+
+ST_4: sbox_load_1 (29)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:24  %sbox_load_1 = load i8* %sbox_addr_1, align 1
+
+ST_4: sbox_addr_2 (33)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:28  %sbox_addr_2 = getelementptr [256 x i8]* @sbox, i32 0, i32 %state_load_2
+
+ST_4: sbox_load_2 (34)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:29  %sbox_load_2 = load i8* %sbox_addr_2, align 1
+
+ST_4: state_load_4 (42)  [1/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:37  %state_load_4 = load i32* %state_addr_4, align 4
+
+ST_4: state_load_5 (45)  [1/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:40  %state_load_5 = load i32* %state_addr_5, align 4
+
+ST_4: state_load_6 (49)  [2/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:44  %state_load_6 = load i32* %state_addr_6, align 4
+
+ST_4: state_load_7 (53)  [2/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:48  %state_load_7 = load i32* %state_addr_7, align 4
+
+ST_4: RoundKey_load_20 (122)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:17  %RoundKey_load_20 = load i32* %RoundKey_addr_20, align 4
+
+ST_4: RoundKey_load_21 (126)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:21  %RoundKey_load_21 = load i32* %RoundKey_addr_21, align 4
+
+ST_4: RoundKey_addr_22 (129)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:24  %RoundKey_addr_22 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 166
+
+ST_4: RoundKey_load_22 (130)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:25  %RoundKey_load_22 = load i32* %RoundKey_addr_22, align 4
+
+ST_4: RoundKey_addr_23 (133)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:28  %RoundKey_addr_23 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 167
+
+ST_4: RoundKey_load_23 (134)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:29  %RoundKey_load_23 = load i32* %RoundKey_addr_23, align 4
+
+ST_4: RoundKey_load_4 (318)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:148  %RoundKey_load_4 = load i32* %RoundKey_addr_4, align 4
+
+ST_4: RoundKey_load_5 (326)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:156  %RoundKey_load_5 = load i32* %RoundKey_addr_5, align 4
+
+ST_4: sum29_1_1 (331)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:161  %sum29_1_1 = or i8 %tmp_8, 6
+
+ST_4: sum29_1_1_cast (332)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:162  %sum29_1_1_cast = zext i8 %sum29_1_1 to i32
+
+ST_4: RoundKey_addr_6 (333)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:163  %RoundKey_addr_6 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %sum29_1_1_cast
+
+ST_4: RoundKey_load_6 (334)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:164  %RoundKey_load_6 = load i32* %RoundKey_addr_6, align 4
+
+ST_4: sum29_1_2 (339)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:169  %sum29_1_2 = or i8 %tmp_8, 7
+
+ST_4: sum29_1_2_cast (340)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:170  %sum29_1_2_cast = zext i8 %sum29_1_2 to i32
+
+ST_4: RoundKey_addr_7 (341)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:171  %RoundKey_addr_7 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %sum29_1_2_cast
+
+ST_4: RoundKey_load_7 (342)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:172  %RoundKey_load_7 = load i32* %RoundKey_addr_7, align 4
+
+
+ <State 5>: 1.35ns
+ST_5: state_addr_8 (14)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:9  %state_addr_8 = getelementptr [16 x i32]* %state, i32 0, i32 8
+
+ST_5: state_addr_9 (15)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:10  %state_addr_9 = getelementptr [16 x i32]* %state, i32 0, i32 9
+
+ST_5: sbox_load_2 (34)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:29  %sbox_load_2 = load i8* %sbox_addr_2, align 1
+
+ST_5: sbox_addr_3 (38)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:33  %sbox_addr_3 = getelementptr [256 x i8]* @sbox, i32 0, i32 %state_load_3
+
+ST_5: sbox_load_3 (39)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:34  %sbox_load_3 = load i8* %sbox_addr_3, align 1
+
+ST_5: state_load_6 (49)  [1/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:44  %state_load_6 = load i32* %state_addr_6, align 4
+
+ST_5: state_load_7 (53)  [1/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:48  %state_load_7 = load i32* %state_addr_7, align 4
+
+ST_5: state_load_8 (57)  [2/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:52  %state_load_8 = load i32* %state_addr_8, align 4
+
+ST_5: state_load_9 (60)  [2/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:55  %state_load_9 = load i32* %state_addr_9, align 4
+
+ST_5: RoundKey_load_22 (130)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:25  %RoundKey_load_22 = load i32* %RoundKey_addr_22, align 4
+
+ST_5: RoundKey_load_23 (134)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:29  %RoundKey_load_23 = load i32* %RoundKey_addr_23, align 4
+
+ST_5: RoundKey_addr_24 (137)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:32  %RoundKey_addr_24 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 168
+
+ST_5: RoundKey_load_24 (138)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:33  %RoundKey_load_24 = load i32* %RoundKey_addr_24, align 4
+
+ST_5: RoundKey_addr_25 (141)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:36  %RoundKey_addr_25 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 169
+
+ST_5: RoundKey_load_25 (142)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:37  %RoundKey_load_25 = load i32* %RoundKey_addr_25, align 4
+
+ST_5: RoundKey_load_6 (334)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:164  %RoundKey_load_6 = load i32* %RoundKey_addr_6, align 4
+
+ST_5: RoundKey_load_7 (342)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:172  %RoundKey_load_7 = load i32* %RoundKey_addr_7, align 4
+
+ST_5: tmp_41_2_s (345)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:175  %tmp_41_2_s = or i8 %tmp_8, 8
+
+ST_5: tmp_41_2_cast (346)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:176  %tmp_41_2_cast = zext i8 %tmp_41_2_s to i32
+
+ST_5: RoundKey_addr_8 (347)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:177  %RoundKey_addr_8 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %tmp_41_2_cast
+
+ST_5: RoundKey_load_8 (348)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:178  %RoundKey_load_8 = load i32* %RoundKey_addr_8, align 4
+
+ST_5: sum29_2_s (353)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:183  %sum29_2_s = or i8 %tmp_8, 9
+
+ST_5: sum29_2_cast (354)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:184  %sum29_2_cast = zext i8 %sum29_2_s to i32
+
+ST_5: RoundKey_addr_9 (355)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:185  %RoundKey_addr_9 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %sum29_2_cast
+
+ST_5: RoundKey_load_9 (356)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:186  %RoundKey_load_9 = load i32* %RoundKey_addr_9, align 4
+
+
+ <State 6>: 1.35ns
+ST_6: state_addr_10 (16)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:11  %state_addr_10 = getelementptr [16 x i32]* %state, i32 0, i32 10
+
+ST_6: state_addr_11 (17)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:12  %state_addr_11 = getelementptr [16 x i32]* %state, i32 0, i32 11
+
+ST_6: sbox_load_3 (39)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:34  %sbox_load_3 = load i8* %sbox_addr_3, align 1
+
+ST_6: sbox_addr_4 (43)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:38  %sbox_addr_4 = getelementptr [256 x i8]* @sbox, i32 0, i32 %state_load_4
+
+ST_6: temp (44)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:39  %temp = load i8* %sbox_addr_4, align 1
+
+ST_6: state_load_8 (57)  [1/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:52  %state_load_8 = load i32* %state_addr_8, align 4
+
+ST_6: state_load_9 (60)  [1/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:55  %state_load_9 = load i32* %state_addr_9, align 4
+
+ST_6: state_load_10 (63)  [2/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:58  %state_load_10 = load i32* %state_addr_10, align 4
+
+ST_6: state_load_11 (67)  [2/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:62  %state_load_11 = load i32* %state_addr_11, align 4
+
+ST_6: RoundKey_load_24 (138)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:33  %RoundKey_load_24 = load i32* %RoundKey_addr_24, align 4
+
+ST_6: RoundKey_load_25 (142)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:37  %RoundKey_load_25 = load i32* %RoundKey_addr_25, align 4
+
+ST_6: RoundKey_addr_26 (145)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:40  %RoundKey_addr_26 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 170
+
+ST_6: RoundKey_load_26 (146)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:41  %RoundKey_load_26 = load i32* %RoundKey_addr_26, align 4
+
+ST_6: RoundKey_addr_27 (149)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:44  %RoundKey_addr_27 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 171
+
+ST_6: RoundKey_load_27 (150)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:45  %RoundKey_load_27 = load i32* %RoundKey_addr_27, align 4
+
+ST_6: RoundKey_load_8 (348)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:178  %RoundKey_load_8 = load i32* %RoundKey_addr_8, align 4
+
+ST_6: RoundKey_load_9 (356)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:186  %RoundKey_load_9 = load i32* %RoundKey_addr_9, align 4
+
+ST_6: sum29_2_1 (361)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:191  %sum29_2_1 = or i8 %tmp_8, 10
+
+ST_6: sum29_2_1_cast (362)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:192  %sum29_2_1_cast = zext i8 %sum29_2_1 to i32
+
+ST_6: RoundKey_addr_10 (363)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:193  %RoundKey_addr_10 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %sum29_2_1_cast
+
+ST_6: RoundKey_load_10 (364)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:194  %RoundKey_load_10 = load i32* %RoundKey_addr_10, align 4
+
+ST_6: sum29_2_2 (367)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:197  %sum29_2_2 = or i8 %tmp_8, 11
+
+ST_6: sum29_2_2_cast (368)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:198  %sum29_2_2_cast = zext i8 %sum29_2_2 to i32
+
+ST_6: RoundKey_addr_11 (369)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:199  %RoundKey_addr_11 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %sum29_2_2_cast
+
+ST_6: RoundKey_load_11 (370)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:200  %RoundKey_load_11 = load i32* %RoundKey_addr_11, align 4
+
+
+ <State 7>: 1.35ns
+ST_7: state_addr_12 (18)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:13  %state_addr_12 = getelementptr [16 x i32]* %state, i32 0, i32 12
+
+ST_7: state_addr_13 (19)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:14  %state_addr_13 = getelementptr [16 x i32]* %state, i32 0, i32 13
+
+ST_7: temp (44)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:39  %temp = load i8* %sbox_addr_4, align 1
+
+ST_7: sbox_addr_5 (46)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:41  %sbox_addr_5 = getelementptr [256 x i8]* @sbox, i32 0, i32 %state_load_5
+
+ST_7: sbox_load_5 (47)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:42  %sbox_load_5 = load i8* %sbox_addr_5, align 1
+
+ST_7: state_load_10 (63)  [1/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:58  %state_load_10 = load i32* %state_addr_10, align 4
+
+ST_7: state_load_11 (67)  [1/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:62  %state_load_11 = load i32* %state_addr_11, align 4
+
+ST_7: state_load_12 (71)  [2/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:66  %state_load_12 = load i32* %state_addr_12, align 4
+
+ST_7: state_load_13 (74)  [2/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:69  %state_load_13 = load i32* %state_addr_13, align 4
+
+ST_7: RoundKey_load_26 (146)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:41  %RoundKey_load_26 = load i32* %RoundKey_addr_26, align 4
+
+ST_7: RoundKey_load_27 (150)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:45  %RoundKey_load_27 = load i32* %RoundKey_addr_27, align 4
+
+ST_7: RoundKey_addr_28 (153)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:48  %RoundKey_addr_28 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 172
+
+ST_7: RoundKey_load_28 (154)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:49  %RoundKey_load_28 = load i32* %RoundKey_addr_28, align 4
+
+ST_7: RoundKey_addr_29 (157)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:52  %RoundKey_addr_29 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 173
+
+ST_7: RoundKey_load_29 (158)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:53  %RoundKey_load_29 = load i32* %RoundKey_addr_29, align 4
+
+ST_7: RoundKey_load_10 (364)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:194  %RoundKey_load_10 = load i32* %RoundKey_addr_10, align 4
+
+ST_7: RoundKey_load_11 (370)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:200  %RoundKey_load_11 = load i32* %RoundKey_addr_11, align 4
+
+ST_7: tmp_41_3_s (375)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:205  %tmp_41_3_s = or i8 %tmp_8, 12
+
+ST_7: tmp_41_3_cast (376)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:206  %tmp_41_3_cast = zext i8 %tmp_41_3_s to i32
+
+ST_7: RoundKey_addr_12 (377)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:207  %RoundKey_addr_12 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %tmp_41_3_cast
+
+ST_7: RoundKey_load_12 (378)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:208  %RoundKey_load_12 = load i32* %RoundKey_addr_12, align 4
+
+ST_7: sum29_3_s (383)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:213  %sum29_3_s = or i8 %tmp_8, 13
+
+ST_7: sum29_3_cast (384)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:214  %sum29_3_cast = zext i8 %sum29_3_s to i32
+
+ST_7: RoundKey_addr_13 (385)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:215  %RoundKey_addr_13 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %sum29_3_cast
+
+ST_7: RoundKey_load_13 (386)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:216  %RoundKey_load_13 = load i32* %RoundKey_addr_13, align 4
+
+
+ <State 8>: 1.35ns
+ST_8: state_addr_14 (20)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:15  %state_addr_14 = getelementptr [16 x i32]* %state, i32 0, i32 14
+
+ST_8: state_addr_15 (21)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:16  %state_addr_15 = getelementptr [16 x i32]* %state, i32 0, i32 15
+
+ST_8: sbox_load_5 (47)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:42  %sbox_load_5 = load i8* %sbox_addr_5, align 1
+
+ST_8: sbox_addr_6 (50)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:45  %sbox_addr_6 = getelementptr [256 x i8]* @sbox, i32 0, i32 %state_load_6
+
+ST_8: sbox_load_6 (51)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:46  %sbox_load_6 = load i8* %sbox_addr_6, align 1
+
+ST_8: state_load_12 (71)  [1/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:66  %state_load_12 = load i32* %state_addr_12, align 4
+
+ST_8: state_load_13 (74)  [1/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:69  %state_load_13 = load i32* %state_addr_13, align 4
+
+ST_8: state_load_14 (78)  [2/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:73  %state_load_14 = load i32* %state_addr_14, align 4
+
+ST_8: state_load_15 (82)  [2/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:77  %state_load_15 = load i32* %state_addr_15, align 4
+
+ST_8: RoundKey_load_28 (154)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:49  %RoundKey_load_28 = load i32* %RoundKey_addr_28, align 4
+
+ST_8: RoundKey_load_29 (158)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:53  %RoundKey_load_29 = load i32* %RoundKey_addr_29, align 4
+
+ST_8: RoundKey_addr_30 (161)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:56  %RoundKey_addr_30 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 174
+
+ST_8: RoundKey_load_30 (162)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:57  %RoundKey_load_30 = load i32* %RoundKey_addr_30, align 4
+
+ST_8: RoundKey_addr_31 (165)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:60  %RoundKey_addr_31 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 175
+
+ST_8: RoundKey_load_31 (166)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:61  %RoundKey_load_31 = load i32* %RoundKey_addr_31, align 4
+
+ST_8: RoundKey_load_12 (378)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:208  %RoundKey_load_12 = load i32* %RoundKey_addr_12, align 4
+
+ST_8: RoundKey_load_13 (386)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:216  %RoundKey_load_13 = load i32* %RoundKey_addr_13, align 4
+
+ST_8: sum29_3_1 (389)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:219  %sum29_3_1 = or i8 %tmp_8, 14
+
+ST_8: sum29_3_1_cast (390)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:220  %sum29_3_1_cast = zext i8 %sum29_3_1 to i32
+
+ST_8: RoundKey_addr_14 (391)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:221  %RoundKey_addr_14 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %sum29_3_1_cast
+
+ST_8: RoundKey_load_14 (392)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:222  %RoundKey_load_14 = load i32* %RoundKey_addr_14, align 4
+
+ST_8: sum29_3_2 (395)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:225  %sum29_3_2 = or i8 %tmp_8, 15
+
+ST_8: sum29_3_2_cast (396)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:226  %sum29_3_2_cast = zext i8 %sum29_3_2 to i32
+
+ST_8: RoundKey_addr_15 (397)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:227  %RoundKey_addr_15 = getelementptr [240 x i32]* %RoundKey, i32 0, i32 %sum29_3_2_cast
+
+ST_8: RoundKey_load_15 (398)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:228  %RoundKey_load_15 = load i32* %RoundKey_addr_15, align 4
+
+
+ <State 9>: 1.35ns
+ST_9: sbox_load_cast (25)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:20  %sbox_load_cast = zext i8 %sbox_load to i32
+
+ST_9: StgValue_220 (26)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:21  store i32 %sbox_load_cast, i32* %state_addr, align 4
+
+ST_9: sbox_load_1_cast (30)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:25  %sbox_load_1_cast = zext i8 %sbox_load_1 to i32
+
+ST_9: StgValue_222 (31)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:26  store i32 %sbox_load_1_cast, i32* %state_addr_1, align 4
+
+ST_9: sbox_load_6 (51)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:46  %sbox_load_6 = load i8* %sbox_addr_6, align 1
+
+ST_9: sbox_addr_7 (54)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:49  %sbox_addr_7 = getelementptr [256 x i8]* @sbox, i32 0, i32 %state_load_7
+
+ST_9: sbox_load_7 (55)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:50  %sbox_load_7 = load i8* %sbox_addr_7, align 1
+
+ST_9: state_load_14 (78)  [1/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:73  %state_load_14 = load i32* %state_addr_14, align 4
+
+ST_9: state_load_15 (82)  [1/2] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:77  %state_load_15 = load i32* %state_addr_15, align 4
+
+ST_9: tmp_48 (107)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:2  %tmp_48 = xor i32 %sbox_load_cast, %RoundKey_load_16
+
+ST_9: tmp_40_1 (123)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:18  %tmp_40_1 = xor i32 %sbox_load_1_cast, %RoundKey_load_20
+
+ST_9: RoundKey_load_30 (162)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:57  %RoundKey_load_30 = load i32* %RoundKey_addr_30, align 4
+
+ST_9: RoundKey_load_31 (166)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:61  %RoundKey_load_31 = load i32* %RoundKey_addr_31, align 4
+
+ST_9: RoundKey_load_14 (392)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:222  %RoundKey_load_14 = load i32* %RoundKey_addr_14, align 4
+
+ST_9: RoundKey_load_15 (398)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:228  %RoundKey_load_15 = load i32* %RoundKey_addr_15, align 4
+
+
+ <State 10>: 1.35ns
+ST_10: sbox_load_2_cast (35)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:30  %sbox_load_2_cast = zext i8 %sbox_load_2 to i32
+
+ST_10: StgValue_235 (36)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:31  store i32 %sbox_load_2_cast, i32* %state_addr_2, align 4
+
+ST_10: sbox_load_3_cast (40)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:35  %sbox_load_3_cast = zext i8 %sbox_load_3 to i32
+
+ST_10: StgValue_237 (41)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:36  store i32 %sbox_load_3_cast, i32* %state_addr_3, align 4
+
+ST_10: sbox_load_7 (55)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:50  %sbox_load_7 = load i8* %sbox_addr_7, align 1
+
+ST_10: sbox_addr_8 (58)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:53  %sbox_addr_8 = getelementptr [256 x i8]* @sbox, i32 0, i32 %state_load_8
+
+ST_10: temp_1 (59)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:54  %temp_1 = load i8* %sbox_addr_8, align 1
+
+ST_10: tmp_40_2 (139)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:34  %tmp_40_2 = xor i32 %sbox_load_2_cast, %RoundKey_load_24
+
+ST_10: tmp_40_3 (155)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:50  %tmp_40_3 = xor i32 %sbox_load_3_cast, %RoundKey_load_28
+
+
+ <State 11>: 1.35ns
+ST_11: sbox_load_5_cast (48)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:43  %sbox_load_5_cast = zext i8 %sbox_load_5 to i32
+
+ST_11: sbox_load_6_cast (52)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:47  %sbox_load_6_cast = zext i8 %sbox_load_6 to i32
+
+ST_11: temp_1 (59)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:54  %temp_1 = load i8* %sbox_addr_8, align 1
+
+ST_11: sbox_addr_9 (61)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:56  %sbox_addr_9 = getelementptr [256 x i8]* @sbox, i32 0, i32 %state_load_9
+
+ST_11: temp_2 (62)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:57  %temp_2 = load i8* %sbox_addr_9, align 1
+
+ST_11: StgValue_248 (86)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:111
+.preheader12.preheader.0:81  store i32 %sbox_load_5_cast, i32* %state_addr_4, align 4
+
+ST_11: StgValue_249 (87)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:112
+.preheader12.preheader.0:82  store i32 %sbox_load_6_cast, i32* %state_addr_5, align 4
+
+ST_11: tmp_40_0_1 (111)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:6  %tmp_40_0_1 = xor i32 %sbox_load_5_cast, %RoundKey_load_17
+
+ST_11: tmp_40_1_1 (127)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:22  %tmp_40_1_1 = xor i32 %sbox_load_6_cast, %RoundKey_load_21
+
+
+ <State 12>: 1.35ns
+ST_12: sbox_load_7_cast (56)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:51  %sbox_load_7_cast = zext i8 %sbox_load_7 to i32
+
+ST_12: temp_2 (62)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:57  %temp_2 = load i8* %sbox_addr_9, align 1
+
+ST_12: sbox_addr_10 (64)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:59  %sbox_addr_10 = getelementptr [256 x i8]* @sbox, i32 0, i32 %state_load_10
+
+ST_12: sbox_load_10 (65)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:60  %sbox_load_10 = load i8* %sbox_addr_10, align 1
+
+ST_12: StgValue_256 (88)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:113
+.preheader12.preheader.0:83  store i32 %sbox_load_7_cast, i32* %state_addr_6, align 4
+
+ST_12: tmp (89)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:114
+.preheader12.preheader.0:84  %tmp = zext i8 %temp to i32
+
+ST_12: StgValue_258 (90)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:114
+.preheader12.preheader.0:85  store i32 %tmp, i32* %state_addr_7, align 4
+
+ST_12: tmp_40_2_1 (143)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:38  %tmp_40_2_1 = xor i32 %sbox_load_7_cast, %RoundKey_load_25
+
+ST_12: tmp_40_3_1 (159)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:54  %tmp_40_3_1 = xor i32 %RoundKey_load_29, %tmp
+
+
+ <State 13>: 2.14ns
+ST_13: sbox_load_10 (65)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:60  %sbox_load_10 = load i8* %sbox_addr_10, align 1
+
+ST_13: sbox_load_10_cast (66)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:61  %sbox_load_10_cast = zext i8 %sbox_load_10 to i32
+
+ST_13: sbox_addr_11 (68)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:63  %sbox_addr_11 = getelementptr [256 x i8]* @sbox, i32 0, i32 %state_load_11
+
+ST_13: sbox_load_11 (69)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:64  %sbox_load_11 = load i8* %sbox_addr_11, align 1
+
+ST_13: StgValue_265 (91)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:117
+.preheader12.preheader.0:86  store i32 %sbox_load_10_cast, i32* %state_addr_8, align 4
+
+ST_13: tmp_1 (92)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:118
+.preheader12.preheader.0:87  %tmp_1 = zext i8 %temp_1 to i32
+
+ST_13: StgValue_267 (93)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:118
+.preheader12.preheader.0:88  store i32 %tmp_1, i32* %state_addr_10, align 4
+
+ST_13: tmp_40_0_2 (115)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:10  %tmp_40_0_2 = xor i32 %sbox_load_10_cast, %RoundKey_load_18
+
+ST_13: tmp_40_2_2 (147)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:42  %tmp_40_2_2 = xor i32 %RoundKey_load_26, %tmp_1
+
+
+ <State 14>: 2.14ns
+ST_14: sbox_load_11 (69)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:64  %sbox_load_11 = load i8* %sbox_addr_11, align 1
+
+ST_14: sbox_load_11_cast (70)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:65  %sbox_load_11_cast = zext i8 %sbox_load_11 to i32
+
+ST_14: sbox_addr_12 (72)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:67  %sbox_addr_12 = getelementptr [256 x i8]* @sbox, i32 0, i32 %state_load_12
+
+ST_14: temp_3 (73)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:68  %temp_3 = load i8* %sbox_addr_12, align 1
+
+ST_14: StgValue_274 (94)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:121
+.preheader12.preheader.0:89  store i32 %sbox_load_11_cast, i32* %state_addr_9, align 4
+
+ST_14: tmp_2 (95)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:122
+.preheader12.preheader.0:90  %tmp_2 = zext i8 %temp_2 to i32
+
+ST_14: StgValue_276 (96)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:122
+.preheader12.preheader.0:91  store i32 %tmp_2, i32* %state_addr_11, align 4
+
+ST_14: tmp_40_1_2 (131)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:26  %tmp_40_1_2 = xor i32 %sbox_load_11_cast, %RoundKey_load_22
+
+ST_14: tmp_40_3_2 (163)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:58  %tmp_40_3_2 = xor i32 %RoundKey_load_30, %tmp_2
+
+
+ <State 15>: 2.31ns
+ST_15: temp_3 (73)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:68  %temp_3 = load i8* %sbox_addr_12, align 1
+
+ST_15: sbox_addr_13 (75)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:70  %sbox_addr_13 = getelementptr [256 x i8]* @sbox, i32 0, i32 %state_load_13
+
+ST_15: sbox_load_13 (76)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:71  %sbox_load_13 = load i8* %sbox_addr_13, align 1
+
+ST_15: tmp_3 (99)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:128
+.preheader12.preheader.0:94  %tmp_3 = zext i8 %temp_3 to i32
+
+ST_15: StgValue_283 (100)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:128
+.preheader12.preheader.0:95  store i32 %tmp_3, i32* %state_addr_13, align 4
+
+ST_15: StgValue_284 (108)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:3  store i32 %tmp_48, i32* %state_addr, align 4
+
+ST_15: tmp_40_1_3 (135)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:30  %tmp_40_1_3 = xor i32 %RoundKey_load_23, %tmp_3
+
+ST_15: tmp_19 (196)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader11.0:26  %tmp_19 = xor i8 %sbox_load_6, %sbox_load_1
+
+ST_15: tmp6 (197)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:139 (grouped into LUT with out node Tmp_1)
+.preheader11.0:27  %tmp6 = xor i8 %tmp_19, %temp_3
+
+ST_15: Tmp_1 (198)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:139 (out node of the LUT)
+.preheader11.0:28  %Tmp_1 = xor i8 %tmp6, %sbox_load_11
+
+ST_15: tmp_20 (199)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:140 (grouped into LUT with out node tmp_43_1)
+.preheader11.0:29  %tmp_20 = shl i8 %tmp_19, 1
+
+ST_15: tmp_21 (200)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:140 (grouped into LUT with out node tmp_43_1)
+.preheader11.0:30  %tmp_21 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %tmp_19, i32 7)
+
+ST_15: tmp_11_1_cast_cast (201)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:140 (grouped into LUT with out node tmp_43_1)
+.preheader11.0:31  %tmp_11_1_cast_cast = select i1 %tmp_21, i8 27, i8 0
+
+ST_15: tmp7 (202)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:140 (grouped into LUT with out node tmp_43_1)
+.preheader11.0:32  %tmp7 = xor i8 %tmp_20, %Tmp_1
+
+ST_15: tmp_12_1 (203)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:140 (grouped into LUT with out node tmp_43_1)
+.preheader11.0:33  %tmp_12_1 = xor i8 %tmp7, %tmp_11_1_cast_cast
+
+ST_15: Tm_2_1 (204)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141
+.preheader11.0:34  %Tm_2_1 = xor i8 %sbox_load_11, %sbox_load_6
+
+ST_15: tmp_22 (205)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141 (grouped into LUT with out node tmp_43_1_1)
+.preheader11.0:35  %tmp_22 = shl i8 %Tm_2_1, 1
+
+ST_15: tmp_23 (206)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141 (grouped into LUT with out node tmp_43_1_1)
+.preheader11.0:36  %tmp_23 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %Tm_2_1, i32 7)
+
+ST_15: tmp_18_1_cast_cast (207)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141 (grouped into LUT with out node tmp_43_1_1)
+.preheader11.0:37  %tmp_18_1_cast_cast = select i1 %tmp_23, i8 27, i8 0
+
+ST_15: tmp8 (208)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141 (grouped into LUT with out node tmp_43_1_1)
+.preheader11.0:38  %tmp8 = xor i8 %tmp_22, %Tmp_1
+
+ST_15: tmp_19_1 (209)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141 (grouped into LUT with out node tmp_43_1_1)
+.preheader11.0:39  %tmp_19_1 = xor i8 %tmp8, %tmp_18_1_cast_cast
+
+ST_15: Tm_4_1 (210)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142
+.preheader11.0:40  %Tm_4_1 = xor i8 %temp_3, %sbox_load_11
+
+ST_15: tmp_24 (211)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_1_2)
+.preheader11.0:41  %tmp_24 = shl i8 %Tm_4_1, 1
+
+ST_15: tmp_25 (212)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_1_2)
+.preheader11.0:42  %tmp_25 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %Tm_4_1, i32 7)
+
+ST_15: tmp_25_1_cast_cast (213)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_1_2)
+.preheader11.0:43  %tmp_25_1_cast_cast = select i1 %tmp_25, i8 27, i8 0
+
+ST_15: tmp9 (214)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_1_2)
+.preheader11.0:44  %tmp9 = xor i8 %Tmp_1, %tmp_25_1_cast_cast
+
+ST_15: tmp_26_1 (215)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_1_2)
+.preheader11.0:45  %tmp_26_1 = xor i8 %tmp9, %tmp_24
+
+ST_15: Tm_6_1 (216)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143
+.preheader11.0:46  %Tm_6_1 = xor i8 %temp_3, %sbox_load_1
+
+ST_15: tmp_26 (217)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143 (grouped into LUT with out node tmp_43_1_3)
+.preheader11.0:47  %tmp_26 = shl i8 %Tm_6_1, 1
+
+ST_15: tmp_27 (218)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143 (grouped into LUT with out node tmp_43_1_3)
+.preheader11.0:48  %tmp_27 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %Tm_6_1, i32 7)
+
+ST_15: tmp_32_1_cast_cast (219)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143 (grouped into LUT with out node tmp_43_1_3)
+.preheader11.0:49  %tmp_32_1_cast_cast = select i1 %tmp_27, i8 27, i8 0
+
+ST_15: tmp10 (220)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143 (grouped into LUT with out node tmp_43_1_3)
+.preheader11.0:50  %tmp10 = xor i8 %tmp_26, %Tmp_1
+
+ST_15: tmp11 (221)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143 (grouped into LUT with out node tmp_43_1_3)
+.preheader11.0:51  %tmp11 = xor i8 %tmp_32_1_cast_cast, %temp_3
+
+ST_15: tmp_35_s (222)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143 (grouped into LUT with out node tmp_43_1_3)
+.preheader11.0:52  %tmp_35_s = xor i8 %tmp11, %tmp10
+
+ST_15: tmp_35_1 (223)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143 (grouped into LUT with out node tmp_43_1_3)
+.preheader11.0:53  %tmp_35_1 = zext i8 %tmp_35_s to i32
+
+ST_15: tmp29 (319)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_43_1)
+.preheader11.0:149  %tmp29 = xor i8 %sbox_load_1, %tmp_12_1
+
+ST_15: tmp29_cast (320)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_43_1)
+.preheader11.0:150  %tmp29_cast = zext i8 %tmp29 to i32
+
+ST_15: tmp_43_1 (321)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (out node of the LUT)
+.preheader11.0:151  %tmp_43_1 = xor i32 %tmp29_cast, %RoundKey_load_4
+
+ST_15: StgValue_317 (322)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:152  store i32 %tmp_43_1, i32* %state_addr_1, align 4
+
+ST_15: tmp30 (327)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_43_1_1)
+.preheader11.0:157  %tmp30 = xor i8 %sbox_load_6, %tmp_19_1
+
+ST_15: tmp30_cast (328)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_43_1_1)
+.preheader11.0:158  %tmp30_cast = zext i8 %tmp30 to i32
+
+ST_15: tmp_43_1_1 (329)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (out node of the LUT)
+.preheader11.0:159  %tmp_43_1_1 = xor i32 %tmp30_cast, %RoundKey_load_5
+
+ST_15: tmp31 (335)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_43_1_2)
+.preheader11.0:165  %tmp31 = xor i8 %sbox_load_11, %tmp_26_1
+
+ST_15: tmp31_cast (336)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_43_1_2)
+.preheader11.0:166  %tmp31_cast = zext i8 %tmp31 to i32
+
+ST_15: tmp_43_1_2 (337)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (out node of the LUT)
+.preheader11.0:167  %tmp_43_1_2 = xor i32 %tmp31_cast, %RoundKey_load_6
+
+ST_15: tmp_43_1_3 (343)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (out node of the LUT)
+.preheader11.0:173  %tmp_43_1_3 = xor i32 %RoundKey_load_7, %tmp_35_1
+
+
+ <State 16>: 2.14ns
+ST_16: sbox_load_13 (76)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:71  %sbox_load_13 = load i8* %sbox_addr_13, align 1
+
+ST_16: sbox_load_13_cast (77)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:72  %sbox_load_13_cast = zext i8 %sbox_load_13 to i32
+
+ST_16: sbox_addr_15 (83)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:78  %sbox_addr_15 = getelementptr [256 x i8]* @sbox, i32 0, i32 %state_load_15
+
+ST_16: sbox_load_15 (84)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:79  %sbox_load_15 = load i8* %sbox_addr_15, align 1
+
+ST_16: StgValue_329 (98)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:127
+.preheader12.preheader.0:93  store i32 %sbox_load_13_cast, i32* %state_addr_14, align 4
+
+ST_16: StgValue_330 (112)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:7  store i32 %tmp_40_0_1, i32* %state_addr_4, align 4
+
+ST_16: tmp_40_2_3 (151)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:46  %tmp_40_2_3 = xor i32 %sbox_load_13_cast, %RoundKey_load_27
+
+ST_16: tmp_28 (224)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader11.0:54  %tmp_28 = xor i8 %sbox_load_7, %sbox_load_2
+
+ST_16: tmp12 (225)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:139 (grouped into LUT with out node Tmp_2)
+.preheader11.0:55  %tmp12 = xor i8 %tmp_28, %sbox_load_13
+
+ST_16: Tmp_2 (226)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:139 (out node of the LUT)
+.preheader11.0:56  %Tmp_2 = xor i8 %tmp12, %temp_1
+
+ST_16: tmp_29 (227)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:140 (grouped into LUT with out node tmp_43_2)
+.preheader11.0:57  %tmp_29 = shl i8 %tmp_28, 1
+
+ST_16: tmp_30 (228)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:140 (grouped into LUT with out node tmp_43_2)
+.preheader11.0:58  %tmp_30 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %tmp_28, i32 7)
+
+ST_16: tmp_11_2_cast_cast (229)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:140 (grouped into LUT with out node tmp_43_2)
+.preheader11.0:59  %tmp_11_2_cast_cast = select i1 %tmp_30, i8 27, i8 0
+
+ST_16: tmp13 (230)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:140 (grouped into LUT with out node tmp_43_2)
+.preheader11.0:60  %tmp13 = xor i8 %tmp_29, %Tmp_2
+
+ST_16: tmp_12_2 (231)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:140 (grouped into LUT with out node tmp_43_2)
+.preheader11.0:61  %tmp_12_2 = xor i8 %tmp13, %tmp_11_2_cast_cast
+
+ST_16: Tm_2_2 (232)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141
+.preheader11.0:62  %Tm_2_2 = xor i8 %temp_1, %sbox_load_7
+
+ST_16: tmp_31 (233)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141 (grouped into LUT with out node tmp_43_2_1)
+.preheader11.0:63  %tmp_31 = shl i8 %Tm_2_2, 1
+
+ST_16: tmp_32 (234)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141 (grouped into LUT with out node tmp_43_2_1)
+.preheader11.0:64  %tmp_32 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %Tm_2_2, i32 7)
+
+ST_16: tmp_18_2_cast_cast (235)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141 (grouped into LUT with out node tmp_43_2_1)
+.preheader11.0:65  %tmp_18_2_cast_cast = select i1 %tmp_32, i8 27, i8 0
+
+ST_16: tmp14 (236)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141 (grouped into LUT with out node tmp_43_2_1)
+.preheader11.0:66  %tmp14 = xor i8 %tmp_31, %Tmp_2
+
+ST_16: tmp_19_2 (237)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141 (grouped into LUT with out node tmp_43_2_1)
+.preheader11.0:67  %tmp_19_2 = xor i8 %tmp14, %tmp_18_2_cast_cast
+
+ST_16: Tm_4_2 (238)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142
+.preheader11.0:68  %Tm_4_2 = xor i8 %sbox_load_13, %temp_1
+
+ST_16: tmp_33 (239)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_2_2)
+.preheader11.0:69  %tmp_33 = shl i8 %Tm_4_2, 1
+
+ST_16: tmp_34 (240)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_2_2)
+.preheader11.0:70  %tmp_34 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %Tm_4_2, i32 7)
+
+ST_16: tmp_25_2_cast_cast (241)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_2_2)
+.preheader11.0:71  %tmp_25_2_cast_cast = select i1 %tmp_34, i8 27, i8 0
+
+ST_16: tmp15 (242)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_2_2)
+.preheader11.0:72  %tmp15 = xor i8 %tmp_33, %Tmp_2
+
+ST_16: tmp16 (243)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_2_2)
+.preheader11.0:73  %tmp16 = xor i8 %tmp_25_2_cast_cast, %temp_1
+
+ST_16: tmp_28_s (244)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_2_2)
+.preheader11.0:74  %tmp_28_s = xor i8 %tmp16, %tmp15
+
+ST_16: tmp_28_2 (245)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_2_2)
+.preheader11.0:75  %tmp_28_2 = zext i8 %tmp_28_s to i32
+
+ST_16: Tm_6_2 (246)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143
+.preheader11.0:76  %Tm_6_2 = xor i8 %sbox_load_13, %sbox_load_2
+
+ST_16: tmp_35 (247)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143 (grouped into LUT with out node tmp_43_2_3)
+.preheader11.0:77  %tmp_35 = shl i8 %Tm_6_2, 1
+
+ST_16: tmp_36 (248)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143 (grouped into LUT with out node tmp_43_2_3)
+.preheader11.0:78  %tmp_36 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %Tm_6_2, i32 7)
+
+ST_16: tmp_32_2_cast_cast (249)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143 (grouped into LUT with out node tmp_43_2_3)
+.preheader11.0:79  %tmp_32_2_cast_cast = select i1 %tmp_36, i8 27, i8 0
+
+ST_16: tmp17 (250)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143 (grouped into LUT with out node tmp_43_2_3)
+.preheader11.0:80  %tmp17 = xor i8 %Tmp_2, %tmp_32_2_cast_cast
+
+ST_16: tmp_33_2 (251)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143 (grouped into LUT with out node tmp_43_2_3)
+.preheader11.0:81  %tmp_33_2 = xor i8 %tmp17, %tmp_35
+
+ST_16: StgValue_360 (330)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:160  store i32 %tmp_43_1_1, i32* %state_addr_5, align 4
+
+ST_16: tmp32 (349)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_43_2)
+.preheader11.0:179  %tmp32 = xor i8 %sbox_load_2, %tmp_12_2
+
+ST_16: tmp32_cast (350)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_43_2)
+.preheader11.0:180  %tmp32_cast = zext i8 %tmp32 to i32
+
+ST_16: tmp_43_2 (351)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (out node of the LUT)
+.preheader11.0:181  %tmp_43_2 = xor i32 %tmp32_cast, %RoundKey_load_8
+
+ST_16: tmp33 (357)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_43_2_1)
+.preheader11.0:187  %tmp33 = xor i8 %sbox_load_7, %tmp_19_2
+
+ST_16: tmp33_cast (358)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_43_2_1)
+.preheader11.0:188  %tmp33_cast = zext i8 %tmp33 to i32
+
+ST_16: tmp_43_2_1 (359)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (out node of the LUT)
+.preheader11.0:189  %tmp_43_2_1 = xor i32 %tmp33_cast, %RoundKey_load_9
+
+ST_16: tmp_43_2_2 (365)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (out node of the LUT)
+.preheader11.0:195  %tmp_43_2_2 = xor i32 %RoundKey_load_10, %tmp_28_2
+
+ST_16: tmp34 (371)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_43_2_3)
+.preheader11.0:201  %tmp34 = xor i8 %sbox_load_13, %tmp_33_2
+
+ST_16: tmp34_cast (372)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_43_2_3)
+.preheader11.0:202  %tmp34_cast = zext i8 %tmp34 to i32
+
+ST_16: tmp_43_2_3 (373)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (out node of the LUT)
+.preheader11.0:203  %tmp_43_2_3 = xor i32 %tmp34_cast, %RoundKey_load_11
+
+
+ <State 17>: 2.31ns
+ST_17: sbox_addr_14 (79)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:74  %sbox_addr_14 = getelementptr [256 x i8]* @sbox, i32 0, i32 %state_load_14
+
+ST_17: sbox_load_14 (80)  [2/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:75  %sbox_load_14 = load i8* %sbox_addr_14, align 1
+
+ST_17: sbox_load_15 (84)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:79  %sbox_load_15 = load i8* %sbox_addr_15, align 1
+
+ST_17: sbox_load_15_cast (85)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:80  %sbox_load_15_cast = zext i8 %sbox_load_15 to i32
+
+ST_17: StgValue_375 (97)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:125
+.preheader12.preheader.0:92  store i32 %sbox_load_15_cast, i32* %state_addr_12, align 4
+
+ST_17: StgValue_376 (116)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:11  store i32 %tmp_40_0_2, i32* %state_addr_8, align 4
+
+ST_17: tmp_40_0_3 (119)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:14  %tmp_40_0_3 = xor i32 %sbox_load_15_cast, %RoundKey_load_19
+
+ST_17: tmp_7 (170)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader11.0:0  %tmp_7 = xor i8 %sbox_load_5, %sbox_load
+
+ST_17: tmp1 (171)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:139 (grouped into LUT with out node Tmp)
+.preheader11.0:1  %tmp1 = xor i8 %tmp_7, %sbox_load_15
+
+ST_17: Tmp (172)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:139 (out node of the LUT)
+.preheader11.0:2  %Tmp = xor i8 %tmp1, %sbox_load_10
+
+ST_17: tmp_6 (173)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:140 (grouped into LUT with out node tmp_47)
+.preheader11.0:3  %tmp_6 = shl i8 %tmp_7, 1
+
+ST_17: tmp_10 (174)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:140 (grouped into LUT with out node tmp_47)
+.preheader11.0:4  %tmp_10 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %tmp_7, i32 7)
+
+ST_17: tmp_71_cast_cast (175)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:140 (grouped into LUT with out node tmp_47)
+.preheader11.0:5  %tmp_71_cast_cast = select i1 %tmp_10, i8 27, i8 0
+
+ST_17: tmp2 (176)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:140 (grouped into LUT with out node tmp_47)
+.preheader11.0:6  %tmp2 = xor i8 %tmp_6, %Tmp
+
+ST_17: tmp_9 (177)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:140 (grouped into LUT with out node tmp_47)
+.preheader11.0:7  %tmp_9 = xor i8 %tmp2, %tmp_71_cast_cast
+
+ST_17: Tm_2 (178)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141
+.preheader11.0:8  %Tm_2 = xor i8 %sbox_load_10, %sbox_load_5
+
+ST_17: tmp_11 (179)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141 (grouped into LUT with out node tmp_43_0_1)
+.preheader11.0:9  %tmp_11 = shl i8 %Tm_2, 1
+
+ST_17: tmp_12 (180)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141 (grouped into LUT with out node tmp_43_0_1)
+.preheader11.0:10  %tmp_12 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %Tm_2, i32 7)
+
+ST_17: tmp_18_cast_cast (181)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141 (grouped into LUT with out node tmp_43_0_1)
+.preheader11.0:11  %tmp_18_cast_cast = select i1 %tmp_12, i8 27, i8 0
+
+ST_17: tmp3 (182)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141 (grouped into LUT with out node tmp_43_0_1)
+.preheader11.0:12  %tmp3 = xor i8 %tmp_11, %Tmp
+
+ST_17: tmp_s (183)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141 (grouped into LUT with out node tmp_43_0_1)
+.preheader11.0:13  %tmp_s = xor i8 %tmp3, %tmp_18_cast_cast
+
+ST_17: Tm_4 (184)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142
+.preheader11.0:14  %Tm_4 = xor i8 %sbox_load_15, %sbox_load_10
+
+ST_17: tmp_13 (185)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_0_2)
+.preheader11.0:15  %tmp_13 = shl i8 %Tm_4, 1
+
+ST_17: tmp_14 (186)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_0_2)
+.preheader11.0:16  %tmp_14 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %Tm_4, i32 7)
+
+ST_17: tmp_25_cast_cast (187)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_0_2)
+.preheader11.0:17  %tmp_25_cast_cast = select i1 %tmp_14, i8 27, i8 0
+
+ST_17: tmp4 (188)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_0_2)
+.preheader11.0:18  %tmp4 = xor i8 %Tmp, %tmp_25_cast_cast
+
+ST_17: tmp_15 (189)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_0_2)
+.preheader11.0:19  %tmp_15 = xor i8 %tmp4, %tmp_13
+
+ST_17: Tm_6 (190)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143
+.preheader11.0:20  %Tm_6 = xor i8 %sbox_load_15, %sbox_load
+
+ST_17: tmp_16 (191)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143 (grouped into LUT with out node tmp_43_0_3)
+.preheader11.0:21  %tmp_16 = shl i8 %Tm_6, 1
+
+ST_17: tmp_17 (192)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143 (grouped into LUT with out node tmp_43_0_3)
+.preheader11.0:22  %tmp_17 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %Tm_6, i32 7)
+
+ST_17: tmp_32_cast_cast (193)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143 (grouped into LUT with out node tmp_43_0_3)
+.preheader11.0:23  %tmp_32_cast_cast = select i1 %tmp_17, i8 27, i8 0
+
+ST_17: tmp5 (194)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143 (grouped into LUT with out node tmp_43_0_3)
+.preheader11.0:24  %tmp5 = xor i8 %Tmp, %tmp_32_cast_cast
+
+ST_17: tmp_18 (195)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143 (grouped into LUT with out node tmp_43_0_3)
+.preheader11.0:25  %tmp_18 = xor i8 %tmp5, %tmp_16
+
+ST_17: tmp25 (287)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_47)
+.preheader11.0:117  %tmp25 = xor i8 %sbox_load, %tmp_9
+
+ST_17: tmp25_cast (288)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_47)
+.preheader11.0:118  %tmp25_cast = zext i8 %tmp25 to i32
+
+ST_17: tmp_47 (289)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (out node of the LUT)
+.preheader11.0:119  %tmp_47 = xor i32 %tmp25_cast, %RoundKey_load
+
+ST_17: StgValue_407 (290)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:120  store i32 %tmp_47, i32* %state_addr, align 4
+
+ST_17: tmp26 (295)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_43_0_1)
+.preheader11.0:125  %tmp26 = xor i8 %sbox_load_5, %tmp_s
+
+ST_17: tmp26_cast (296)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_43_0_1)
+.preheader11.0:126  %tmp26_cast = zext i8 %tmp26 to i32
+
+ST_17: tmp_43_0_1 (297)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (out node of the LUT)
+.preheader11.0:127  %tmp_43_0_1 = xor i32 %tmp26_cast, %RoundKey_load_1
+
+ST_17: tmp27 (303)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_43_0_2)
+.preheader11.0:133  %tmp27 = xor i8 %sbox_load_10, %tmp_15
+
+ST_17: tmp27_cast (304)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_43_0_2)
+.preheader11.0:134  %tmp27_cast = zext i8 %tmp27 to i32
+
+ST_17: tmp_43_0_2 (305)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (out node of the LUT)
+.preheader11.0:135  %tmp_43_0_2 = xor i32 %tmp27_cast, %RoundKey_load_2
+
+ST_17: tmp28 (311)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_43_0_3)
+.preheader11.0:141  %tmp28 = xor i8 %sbox_load_15, %tmp_18
+
+ST_17: tmp28_cast (312)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_43_0_3)
+.preheader11.0:142  %tmp28_cast = zext i8 %tmp28 to i32
+
+ST_17: tmp_43_0_3 (313)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (out node of the LUT)
+.preheader11.0:143  %tmp_43_0_3 = xor i32 %tmp28_cast, %RoundKey_load_3
+
+
+ <State 18>: 2.80ns
+ST_18: sbox_load_14 (80)  [1/2] 1.35ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:75  %sbox_load_14 = load i8* %sbox_addr_14, align 1
+
+ST_18: sbox_load_14_cast (81)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader12.preheader.0:76  %sbox_load_14_cast = zext i8 %sbox_load_14 to i32
+
+ST_18: StgValue_419 (103)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:130
+.preheader12.preheader.0:98  br i1 %tmp_4, label %.preheader11.0, label %.preheader.preheader.0
+
+ST_18: StgValue_420 (120)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:15  store i32 %tmp_40_0_3, i32* %state_addr_12, align 4
+
+ST_18: tmp_40_3_3 (167)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:62  %tmp_40_3_3 = xor i32 %sbox_load_14_cast, %RoundKey_load_31
+
+ST_18: StgValue_422 (168)  [1/1] 0.49ns
+.preheader.preheader.0:63  br label %.loopexit
+
+ST_18: tmp_37 (252)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104
+.preheader11.0:82  %tmp_37 = xor i8 %temp, %sbox_load_3
+
+ST_18: tmp18 (253)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:139 (grouped into LUT with out node Tmp_3)
+.preheader11.0:83  %tmp18 = xor i8 %tmp_37, %sbox_load_14
+
+ST_18: Tmp_3 (254)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:139 (out node of the LUT)
+.preheader11.0:84  %Tmp_3 = xor i8 %tmp18, %temp_2
+
+ST_18: tmp_38 (255)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:140 (grouped into LUT with out node tmp_43_3)
+.preheader11.0:85  %tmp_38 = shl i8 %tmp_37, 1
+
+ST_18: tmp_39 (256)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:140 (grouped into LUT with out node tmp_43_3)
+.preheader11.0:86  %tmp_39 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %tmp_37, i32 7)
+
+ST_18: tmp_11_3_cast_cast (257)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:140 (grouped into LUT with out node tmp_43_3)
+.preheader11.0:87  %tmp_11_3_cast_cast = select i1 %tmp_39, i8 27, i8 0
+
+ST_18: tmp19 (258)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:140 (grouped into LUT with out node tmp_43_3)
+.preheader11.0:88  %tmp19 = xor i8 %tmp_38, %Tmp_3
+
+ST_18: tmp_12_3 (259)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:140 (grouped into LUT with out node tmp_43_3)
+.preheader11.0:89  %tmp_12_3 = xor i8 %tmp19, %tmp_11_3_cast_cast
+
+ST_18: Tm_2_3 (260)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141
+.preheader11.0:90  %Tm_2_3 = xor i8 %temp_2, %temp
+
+ST_18: tmp_40 (261)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141 (grouped into LUT with out node tmp_43_3_1)
+.preheader11.0:91  %tmp_40 = shl i8 %Tm_2_3, 1
+
+ST_18: tmp_41 (262)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141 (grouped into LUT with out node tmp_43_3_1)
+.preheader11.0:92  %tmp_41 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %Tm_2_3, i32 7)
+
+ST_18: tmp_18_3_cast_cast (263)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141 (grouped into LUT with out node tmp_43_3_1)
+.preheader11.0:93  %tmp_18_3_cast_cast = select i1 %tmp_41, i8 27, i8 0
+
+ST_18: tmp20 (264)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141 (grouped into LUT with out node tmp_43_3_1)
+.preheader11.0:94  %tmp20 = xor i8 %tmp_18_3_cast_cast, %tmp_40
+
+ST_18: tmp21 (265)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141 (grouped into LUT with out node tmp_43_3_1)
+.preheader11.0:95  %tmp21 = xor i8 %Tmp_3, %temp
+
+ST_18: tmp_21_s (266)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141 (grouped into LUT with out node tmp_43_3_1)
+.preheader11.0:96  %tmp_21_s = xor i8 %tmp21, %tmp20
+
+ST_18: tmp_21_3 (267)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:141 (grouped into LUT with out node tmp_43_3_1)
+.preheader11.0:97  %tmp_21_3 = zext i8 %tmp_21_s to i32
+
+ST_18: Tm_4_3 (268)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142
+.preheader11.0:98  %Tm_4_3 = xor i8 %sbox_load_14, %temp_2
+
+ST_18: tmp_42 (269)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_3_2)
+.preheader11.0:99  %tmp_42 = shl i8 %Tm_4_3, 1
+
+ST_18: tmp_43 (270)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_3_2)
+.preheader11.0:100  %tmp_43 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %Tm_4_3, i32 7)
+
+ST_18: tmp_25_3_cast_cast (271)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_3_2)
+.preheader11.0:101  %tmp_25_3_cast_cast = select i1 %tmp_43, i8 27, i8 0
+
+ST_18: tmp22 (272)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_3_2)
+.preheader11.0:102  %tmp22 = xor i8 %tmp_42, %Tmp_3
+
+ST_18: tmp23 (273)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_3_2)
+.preheader11.0:103  %tmp23 = xor i8 %tmp_25_3_cast_cast, %temp_2
+
+ST_18: tmp_28_4 (274)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_3_2)
+.preheader11.0:104  %tmp_28_4 = xor i8 %tmp23, %tmp22
+
+ST_18: tmp_28_3 (275)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:142 (grouped into LUT with out node tmp_43_3_2)
+.preheader11.0:105  %tmp_28_3 = zext i8 %tmp_28_4 to i32
+
+ST_18: Tm_6_3 (276)  [1/1] 0.06ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143
+.preheader11.0:106  %Tm_6_3 = xor i8 %sbox_load_14, %sbox_load_3
+
+ST_18: tmp_44 (277)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143 (grouped into LUT with out node tmp_43_3_3)
+.preheader11.0:107  %tmp_44 = shl i8 %Tm_6_3, 1
+
+ST_18: tmp_45 (278)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143 (grouped into LUT with out node tmp_43_3_3)
+.preheader11.0:108  %tmp_45 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %Tm_6_3, i32 7)
+
+ST_18: tmp_32_3_cast_cast (279)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143 (grouped into LUT with out node tmp_43_3_3)
+.preheader11.0:109  %tmp_32_3_cast_cast = select i1 %tmp_45, i8 27, i8 0
+
+ST_18: tmp24 (280)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143 (grouped into LUT with out node tmp_43_3_3)
+.preheader11.0:110  %tmp24 = xor i8 %Tmp_3, %tmp_32_3_cast_cast
+
+ST_18: tmp_33_3 (281)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:143 (grouped into LUT with out node tmp_43_3_3)
+.preheader11.0:111  %tmp_33_3 = xor i8 %tmp24, %tmp_44
+
+ST_18: StgValue_453 (298)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:128  store i32 %tmp_43_0_1, i32* %state_addr_4, align 4
+
+ST_18: tmp35 (379)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_43_3)
+.preheader11.0:209  %tmp35 = xor i8 %sbox_load_3, %tmp_12_3
+
+ST_18: tmp35_cast (380)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_43_3)
+.preheader11.0:210  %tmp35_cast = zext i8 %tmp35 to i32
+
+ST_18: tmp_43_3 (381)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (out node of the LUT)
+.preheader11.0:211  %tmp_43_3 = xor i32 %tmp35_cast, %RoundKey_load_12
+
+ST_18: tmp_43_3_1 (387)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (out node of the LUT)
+.preheader11.0:217  %tmp_43_3_1 = xor i32 %RoundKey_load_13, %tmp_21_3
+
+ST_18: tmp_43_3_2 (393)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (out node of the LUT)
+.preheader11.0:223  %tmp_43_3_2 = xor i32 %RoundKey_load_14, %tmp_28_3
+
+ST_18: tmp36 (399)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_43_3_3)
+.preheader11.0:229  %tmp36 = xor i8 %sbox_load_14, %tmp_33_3
+
+ST_18: tmp36_cast (400)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (grouped into LUT with out node tmp_43_3_3)
+.preheader11.0:230  %tmp36_cast = zext i8 %tmp36 to i32
+
+ST_18: tmp_43_3_3 (401)  [1/1] 0.10ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150 (out node of the LUT)
+.preheader11.0:231  %tmp_43_3_3 = xor i32 %tmp36_cast, %RoundKey_load_15
+
+ST_18: StgValue_462 (402)  [1/1] 0.49ns
+.preheader11.0:232  br label %.loopexit
+
+ST_18: storemerge (404)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.loopexit:0  %storemerge = phi i32 [ %tmp_40_3_3, %.preheader.preheader.0 ], [ %tmp_43_3_3, %.preheader11.0 ]
+
+ST_18: StgValue_464 (405)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.loopexit:1  store i32 %storemerge, i32* %state_addr_15, align 4
+
+
+ <State 19>: 0.79ns
+ST_19: StgValue_465 (124)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:19  store i32 %tmp_40_1, i32* %state_addr_1, align 4
+
+ST_19: StgValue_466 (128)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:23  store i32 %tmp_40_1_1, i32* %state_addr_5, align 4
+
+ST_19: StgValue_467 (306)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:136  store i32 %tmp_43_0_2, i32* %state_addr_8, align 4
+
+ST_19: StgValue_468 (314)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:144  store i32 %tmp_43_0_3, i32* %state_addr_12, align 4
+
+
+ <State 20>: 0.79ns
+ST_20: StgValue_469 (132)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:27  store i32 %tmp_40_1_2, i32* %state_addr_9, align 4
+
+ST_20: StgValue_470 (136)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:31  store i32 %tmp_40_1_3, i32* %state_addr_13, align 4
+
+ST_20: StgValue_471 (338)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:168  store i32 %tmp_43_1_2, i32* %state_addr_9, align 4
+
+ST_20: StgValue_472 (344)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:174  store i32 %tmp_43_1_3, i32* %state_addr_13, align 4
+
+
+ <State 21>: 0.79ns
+ST_21: StgValue_473 (140)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:35  store i32 %tmp_40_2, i32* %state_addr_2, align 4
+
+ST_21: StgValue_474 (144)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:39  store i32 %tmp_40_2_1, i32* %state_addr_6, align 4
+
+ST_21: StgValue_475 (352)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:182  store i32 %tmp_43_2, i32* %state_addr_2, align 4
+
+ST_21: StgValue_476 (360)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:190  store i32 %tmp_43_2_1, i32* %state_addr_6, align 4
+
+
+ <State 22>: 0.79ns
+ST_22: StgValue_477 (148)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:43  store i32 %tmp_40_2_2, i32* %state_addr_10, align 4
+
+ST_22: StgValue_478 (152)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:47  store i32 %tmp_40_2_3, i32* %state_addr_14, align 4
+
+ST_22: StgValue_479 (366)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:196  store i32 %tmp_43_2_2, i32* %state_addr_10, align 4
+
+ST_22: StgValue_480 (374)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:204  store i32 %tmp_43_2_3, i32* %state_addr_14, align 4
+
+
+ <State 23>: 0.79ns
+ST_23: StgValue_481 (156)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:51  store i32 %tmp_40_3, i32* %state_addr_3, align 4
+
+ST_23: StgValue_482 (160)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:55  store i32 %tmp_40_3_1, i32* %state_addr_7, align 4
+
+ST_23: StgValue_483 (382)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:212  store i32 %tmp_43_3, i32* %state_addr_3, align 4
+
+ST_23: StgValue_484 (388)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:218  store i32 %tmp_43_3_1, i32* %state_addr_7, align 4
+
+
+ <State 24>: 0.79ns
+ST_24: StgValue_485 (164)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:160
+.preheader.preheader.0:59  store i32 %tmp_40_3_2, i32* %state_addr_11, align 4
+
+ST_24: StgValue_486 (394)  [1/1] 0.79ns  loc: CCodedFiles/2nd/AES_Encrypt.c:150
+.preheader11.0:224  store i32 %tmp_43_3_2, i32* %state_addr_11, align 4
+
+ST_24: StgValue_487 (406)  [1/1] 0.00ns  loc: CCodedFiles/2nd/AES_Encrypt.c:168
+.loopexit:2  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.35ns
+The critical path consists of the following:
+	wire read on port 'round' [5]  (0 ns)
+	'getelementptr' operation ('RoundKey_addr', CCodedFiles/2nd/AES_Encrypt.c:150) [285]  (0 ns)
+	'load' operation ('RoundKey_load', CCodedFiles/2nd/AES_Encrypt.c:150) on array 'RoundKey' [286]  (1.35 ns)
+
+ <State 2>: 2.14ns
+The critical path consists of the following:
+	'load' operation ('num', CCodedFiles/2nd/AES_Encrypt.c:104) on array 'state' [22]  (0.79 ns)
+	'getelementptr' operation ('sbox_addr', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104) [23]  (0 ns)
+	'load' operation ('sbox_load', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104) on array 'sbox' [24]  (1.35 ns)
+
+ <State 3>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('sbox_load', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104) on array 'sbox' [24]  (1.35 ns)
+
+ <State 4>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('sbox_load_1', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104) on array 'sbox' [29]  (1.35 ns)
+
+ <State 5>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('sbox_load_2', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104) on array 'sbox' [34]  (1.35 ns)
+
+ <State 6>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('sbox_load_3', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104) on array 'sbox' [39]  (1.35 ns)
+
+ <State 7>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('temp', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104) on array 'sbox' [44]  (1.35 ns)
+
+ <State 8>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('sbox_load_5', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104) on array 'sbox' [47]  (1.35 ns)
+
+ <State 9>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('sbox_load_6', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104) on array 'sbox' [51]  (1.35 ns)
+
+ <State 10>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('sbox_load_7', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104) on array 'sbox' [55]  (1.35 ns)
+
+ <State 11>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('temp', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104) on array 'sbox' [59]  (1.35 ns)
+
+ <State 12>: 1.35ns
+The critical path consists of the following:
+	'load' operation ('temp', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104) on array 'sbox' [62]  (1.35 ns)
+
+ <State 13>: 2.14ns
+The critical path consists of the following:
+	'load' operation ('sbox_load_10', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104) on array 'sbox' [65]  (1.35 ns)
+	'store' operation (CCodedFiles/2nd/AES_Encrypt.c:117) of variable 'sbox_load_10_cast', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104 on array 'state' [91]  (0.79 ns)
+
+ <State 14>: 2.14ns
+The critical path consists of the following:
+	'load' operation ('sbox_load_11', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104) on array 'sbox' [69]  (1.35 ns)
+	'store' operation (CCodedFiles/2nd/AES_Encrypt.c:121) of variable 'sbox_load_11_cast', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104 on array 'state' [94]  (0.79 ns)
+
+ <State 15>: 2.31ns
+The critical path consists of the following:
+	'load' operation ('temp', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104) on array 'sbox' [73]  (1.35 ns)
+	'xor' operation ('tmp6', CCodedFiles/2nd/AES_Encrypt.c:139) [197]  (0 ns)
+	'xor' operation ('Tmp_1', CCodedFiles/2nd/AES_Encrypt.c:139) [198]  (0.064 ns)
+	'xor' operation ('tmp7', CCodedFiles/2nd/AES_Encrypt.c:140) [202]  (0 ns)
+	'xor' operation ('tmp_12_1', CCodedFiles/2nd/AES_Encrypt.c:140) [203]  (0 ns)
+	'xor' operation ('tmp29', CCodedFiles/2nd/AES_Encrypt.c:150) [319]  (0 ns)
+	'xor' operation ('tmp_43_1', CCodedFiles/2nd/AES_Encrypt.c:150) [321]  (0.1 ns)
+	'store' operation (CCodedFiles/2nd/AES_Encrypt.c:150) of variable 'tmp_43_1', CCodedFiles/2nd/AES_Encrypt.c:150 on array 'state' [322]  (0.79 ns)
+
+ <State 16>: 2.14ns
+The critical path consists of the following:
+	'load' operation ('sbox_load_13', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104) on array 'sbox' [76]  (1.35 ns)
+	'store' operation (CCodedFiles/2nd/AES_Encrypt.c:127) of variable 'sbox_load_13_cast', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104 on array 'state' [98]  (0.79 ns)
+
+ <State 17>: 2.31ns
+The critical path consists of the following:
+	'load' operation ('sbox_load_15', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104) on array 'sbox' [84]  (1.35 ns)
+	'xor' operation ('tmp1', CCodedFiles/2nd/AES_Encrypt.c:139) [171]  (0 ns)
+	'xor' operation ('Tmp', CCodedFiles/2nd/AES_Encrypt.c:139) [172]  (0.064 ns)
+	'xor' operation ('tmp2', CCodedFiles/2nd/AES_Encrypt.c:140) [176]  (0 ns)
+	'xor' operation ('tmp_9', CCodedFiles/2nd/AES_Encrypt.c:140) [177]  (0 ns)
+	'xor' operation ('tmp25', CCodedFiles/2nd/AES_Encrypt.c:150) [287]  (0 ns)
+	'xor' operation ('tmp_47', CCodedFiles/2nd/AES_Encrypt.c:150) [289]  (0.1 ns)
+	'store' operation (CCodedFiles/2nd/AES_Encrypt.c:150) of variable 'tmp_47', CCodedFiles/2nd/AES_Encrypt.c:150 on array 'state' [290]  (0.79 ns)
+
+ <State 18>: 2.8ns
+The critical path consists of the following:
+	'load' operation ('sbox_load_14', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104) on array 'sbox' [80]  (1.35 ns)
+	'xor' operation ('Tm_6_3', CCodedFiles/2nd/AES_Encrypt.c:143) [276]  (0.064 ns)
+	'shl' operation ('tmp_44', CCodedFiles/2nd/AES_Encrypt.c:143) [277]  (0 ns)
+	'xor' operation ('tmp_33_3', CCodedFiles/2nd/AES_Encrypt.c:143) [281]  (0 ns)
+	'xor' operation ('tmp36', CCodedFiles/2nd/AES_Encrypt.c:150) [399]  (0 ns)
+	'xor' operation ('tmp_43_3_3', CCodedFiles/2nd/AES_Encrypt.c:150) [401]  (0.1 ns)
+	multiplexor before 'phi' operation ('storemerge', CCodedFiles/2nd/AES_Encrypt.c:160) with incoming values : ('tmp_40_3_3', CCodedFiles/2nd/AES_Encrypt.c:160) ('tmp_43_3_3', CCodedFiles/2nd/AES_Encrypt.c:150) [404]  (0.489 ns)
+	'phi' operation ('storemerge', CCodedFiles/2nd/AES_Encrypt.c:160) with incoming values : ('tmp_40_3_3', CCodedFiles/2nd/AES_Encrypt.c:160) ('tmp_43_3_3', CCodedFiles/2nd/AES_Encrypt.c:150) [404]  (0 ns)
+	'store' operation (CCodedFiles/2nd/AES_Encrypt.c:150) of variable 'storemerge', CCodedFiles/2nd/AES_Encrypt.c:160 on array 'state' [405]  (0.79 ns)
+
+ <State 19>: 0.79ns
+The critical path consists of the following:
+	'store' operation (CCodedFiles/2nd/AES_Encrypt.c:160) of variable 'tmp_40_1', CCodedFiles/2nd/AES_Encrypt.c:160 on array 'state' [124]  (0.79 ns)
+
+ <State 20>: 0.79ns
+The critical path consists of the following:
+	'store' operation (CCodedFiles/2nd/AES_Encrypt.c:160) of variable 'tmp_40_1_2', CCodedFiles/2nd/AES_Encrypt.c:160 on array 'state' [132]  (0.79 ns)
+
+ <State 21>: 0.79ns
+The critical path consists of the following:
+	'store' operation (CCodedFiles/2nd/AES_Encrypt.c:160) of variable 'tmp_40_2', CCodedFiles/2nd/AES_Encrypt.c:160 on array 'state' [140]  (0.79 ns)
+
+ <State 22>: 0.79ns
+The critical path consists of the following:
+	'store' operation (CCodedFiles/2nd/AES_Encrypt.c:160) of variable 'tmp_40_2_2', CCodedFiles/2nd/AES_Encrypt.c:160 on array 'state' [148]  (0.79 ns)
+
+ <State 23>: 0.79ns
+The critical path consists of the following:
+	'store' operation (CCodedFiles/2nd/AES_Encrypt.c:160) of variable 'tmp_40_3', CCodedFiles/2nd/AES_Encrypt.c:160 on array 'state' [156]  (0.79 ns)
+
+ <State 24>: 0.79ns
+The critical path consists of the following:
+	'store' operation (CCodedFiles/2nd/AES_Encrypt.c:160) of variable 'tmp_40_3_2', CCodedFiles/2nd/AES_Encrypt.c:160 on array 'state' [164]  (0.79 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

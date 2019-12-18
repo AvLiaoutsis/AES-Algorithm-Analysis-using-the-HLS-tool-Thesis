@@ -1,0 +1,61 @@
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "C:/Xilinx/Vivado/2017.2/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2017.2
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2017.2/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_aes_main_top -prj aes_main.prj -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 --initfile C:/Xilinx/Vivado/2017.2/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s aes_main 
+Multi-threading is on. Using 4 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/trito/solution1/sim/verilog/AddRoundKey.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AddRoundKey
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/trito/solution1/sim/verilog/AESL_automem_key.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_key
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/trito/solution1/sim/verilog/AESL_automem_out_r.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_out_r
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/trito/solution1/sim/verilog/AESL_automem_statemt.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_statemt
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/trito/solution1/sim/verilog/aes_main.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_aes_main_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/trito/solution1/sim/verilog/aes_main.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module aes_main
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/trito/solution1/sim/verilog/aes_main_mux_42_3bkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module aes_main_mux_42_3bkb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/trito/solution1/sim/verilog/aes_main_word.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module aes_main_word_ram
+INFO: [VRFC 10-311] analyzing module aes_main_word
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/trito/solution1/sim/verilog/ByteSub_ShiftRow.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ByteSub_ShiftRow
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/trito/solution1/sim/verilog/KeySchedule.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeySchedule
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/trito/solution1/sim/verilog/KeySchedule_Rcon0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeySchedule_Rcon0_rom
+INFO: [VRFC 10-311] analyzing module KeySchedule_Rcon0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/trito/solution1/sim/verilog/KeySchedule_Sbox.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeySchedule_Sbox_rom
+INFO: [VRFC 10-311] analyzing module KeySchedule_Sbox
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/trito/solution1/sim/verilog/MixColumn_AddRoundEe.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MixColumn_AddRoundEe_ram
+INFO: [VRFC 10-311] analyzing module MixColumn_AddRoundEe
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisRaw/trito/solution1/sim/verilog/MixColumn_AddRoundKe.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MixColumn_AddRoundKe
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.aes_main_word_ram
+Compiling module xil_defaultlib.aes_main_word(DataWidth=32,Addre...
+Compiling module xil_defaultlib.MixColumn_AddRoundEe_ram
+Compiling module xil_defaultlib.MixColumn_AddRoundEe(DataWidth=3...
+Compiling module xil_defaultlib.MixColumn_AddRoundKe
+Compiling module xil_defaultlib.KeySchedule_Sbox_rom
+Compiling module xil_defaultlib.KeySchedule_Sbox(DataWidth=8,Add...
+Compiling module xil_defaultlib.KeySchedule_Rcon0_rom
+Compiling module xil_defaultlib.KeySchedule_Rcon0(DataWidth=8,Ad...
+Compiling module xil_defaultlib.aes_main_mux_42_3bkb(ID=1,din5_W...
+Compiling module xil_defaultlib.KeySchedule
+Compiling module xil_defaultlib.ByteSub_ShiftRow
+Compiling module xil_defaultlib.AddRoundKey
+Compiling module xil_defaultlib.aes_main
+Compiling module xil_defaultlib.AESL_automem_statemt
+Compiling module xil_defaultlib.AESL_automem_key
+Compiling module xil_defaultlib.AESL_automem_out_r
+Compiling module xil_defaultlib.apatb_aes_main_top
+Built simulation snapshot aes_main

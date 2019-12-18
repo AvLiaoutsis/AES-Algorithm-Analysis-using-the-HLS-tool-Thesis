@@ -1,0 +1,11 @@
+sv xil_defaultlib "AESL_automem_Key.v"
+sv xil_defaultlib "AESL_automem_state.v"
+sv xil_defaultlib "Cipher.autotb.v"
+sv xil_defaultlib "Cipher.v"
+sv xil_defaultlib "Cipher_RoundKey.v"
+sv xil_defaultlib "KeyExpansion.v"
+sv xil_defaultlib "KeyExpansion_Rcon.v"
+sv xil_defaultlib "KeyExpansion_sbox.v"
+sv xil_defaultlib "SubBytes.v"
+sv xil_defaultlib "SubBytes_sbox.v"
+

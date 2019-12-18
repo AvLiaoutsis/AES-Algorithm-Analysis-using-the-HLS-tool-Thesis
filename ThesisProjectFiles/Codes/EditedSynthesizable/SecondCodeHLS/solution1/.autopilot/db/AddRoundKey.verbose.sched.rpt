@@ -1,0 +1,255 @@
+
+
+================================================================
+== Vivado HLS Report for 'AddRoundKey'
+================================================================
+* Date:           Fri Apr  6 16:31:25 2018
+
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Project:        deutero
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu7eg-ffvf1517-1lv-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      2.30|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   41|   41|   41|   41|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1     |   40|   40|        10|          -|          -|     4|    no    |
+        | + Loop 1.1  |    8|    8|         2|          -|          -|     4|    no    |
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 4
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond1)
+3 --> 
+	4  / (!exitcond)
+	2  / (exitcond)
+4 --> 
+	3  / true
+* FSM state operations: 
+
+ <State 1>: 0.49ns
+ST_1: round_read (4)  [1/1] 0.00ns
+:0  %round_read = call i6 @_ssdm_op_Read.ap_auto.i6(i6 %round)
+
+ST_1: StgValue_6 (5)  [1/1] 0.49ns  loc: Edited/2nd/AES_Encrypt.c:107
+:1  br label %.loopexit
+
+
+ <State 2>: 0.86ns
+ST_2: i (7)  [1/1] 0.00ns
+.loopexit:0  %i = phi i3 [ 0, %0 ], [ %i_3, %.loopexit.loopexit ]
+
+ST_2: i_cast4_cast (8)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:107
+.loopexit:1  %i_cast4_cast = zext i3 %i to i6
+
+ST_2: exitcond1 (9)  [1/1] 0.18ns  loc: Edited/2nd/AES_Encrypt.c:107
+.loopexit:2  %exitcond1 = icmp eq i3 %i, -4
+
+ST_2: empty (10)  [1/1] 0.00ns
+.loopexit:3  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
+
+ST_2: i_3 (11)  [1/1] 0.86ns  loc: Edited/2nd/AES_Encrypt.c:107
+.loopexit:4  %i_3 = add i3 %i, 1
+
+ST_2: StgValue_12 (12)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:107
+.loopexit:5  br i1 %exitcond1, label %2, label %.preheader.preheader
+
+ST_2: tmp (14)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:107
+.preheader.preheader:0  %tmp = trunc i3 %i to i2
+
+ST_2: tmp_s (15)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:111
+.preheader.preheader:1  %tmp_s = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %tmp, i2 0)
+
+ST_2: tmp_cast (16)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:111
+.preheader.preheader:2  %tmp_cast = zext i4 %tmp_s to i8
+
+ST_2: StgValue_16 (17)  [1/1] 0.49ns  loc: Edited/2nd/AES_Encrypt.c:109
+.preheader.preheader:3  br label %.preheader
+
+ST_2: StgValue_17 (44)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:114
+:0  ret void
+
+
+ <State 3>: 2.30ns
+ST_3: j (19)  [1/1] 0.00ns
+.preheader:0  %j = phi i3 [ %j_3, %1 ], [ 0, %.preheader.preheader ]
+
+ST_3: tmp_20 (20)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:109
+.preheader:1  %tmp_20 = call i5 @_ssdm_op_BitConcatenate.i5.i3.i2(i3 %j, i2 0)
+
+ST_3: tmp_28_cast (21)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:111
+.preheader:2  %tmp_28_cast = zext i5 %tmp_20 to i6
+
+ST_3: tmp_21 (22)  [1/1] 0.91ns  loc: Edited/2nd/AES_Encrypt.c:111
+.preheader:3  %tmp_21 = add i6 %i_cast4_cast, %tmp_28_cast
+
+ST_3: tmp_29_cast (23)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:111
+.preheader:4  %tmp_29_cast = zext i6 %tmp_21 to i32
+
+ST_3: state_addr (24)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:111
+.preheader:5  %state_addr = getelementptr [16 x i32]* %state, i32 0, i32 %tmp_29_cast
+
+ST_3: exitcond (25)  [1/1] 0.18ns  loc: Edited/2nd/AES_Encrypt.c:109
+.preheader:6  %exitcond = icmp eq i3 %j, -4
+
+ST_3: empty_38 (26)  [1/1] 0.00ns
+.preheader:7  %empty_38 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
+
+ST_3: j_3 (27)  [1/1] 0.86ns  loc: Edited/2nd/AES_Encrypt.c:109
+.preheader:8  %j_3 = add i3 %j, 1
+
+ST_3: StgValue_27 (28)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:109
+.preheader:9  br i1 %exitcond, label %.loopexit.loopexit, label %1
+
+ST_3: tmp_42 (30)  [1/1] 0.00ns
+:0  %tmp_42 = trunc i6 %round_read to i4
+
+ST_3: tmp1 (31)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:109
+:1  %tmp1 = call i8 @_ssdm_op_BitConcatenate.i8.i4.i1.i3(i4 %tmp_42, i1 false, i3 %j)
+
+ST_3: sum3 (32)  [1/1] 0.95ns  loc: Edited/2nd/AES_Encrypt.c:109
+:2  %sum3 = add i8 %tmp1, %tmp_cast
+
+ST_3: sum3_cast (33)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:109
+:3  %sum3_cast = zext i8 %sum3 to i32
+
+ST_3: RoundKey_addr (34)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:111
+:4  %RoundKey_addr = getelementptr [240 x i8]* %RoundKey, i32 0, i32 %sum3_cast
+
+ST_3: RoundKey_load (35)  [2/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:111
+:5  %RoundKey_load = load i8* %RoundKey_addr, align 1
+
+ST_3: state_load (37)  [2/2] 0.79ns  loc: Edited/2nd/AES_Encrypt.c:111
+:7  %state_load = load i32* %state_addr, align 4
+
+ST_3: StgValue_35 (42)  [1/1] 0.00ns
+.loopexit.loopexit:0  br label %.loopexit
+
+
+ <State 4>: 2.21ns
+ST_4: RoundKey_load (35)  [1/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:111
+:5  %RoundKey_load = load i8* %RoundKey_addr, align 1
+
+ST_4: tmp_18 (36)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:111
+:6  %tmp_18 = zext i8 %RoundKey_load to i32
+
+ST_4: state_load (37)  [1/2] 0.79ns  loc: Edited/2nd/AES_Encrypt.c:111
+:7  %state_load = load i32* %state_addr, align 4
+
+ST_4: tmp_19 (38)  [1/1] 0.06ns  loc: Edited/2nd/AES_Encrypt.c:111
+:8  %tmp_19 = xor i32 %state_load, %tmp_18
+
+ST_4: StgValue_40 (39)  [1/1] 0.79ns  loc: Edited/2nd/AES_Encrypt.c:111
+:9  store i32 %tmp_19, i32* %state_addr, align 4
+
+ST_4: StgValue_41 (40)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:109
+:10  br label %.preheader
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.489ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', Edited/2nd/AES_Encrypt.c:107) [7]  (0.489 ns)
+
+ <State 2>: 0.856ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', Edited/2nd/AES_Encrypt.c:107) [7]  (0 ns)
+	'add' operation ('i', Edited/2nd/AES_Encrypt.c:107) [11]  (0.856 ns)
+
+ <State 3>: 2.3ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', Edited/2nd/AES_Encrypt.c:109) [19]  (0 ns)
+	'add' operation ('sum3', Edited/2nd/AES_Encrypt.c:109) [32]  (0.945 ns)
+	'getelementptr' operation ('RoundKey_addr', Edited/2nd/AES_Encrypt.c:111) [34]  (0 ns)
+	'load' operation ('RoundKey_load', Edited/2nd/AES_Encrypt.c:111) on array 'RoundKey' [35]  (1.35 ns)
+
+ <State 4>: 2.21ns
+The critical path consists of the following:
+	'load' operation ('RoundKey_load', Edited/2nd/AES_Encrypt.c:111) on array 'RoundKey' [35]  (1.35 ns)
+	'xor' operation ('tmp_19', Edited/2nd/AES_Encrypt.c:111) [38]  (0.064 ns)
+	'store' operation (Edited/2nd/AES_Encrypt.c:111) of variable 'tmp_19', Edited/2nd/AES_Encrypt.c:111 on array 'state' [39]  (0.79 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

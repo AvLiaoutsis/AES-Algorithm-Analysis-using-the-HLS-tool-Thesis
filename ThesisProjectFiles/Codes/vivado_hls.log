@@ -1,0 +1,117 @@
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado_HLS/2017.2/bin/unwrapped/win64.o/vivado_hls.exe'
+INFO: [HLS 200-10] For user 'Lincoln' on host 'desktop-cof76il' (Windows NT_amd64 version 6.2) on Fri Apr 06 16:31:13 +0300 2018
+INFO: [HLS 200-10] In directory 'C:/Users/Lincoln/Desktop/ThesisRaw'
+INFO: [HLS 200-10] Opening project 'C:/Users/Lincoln/Desktop/ThesisRaw/deutero'.
+INFO: [HLS 200-10] Adding design file 'Edited/2nd/AES_Encrypt.c' to the project
+INFO: [HLS 200-10] Adding test bench file 'Edited/2nd/test.c' to the project
+INFO: [HLS 200-10] Opening solution 'C:/Users/Lincoln/Desktop/ThesisRaw/deutero/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xczu7eg-ffvf1517-1lv-i'
+INFO: [HLS 200-10] Analyzing design file 'Edited/2nd/AES_Encrypt.c' ... 
+INFO: [HLS 200-10] Validating synthesis directives ...
+WARNING: [HLS 200-40] Directive 'LOOP_TRIPCOUNT' cannot be applied: Label 'KeyExpansion_label0' does not exist in function 'KeyExpansion'. 
+WARNING: [HLS 200-40] Directive 'LOOP_TRIPCOUNT' cannot be applied: Label 'KeyExpansion_label1' does not exist in function 'KeyExpansion'. 
+WARNING: [HLS 200-40] Directive 'LOOP_TRIPCOUNT' cannot be applied: Label 'Cipher_label2' does not exist in function 'Cipher'. 
+WARNING: [HLS 200-40] Directive 'LOOP_TRIPCOUNT' cannot be applied: Label 'Cipher_label3' does not exist in function 'Cipher'. 
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 96.414 ; gain = 46.715
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 96.434 ; gain = 46.734
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 99.887 ; gain = 50.188
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'getSBoxValue' into 'KeyExpansion' (Edited/2nd/AES_Encrypt.c:76) automatically.
+INFO: [XFORM 203-602] Inlining function 'getSBoxValue' into 'SubBytes' (Edited/2nd/AES_Encrypt.c:125) automatically.
+INFO: [XFORM 203-602] Inlining function 'ShiftRows' into 'Cipher' (Edited/2nd/AES_Encrypt.c:224) automatically.
+INFO: [XFORM 203-602] Inlining function 'MixColumns' into 'Cipher' (Edited/2nd/AES_Encrypt.c:225) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:04 ; elapsed = 00:00:10 . Memory (MB): peak = 99.887 ; gain = 50.188
+INFO: [XFORM 203-102] Automatically partitioning small array 'temp' (Edited/2nd/AES_Encrypt.c:39) completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'temp' (Edited/2nd/AES_Encrypt.c:39) in dimension 1 completely.
+INFO: [XFORM 203-602] Inlining function 'getSBoxValue' into 'KeyExpansion' (Edited/2nd/AES_Encrypt.c:76) automatically.
+INFO: [XFORM 203-602] Inlining function 'getSBoxValue' into 'SubBytes' (Edited/2nd/AES_Encrypt.c:125) automatically.
+INFO: [XFORM 203-602] Inlining function 'ShiftRows' into 'Cipher' (Edited/2nd/AES_Encrypt.c:224) automatically.
+INFO: [XFORM 203-602] Inlining function 'MixColumns' into 'Cipher' (Edited/2nd/AES_Encrypt.c:225) automatically.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock to (Edited/2nd/AES_Encrypt.c:53:18) in function 'KeyExpansion'... converting 5 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (Edited/2nd/AES_Encrypt.c:57:6) to (Edited/2nd/AES_Encrypt.c:99:2) in function 'KeyExpansion'... converting 3 basic blocks.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 119.813 ; gain = 70.113
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 141.719 ; gain = 92.020
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'Cipher' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'KeyExpansion' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 11.588 seconds; current allocated memory: 104.692 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.204 seconds; current allocated memory: 105.169 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'AddRoundKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.246 seconds; current allocated memory: 105.369 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.248 seconds; current allocated memory: 105.479 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'SubBytes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.115 seconds; current allocated memory: 105.584 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.126 seconds; current allocated memory: 105.669 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'Cipher' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.19 seconds; current allocated memory: 106.163 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.346 seconds; current allocated memory: 106.676 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'KeyExpansion' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'KeyExpansion'.
+INFO: [HLS 200-111]  Elapsed time: 0.369 seconds; current allocated memory: 107.519 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'AddRoundKey' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'AddRoundKey'.
+INFO: [HLS 200-111]  Elapsed time: 0.658 seconds; current allocated memory: 108.039 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'SubBytes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'SubBytes'.
+INFO: [HLS 200-111]  Elapsed time: 0.346 seconds; current allocated memory: 108.276 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Cipher' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'Cipher/state' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Cipher/Key' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'Cipher' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Cipher'.
+INFO: [HLS 200-111]  Elapsed time: 0.401 seconds; current allocated memory: 109.379 MB.
+INFO: [RTMG 210-279] Implementing memory 'KeyExpansion_sbox_rom' using block ROMs.
+INFO: [RTMG 210-279] Implementing memory 'KeyExpansion_Rcon_rom' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'SubBytes_sbox_rom' using auto ROMs.
+INFO: [RTMG 210-278] Implementing memory 'Cipher_RoundKey_ram' using block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:07 ; elapsed = 00:00:18 . Memory (MB): peak = 156.344 ; gain = 106.645
+INFO: [SYSC 207-301] Generating SystemC RTL for Cipher.
+INFO: [VHDL 208-304] Generating VHDL RTL for Cipher.
+INFO: [VLOG 209-307] Generating Verilog RTL for Cipher.
+INFO: [HLS 200-112] Total elapsed time: 17.599 seconds; peak allocated memory: 109.379 MB.

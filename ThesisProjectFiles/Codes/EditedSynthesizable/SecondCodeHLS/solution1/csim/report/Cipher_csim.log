@@ -1,0 +1,29 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling(apcc) ../../../../Edited/2nd/test.c in debug mode
+INFO: [HLS 200-10] Running 'c:/Xilinx/Vivado_HLS/2017.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'Lincoln' on host 'desktop-cof76il' (Windows NT_amd64 version 6.2) on Fri Apr 06 13:02:34 +0300 2018
+INFO: [HLS 200-10] In directory 'C:/Users/Lincoln/Desktop/ThesisRaw/deutero/solution1/csim/build'
+../../../../Edited/2nd/test.c:3:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main()
+^
+1 warning generated.
+../../../../Edited/2nd/test.c:3:1: warning: return type of 'main' is not 'int' [-Wmain-return-type]
+void main()
+^
+1 warning generated.
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Compiling(apcc) ../../../../Edited/2nd/AES_Encrypt.c in debug mode
+INFO: [HLS 200-10] Running 'c:/Xilinx/Vivado_HLS/2017.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'Lincoln' on host 'desktop-cof76il' (Windows NT_amd64 version 6.2) on Fri Apr 06 13:02:40 +0300 2018
+INFO: [HLS 200-10] In directory 'C:/Users/Lincoln/Desktop/ThesisRaw/deutero/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Generating csim.exe
+
+Text after encryption:
+69 c4 e0 d8 6a 7b 04 30 d8 cd b7 80 70 b4 c5 5a 
+
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

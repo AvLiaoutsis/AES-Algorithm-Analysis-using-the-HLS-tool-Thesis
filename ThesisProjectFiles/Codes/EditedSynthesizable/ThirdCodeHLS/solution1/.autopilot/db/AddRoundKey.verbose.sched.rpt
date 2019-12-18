@@ -1,0 +1,338 @@
+
+
+================================================================
+== Vivado HLS Report for 'AddRoundKey'
+================================================================
+* Date:           Fri Apr  6 15:28:23 2018
+
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Project:        trito
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu7eg-ffvf1517-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      2.82|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   17|   17|   17|   17|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |   16|   16|         4|          -|          -|     4|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 5
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond)
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	2  / true
+* FSM state operations: 
+
+ <State 1>: 0.43ns
+ST_1: n_read (4)  [1/1] 0.00ns
+._crit_edge3:0  %n_read = call i6 @_ssdm_op_Read.ap_auto.i6(i6 %n)
+
+ST_1: tmp (5)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:615
+._crit_edge3:1  %tmp = shl i6 %n_read, 2
+
+ST_1: StgValue_8 (6)  [1/1] 0.43ns  loc: Edited/3rd/aes.c:613
+._crit_edge3:2  br label %0
+
+
+ <State 2>: 2.82ns
+ST_2: j (8)  [1/1] 0.00ns
+:0  %j = phi i3 [ 0, %._crit_edge3 ], [ %j_6, %1 ]
+
+ST_2: j_cast1 (9)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:613
+:1  %j_cast1 = zext i3 %j to i6
+
+ST_2: exitcond (10)  [1/1] 0.14ns  loc: Edited/3rd/aes.c:613
+:2  %exitcond = icmp eq i3 %j, -4
+
+ST_2: empty (11)  [1/1] 0.00ns
+:3  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
+
+ST_2: j_6 (12)  [1/1] 0.74ns  loc: Edited/3rd/aes.c:613
+:4  %j_6 = add i3 %j, 1
+
+ST_2: StgValue_14 (13)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:613
+:5  br i1 %exitcond, label %2, label %1
+
+ST_2: tmp_s (15)  [1/1] 0.75ns  loc: Edited/3rd/aes.c:615
+:0  %tmp_s = add i6 %j_cast1, %tmp
+
+ST_2: tmp_cast (16)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:615
+:1  %tmp_cast = zext i6 %tmp_s to i32
+
+ST_2: tmp_cast_cast (18)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:615
+:3  %tmp_cast_cast = zext i6 %tmp_s to i8
+
+ST_2: worda_addr (19)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:615
+:4  %worda_addr = getelementptr [480 x i32]* @worda, i32 0, i32 %tmp_cast
+
+ST_2: tmp_98 (20)  [1/1] 0.82ns  loc: Edited/3rd/aes.c:616
+:5  %tmp_98 = add i8 120, %tmp_cast_cast
+
+ST_2: tmp_99_cast (21)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:616
+:6  %tmp_99_cast = zext i8 %tmp_98 to i32
+
+ST_2: worda_addr_10 (22)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:616
+:7  %worda_addr_10 = getelementptr [480 x i32]* @worda, i32 0, i32 %tmp_99_cast
+
+ST_2: worda_load (29)  [2/2] 1.24ns  loc: Edited/3rd/aes.c:615
+:14  %worda_load = load i32* %worda_addr, align 4
+
+ST_2: tmp_104 (30)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:613
+:15  %tmp_104 = trunc i3 %j to i2
+
+ST_2: tmp_37 (31)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:615
+:16  %tmp_37 = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %tmp_104, i2 0)
+
+ST_2: tmp_84_cast (32)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:615
+:17  %tmp_84_cast = zext i4 %tmp_37 to i32
+
+ST_2: statemt_addr (33)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:615
+:18  %statemt_addr = getelementptr [32 x i32]* %statemt, i32 0, i32 %tmp_84_cast
+
+ST_2: statemt_load (34)  [2/2] 1.24ns  loc: Edited/3rd/aes.c:615
+:19  %statemt_load = load i32* %statemt_addr, align 4
+
+ST_2: worda_load_5 (37)  [2/2] 1.24ns  loc: Edited/3rd/aes.c:616
+:22  %worda_load_5 = load i32* %worda_addr_10, align 4
+
+ST_2: tmp_39 (38)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:616
+:23  %tmp_39 = or i4 %tmp_37, 1
+
+ST_2: tmp_86_cast (39)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:616
+:24  %tmp_86_cast = zext i4 %tmp_39 to i32
+
+ST_2: statemt_addr_23 (40)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:616
+:25  %statemt_addr_23 = getelementptr [32 x i32]* %statemt, i32 0, i32 %tmp_86_cast
+
+ST_2: statemt_load_19 (41)  [2/2] 1.24ns  loc: Edited/3rd/aes.c:616
+:26  %statemt_load_19 = load i32* %statemt_addr_23, align 4
+
+ST_2: StgValue_33 (60)  [1/1] 0.00ns
+:0  ret void
+
+
+ <State 3>: 2.10ns
+ST_3: tmp_cast_cast1 (17)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:615
+:2  %tmp_cast_cast1 = zext i6 %tmp_s to i9
+
+ST_3: tmp_99 (23)  [1/1] 0.86ns  loc: Edited/3rd/aes.c:617
+:8  %tmp_99 = add i9 240, %tmp_cast_cast1
+
+ST_3: tmp_100_cast (24)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:617
+:9  %tmp_100_cast = zext i9 %tmp_99 to i32
+
+ST_3: worda_addr_11 (25)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:617
+:10  %worda_addr_11 = getelementptr [480 x i32]* @worda, i32 0, i32 %tmp_100_cast
+
+ST_3: tmp_100 (26)  [1/1] 0.86ns  loc: Edited/3rd/aes.c:618
+:11  %tmp_100 = add i9 -152, %tmp_cast_cast1
+
+ST_3: tmp_101_cast (27)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:618
+:12  %tmp_101_cast = zext i9 %tmp_100 to i32
+
+ST_3: worda_addr_12 (28)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:618
+:13  %worda_addr_12 = getelementptr [480 x i32]* @worda, i32 0, i32 %tmp_101_cast
+
+ST_3: worda_load (29)  [1/2] 1.24ns  loc: Edited/3rd/aes.c:615
+:14  %worda_load = load i32* %worda_addr, align 4
+
+ST_3: statemt_load (34)  [1/2] 1.24ns  loc: Edited/3rd/aes.c:615
+:19  %statemt_load = load i32* %statemt_addr, align 4
+
+ST_3: tmp_38 (35)  [1/1] 0.05ns  loc: Edited/3rd/aes.c:615
+:20  %tmp_38 = xor i32 %statemt_load, %worda_load
+
+ST_3: worda_load_5 (37)  [1/2] 1.24ns  loc: Edited/3rd/aes.c:616
+:22  %worda_load_5 = load i32* %worda_addr_10, align 4
+
+ST_3: statemt_load_19 (41)  [1/2] 1.24ns  loc: Edited/3rd/aes.c:616
+:26  %statemt_load_19 = load i32* %statemt_addr_23, align 4
+
+ST_3: tmp_40 (42)  [1/1] 0.05ns  loc: Edited/3rd/aes.c:616
+:27  %tmp_40 = xor i32 %statemt_load_19, %worda_load_5
+
+ST_3: worda_load_6 (44)  [2/2] 1.24ns  loc: Edited/3rd/aes.c:617
+:29  %worda_load_6 = load i32* %worda_addr_11, align 4
+
+ST_3: tmp_41 (45)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:617
+:30  %tmp_41 = or i4 %tmp_37, 2
+
+ST_3: tmp_88_cast (46)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:617
+:31  %tmp_88_cast = zext i4 %tmp_41 to i32
+
+ST_3: statemt_addr_24 (47)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:617
+:32  %statemt_addr_24 = getelementptr [32 x i32]* %statemt, i32 0, i32 %tmp_88_cast
+
+ST_3: statemt_load_20 (48)  [2/2] 1.24ns  loc: Edited/3rd/aes.c:617
+:33  %statemt_load_20 = load i32* %statemt_addr_24, align 4
+
+ST_3: worda_load_7 (51)  [2/2] 1.24ns  loc: Edited/3rd/aes.c:618
+:36  %worda_load_7 = load i32* %worda_addr_12, align 4
+
+ST_3: tmp_43 (52)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:618
+:37  %tmp_43 = or i4 %tmp_37, 3
+
+ST_3: tmp_90_cast (53)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:618
+:38  %tmp_90_cast = zext i4 %tmp_43 to i32
+
+ST_3: statemt_addr_25 (54)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:618
+:39  %statemt_addr_25 = getelementptr [32 x i32]* %statemt, i32 0, i32 %tmp_90_cast
+
+ST_3: statemt_load_21 (55)  [2/2] 1.24ns  loc: Edited/3rd/aes.c:618
+:40  %statemt_load_21 = load i32* %statemt_addr_25, align 4
+
+
+ <State 4>: 1.29ns
+ST_4: StgValue_57 (36)  [1/1] 1.24ns  loc: Edited/3rd/aes.c:615
+:21  store i32 %tmp_38, i32* %statemt_addr, align 4
+
+ST_4: StgValue_58 (43)  [1/1] 1.24ns  loc: Edited/3rd/aes.c:616
+:28  store i32 %tmp_40, i32* %statemt_addr_23, align 4
+
+ST_4: worda_load_6 (44)  [1/2] 1.24ns  loc: Edited/3rd/aes.c:617
+:29  %worda_load_6 = load i32* %worda_addr_11, align 4
+
+ST_4: statemt_load_20 (48)  [1/2] 1.24ns  loc: Edited/3rd/aes.c:617
+:33  %statemt_load_20 = load i32* %statemt_addr_24, align 4
+
+ST_4: tmp_42 (49)  [1/1] 0.05ns  loc: Edited/3rd/aes.c:617
+:34  %tmp_42 = xor i32 %statemt_load_20, %worda_load_6
+
+ST_4: worda_load_7 (51)  [1/2] 1.24ns  loc: Edited/3rd/aes.c:618
+:36  %worda_load_7 = load i32* %worda_addr_12, align 4
+
+ST_4: statemt_load_21 (55)  [1/2] 1.24ns  loc: Edited/3rd/aes.c:618
+:40  %statemt_load_21 = load i32* %statemt_addr_25, align 4
+
+ST_4: tmp_44 (56)  [1/1] 0.05ns  loc: Edited/3rd/aes.c:618
+:41  %tmp_44 = xor i32 %statemt_load_21, %worda_load_7
+
+
+ <State 5>: 1.24ns
+ST_5: StgValue_65 (50)  [1/1] 1.24ns  loc: Edited/3rd/aes.c:617
+:35  store i32 %tmp_42, i32* %statemt_addr_24, align 4
+
+ST_5: StgValue_66 (57)  [1/1] 1.24ns  loc: Edited/3rd/aes.c:618
+:42  store i32 %tmp_44, i32* %statemt_addr_25, align 4
+
+ST_5: StgValue_67 (58)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:613
+:43  br label %0
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.427ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', Edited/3rd/aes.c:613) [8]  (0.427 ns)
+
+ <State 2>: 2.82ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', Edited/3rd/aes.c:613) [8]  (0 ns)
+	'add' operation ('tmp_s', Edited/3rd/aes.c:615) [15]  (0.754 ns)
+	'add' operation ('tmp_98', Edited/3rd/aes.c:616) [20]  (0.825 ns)
+	'getelementptr' operation ('worda_addr_10', Edited/3rd/aes.c:616) [22]  (0 ns)
+	'load' operation ('worda_load_5', Edited/3rd/aes.c:616) on array 'worda' [37]  (1.24 ns)
+
+ <State 3>: 2.1ns
+The critical path consists of the following:
+	'add' operation ('tmp_100', Edited/3rd/aes.c:618) [26]  (0.86 ns)
+	'getelementptr' operation ('worda_addr_12', Edited/3rd/aes.c:618) [28]  (0 ns)
+	'load' operation ('worda_load_7', Edited/3rd/aes.c:618) on array 'worda' [51]  (1.24 ns)
+
+ <State 4>: 1.29ns
+The critical path consists of the following:
+	'load' operation ('worda_load_6', Edited/3rd/aes.c:617) on array 'worda' [44]  (1.24 ns)
+	'xor' operation ('tmp_42', Edited/3rd/aes.c:617) [49]  (0.051 ns)
+
+ <State 5>: 1.24ns
+The critical path consists of the following:
+	'store' operation (Edited/3rd/aes.c:617) of variable 'tmp_42', Edited/3rd/aes.c:617 on array 'statemt' [50]  (1.24 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

@@ -1,0 +1,18 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling(apcc) ../../../../Edited/3rd/testbench.c in debug mode
+INFO: [HLS 200-10] Running 'c:/Xilinx/Vivado_HLS/2017.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'Lincoln' on host 'desktop-cof76il' (Windows NT_amd64 version 6.2) on Fri Apr 06 12:35:44 +0300 2018
+INFO: [HLS 200-10] In directory 'C:/Users/Lincoln/Desktop/ThesisRaw/trito/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Compiling(apcc) ../../../../Edited/3rd/aes.c in debug mode
+INFO: [HLS 200-10] Running 'c:/Xilinx/Vivado_HLS/2017.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'Lincoln' on host 'desktop-cof76il' (Windows NT_amd64 version 6.2) on Fri Apr 06 12:35:50 +0300 2018
+INFO: [HLS 200-10] In directory 'C:/Users/Lincoln/Desktop/ThesisRaw/trito/solution1/csim/build'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Generating csim.exe
+encrypted message EDW!! 	3925841d02dc09fbdc118597196a0b32
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

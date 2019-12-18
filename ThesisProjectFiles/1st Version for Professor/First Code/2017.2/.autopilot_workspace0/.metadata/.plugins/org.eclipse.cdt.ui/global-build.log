@@ -1,0 +1,14 @@
+16:34:05 **** Build of configuration Debug for project proj_sum_io ****
+make all 
+Building file: C:/Users/Lincoln/sum_io/proj_sum_io/des.cpp
+Invoking: GCC C++ Compiler
+g++ -DAESL_TB -D__llvm__ -D__llvm__ -IC:/Xilinx/Vivado_HLS/2017.2/win64/tools/systemc/include -IC:/Xilinx/Vivado_HLS/2017.2/include/ap_sysc -IC:/Users/Lincoln/sum_io -IC:/Xilinx/Vivado_HLS/2017.2/include/etc -IC:/Xilinx/Vivado_HLS/2017.2/win64/tools/auto_cc/include -IC:/Xilinx/Vivado_HLS/2017.2/include -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"source/des.d" -MT"source/des.d" -o "source/des.o" "C:/Users/Lincoln/sum_io/proj_sum_io/des.cpp"
+Finished building: C:/Users/Lincoln/sum_io/proj_sum_io/des.cpp
+ 
+Building target: a.exe
+Invoking: GCC C++ Linker
+g++ -LC:/Xilinx/Vivado_HLS/2017.2/win64/tools/systemc/lib -o "a.exe"  ./source/des.o   
+c:/xilinx/vivado_hls/2017.2/msys/bin/../lib/gcc/mingw32/4.6.2/../../../libmingw32.a(main.o): In function `main':
+C:\MinGW\msys\1.0\src\mingwrt/../mingw/main.c:73: undefined reference to `WinMain@16'
+collect2: ld returned 1 exit status
+make: *** [a.exe] Error 1

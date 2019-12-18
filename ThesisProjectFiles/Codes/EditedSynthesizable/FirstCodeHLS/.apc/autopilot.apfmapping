@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="sbox.h" path="C:\Users\Lincoln\Desktop\ThesisProjectFiles\Codes\Edited\sbox.h"/>
+    <originFiles name="aes.c" path="C:\Users\Lincoln\Desktop\ThesisProjectFiles\Codes\Edited\aes.c"/>
+  </source>
+  <testbench>
+    <originFiles name="gen_test_case.c" path="C:\Users\Lincoln\Desktop\ThesisProjectFiles\Codes\Edited\gen_test_case.c"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

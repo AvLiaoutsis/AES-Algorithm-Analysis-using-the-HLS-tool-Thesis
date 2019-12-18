@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# xsim v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Thu Dec  7 12:30:14 2017
+# Process ID: 1324
+# Current directory: C:/Users/Lincoln/Desktop/ThesisSuccess/Third/solution1/sim/vhdl
+# Command line: xsim.exe -mode tcl -source {xsim.dir/aes_main/xsim_script.tcl}
+# Log file: C:/Users/Lincoln/Desktop/ThesisSuccess/Third/solution1/sim/vhdl/xsim.log
+# Journal file: C:/Users/Lincoln/Desktop/ThesisSuccess/Third/solution1/sim/vhdl\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/aes_main/xsim_script.tcl
+source aes_main.tcl

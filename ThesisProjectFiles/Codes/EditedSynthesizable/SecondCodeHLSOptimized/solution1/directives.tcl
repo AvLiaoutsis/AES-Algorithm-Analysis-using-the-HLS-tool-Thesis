@@ -1,0 +1,42 @@
+############################################################
+## This file is generated automatically by Vivado HLS.
+## Please DO NOT edit it.
+## Copyright (C) 1986-2017 Xilinx, Inc. All Rights Reserved.
+############################################################
+set_directive_unroll "KeyExpansion/KeyExpansion_label5"
+set_directive_unroll "KeyExpansion/KeyExpansion_label6"
+set_directive_pipeline "KeyExpansion/KeyExpansion_label7"
+set_directive_unroll "KeyExpansion/KeyExpansion_label8"
+set_directive_unroll "KeyExpansion/KeyExpansion_label9"
+set_directive_pipeline "AddRoundKey/AddRoundKey_label10"
+set_directive_pipeline "AddRoundKey/AddRoundKey_label11"
+set_directive_pipeline "AddRoundKey/AddRoundKey_label12"
+set_directive_unroll "KeyExpansion/KeyExpansion_label13"
+set_directive_pipeline "AddRoundKey/AddRoundKey_label14"
+set_directive_unroll "AddRoundKey/AddRoundKey_label15"
+set_directive_unroll "AddRoundKey/AddRoundKey_label16"
+set_directive_unroll "AddRoundKey/AddRoundKey_label18"
+set_directive_unroll "SubBytes/SubBytes_label21"
+set_directive_pipeline "SubBytes/SubBytes_label22"
+set_directive_unroll "SubBytes/SubBytes_label23"
+set_directive_unroll "SubBytes/SubBytes_label25"
+set_directive_unroll "MixColumns/MixColumns_label26"
+set_directive_pipeline "MixColumns/MixColumns_label27"
+set_directive_unroll "SubBytes/SubBytes_label28"
+set_directive_pipeline "MixColumns/MixColumns_label29"
+set_directive_unroll "SubBytes/SubBytes_label30"
+set_directive_unroll "SubBytes/SubBytes_label31"
+set_directive_pipeline "Cipher/Cipher_label32"
+set_directive_unroll "SubBytes/SubBytes_label1"
+set_directive_unroll "SubBytes/SubBytes_label2"
+set_directive_unroll "SubBytes/SubBytes_label3"
+set_directive_pipeline "SubBytes/SubBytes_label4"
+set_directive_unroll "SubBytes/SubBytes_label5"
+set_directive_unroll "Cipher/Cipher_label0"
+set_directive_unroll "Cipher/Cipher_label1"
+set_directive_unroll "KeyExpansion/KeyExpansion_label17"
+set_directive_unroll "AddRoundKey/AddRoundKey_label19"
+set_directive_pipeline "Cipher/Cipher_label34"
+set_directive_pipeline "KeyExpansion/KeyExpansion_label4"
+set_directive_array_reshape -type complete -factor 2 -dim 1 "Cipher" state
+set_directive_array_partition -type complete -factor 2 -dim 1 "getSBoxValue" sbox

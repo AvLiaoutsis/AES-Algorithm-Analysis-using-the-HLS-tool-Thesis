@@ -1,0 +1,660 @@
+
+
+================================================================
+== Vivado HLS Report for 'KeyExpansion'
+================================================================
+* Date:           Fri Apr  6 16:31:24 2018
+
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Project:        deutero
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu7eg-ffvf1517-1lv-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      2.70|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  534|  534|  534|  534|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |             |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1     |   12|   12|         3|          -|          -|     4|    no    |
+        |- Loop 2     |  520|  520|        13|          -|          -|    40|    no    |
+        | + Loop 2.1  |    8|    8|         2|          -|          -|     4|    no    |
+        +-------------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 10
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond2)
+	5  / (exitcond2)
+3 --> 
+	4  / true
+4 --> 
+	2  / true
+5 --> 
+	6  / (!exitcond1)
+6 --> 
+	7  / (!exitcond)
+	8  / (exitcond)
+7 --> 
+	6  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	5  / true
+* FSM state operations: 
+
+ <State 1>: 0.49ns
+ST_1: StgValue_11 (5)  [1/1] 0.49ns  loc: Edited/2nd/AES_Encrypt.c:42
+:0  br label %1
+
+
+ <State 2>: 1.35ns
+ST_2: i (7)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:42
+:0  %i = phi i3 [ 0, %0 ], [ %tmp_7, %2 ]
+
+ST_2: exitcond2 (8)  [1/1] 0.18ns  loc: Edited/2nd/AES_Encrypt.c:42
+:1  %exitcond2 = icmp eq i3 %i, -4
+
+ST_2: empty (9)  [1/1] 0.00ns
+:2  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
+
+ST_2: tmp_7 (10)  [1/1] 0.86ns  loc: Edited/2nd/AES_Encrypt.c:42
+:3  %tmp_7 = add i3 %i, 1
+
+ST_2: StgValue_16 (11)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:42
+:4  br i1 %exitcond2, label %.preheader3.preheader, label %2
+
+ST_2: tmp_2 (13)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:42
+:0  %tmp_2 = trunc i3 %i to i2
+
+ST_2: tmp (14)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:44
+:1  %tmp = call i4 @_ssdm_op_BitConcatenate.i4.i2.i2(i2 %tmp_2, i2 0)
+
+ST_2: tmp_cast (15)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:44
+:2  %tmp_cast = zext i4 %tmp to i32
+
+ST_2: Key_addr (16)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:44
+:3  %Key_addr = getelementptr [32 x i32]* %Key, i32 0, i32 %tmp_cast
+
+ST_2: Key_load (17)  [2/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:44
+:4  %Key_load = load i32* %Key_addr, align 4
+
+ST_2: tmp_1 (21)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:45
+:8  %tmp_1 = or i4 %tmp, 1
+
+ST_2: tmp_1_cast (22)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:45
+:9  %tmp_1_cast = zext i4 %tmp_1 to i32
+
+ST_2: Key_addr_1 (23)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:45
+:10  %Key_addr_1 = getelementptr [32 x i32]* %Key, i32 0, i32 %tmp_1_cast
+
+ST_2: Key_load_1 (24)  [2/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:45
+:11  %Key_load_1 = load i32* %Key_addr_1, align 4
+
+ST_2: StgValue_26 (44)  [1/1] 0.49ns  loc: Edited/2nd/AES_Encrypt.c:51
+.preheader3.preheader:0  br label %.preheader3
+
+
+ <State 3>: 2.70ns
+ST_3: Key_load (17)  [1/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:44
+:4  %Key_load = load i32* %Key_addr, align 4
+
+ST_3: tmp_4 (18)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:44
+:5  %tmp_4 = trunc i32 %Key_load to i8
+
+ST_3: RoundKey_addr (19)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:44
+:6  %RoundKey_addr = getelementptr [240 x i8]* %RoundKey, i32 0, i32 %tmp_cast
+
+ST_3: StgValue_30 (20)  [1/1] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:44
+:7  store i8 %tmp_4, i8* %RoundKey_addr, align 1
+
+ST_3: Key_load_1 (24)  [1/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:45
+:11  %Key_load_1 = load i32* %Key_addr_1, align 4
+
+ST_3: tmp_6 (25)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:45
+:12  %tmp_6 = trunc i32 %Key_load_1 to i8
+
+ST_3: RoundKey_addr_1 (26)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:45
+:13  %RoundKey_addr_1 = getelementptr [240 x i8]* %RoundKey, i32 0, i32 %tmp_1_cast
+
+ST_3: StgValue_34 (27)  [1/1] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:45
+:14  store i8 %tmp_6, i8* %RoundKey_addr_1, align 1
+
+ST_3: tmp_3 (28)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:46
+:15  %tmp_3 = or i4 %tmp, 2
+
+ST_3: tmp_3_cast (29)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:46
+:16  %tmp_3_cast = zext i4 %tmp_3 to i32
+
+ST_3: Key_addr_2 (30)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:46
+:17  %Key_addr_2 = getelementptr [32 x i32]* %Key, i32 0, i32 %tmp_3_cast
+
+ST_3: Key_load_2 (31)  [2/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:46
+:18  %Key_load_2 = load i32* %Key_addr_2, align 4
+
+ST_3: tmp_5 (35)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:47
+:22  %tmp_5 = or i4 %tmp, 3
+
+ST_3: tmp_5_cast (36)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:47
+:23  %tmp_5_cast = zext i4 %tmp_5 to i32
+
+ST_3: Key_addr_3 (37)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:47
+:24  %Key_addr_3 = getelementptr [32 x i32]* %Key, i32 0, i32 %tmp_5_cast
+
+ST_3: Key_load_3 (38)  [2/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:47
+:25  %Key_load_3 = load i32* %Key_addr_3, align 4
+
+
+ <State 4>: 2.70ns
+ST_4: Key_load_2 (31)  [1/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:46
+:18  %Key_load_2 = load i32* %Key_addr_2, align 4
+
+ST_4: tmp_18 (32)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:46
+:19  %tmp_18 = trunc i32 %Key_load_2 to i8
+
+ST_4: RoundKey_addr_2 (33)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:46
+:20  %RoundKey_addr_2 = getelementptr [240 x i8]* %RoundKey, i32 0, i32 %tmp_3_cast
+
+ST_4: StgValue_46 (34)  [1/1] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:46
+:21  store i8 %tmp_18, i8* %RoundKey_addr_2, align 1
+
+ST_4: Key_load_3 (38)  [1/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:47
+:25  %Key_load_3 = load i32* %Key_addr_3, align 4
+
+ST_4: tmp_19 (39)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:47
+:26  %tmp_19 = trunc i32 %Key_load_3 to i8
+
+ST_4: RoundKey_addr_3 (40)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:47
+:27  %RoundKey_addr_3 = getelementptr [240 x i8]* %RoundKey, i32 0, i32 %tmp_5_cast
+
+ST_4: StgValue_50 (41)  [1/1] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:47
+:28  store i8 %tmp_19, i8* %RoundKey_addr_3, align 1
+
+ST_4: StgValue_51 (42)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:42
+:29  br label %1
+
+
+ <State 5>: 0.84ns
+ST_5: temp_3 (46)  [1/1] 0.00ns
+.preheader3:0  %temp_3 = phi i8 [ %temp_3_1_34, %_ifconv24 ], [ undef, %.preheader3.preheader ]
+
+ST_5: temp_2 (47)  [1/1] 0.00ns
+.preheader3:1  %temp_2 = phi i8 [ %temp_2_1_35, %_ifconv24 ], [ undef, %.preheader3.preheader ]
+
+ST_5: temp_1 (48)  [1/1] 0.00ns
+.preheader3:2  %temp_1 = phi i8 [ %temp_1_1, %_ifconv24 ], [ undef, %.preheader3.preheader ]
+
+ST_5: temp (49)  [1/1] 0.00ns
+.preheader3:3  %temp = phi i8 [ %temp_0_2, %_ifconv24 ], [ undef, %.preheader3.preheader ]
+
+ST_5: i_1 (50)  [1/1] 0.00ns
+.preheader3:4  %i_1 = phi i6 [ %i_2, %_ifconv24 ], [ 4, %.preheader3.preheader ]
+
+ST_5: exitcond1 (51)  [1/1] 0.84ns  loc: Edited/2nd/AES_Encrypt.c:51
+.preheader3:5  %exitcond1 = icmp eq i6 %i_1, -20
+
+ST_5: empty_29 (52)  [1/1] 0.00ns
+.preheader3:6  %empty_29 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 40, i64 40, i64 40)
+
+ST_5: StgValue_59 (53)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:51
+.preheader3:7  br i1 %exitcond1, label %3, label %.preheader.preheader
+
+ST_5: tmp_8 (55)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:55
+.preheader.preheader:0  %tmp_8 = call i8 @_ssdm_op_BitConcatenate.i8.i6.i2(i6 %i_1, i2 0)
+
+ST_5: tmp_8_cast (56)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:55
+.preheader.preheader:1  %tmp_8_cast = zext i8 %tmp_8 to i32
+
+ST_5: StgValue_62 (57)  [1/1] 0.49ns  loc: Edited/2nd/AES_Encrypt.c:53
+.preheader.preheader:2  br label %.preheader
+
+ST_5: StgValue_63 (149)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:100
+:0  ret void
+
+
+ <State 6>: 2.30ns
+ST_6: temp_3_1 (59)  [1/1] 0.00ns
+.preheader:0  %temp_3_1 = phi i8 [ %temp_3, %.preheader.preheader ], [ %temp_3_3, %_ifconv ]
+
+ST_6: temp_2_1 (60)  [1/1] 0.00ns
+.preheader:1  %temp_2_1 = phi i8 [ %temp_2, %.preheader.preheader ], [ %temp_3_4, %_ifconv ]
+
+ST_6: temp_3_5 (61)  [1/1] 0.00ns
+.preheader:2  %temp_3_5 = phi i8 [ %temp_1, %.preheader.preheader ], [ %temp_3_7, %_ifconv ]
+
+ST_6: temp_3_8 (62)  [1/1] 0.00ns
+.preheader:3  %temp_3_8 = phi i8 [ %temp, %.preheader.preheader ], [ %temp_3_9, %_ifconv ]
+
+ST_6: j (63)  [1/1] 0.00ns
+.preheader:4  %j = phi i3 [ 0, %.preheader.preheader ], [ %j_2, %_ifconv ]
+
+ST_6: exitcond (64)  [1/1] 0.18ns  loc: Edited/2nd/AES_Encrypt.c:53
+.preheader:5  %exitcond = icmp eq i3 %j, -4
+
+ST_6: empty_30 (65)  [1/1] 0.00ns
+.preheader:6  %empty_30 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)
+
+ST_6: j_2 (66)  [1/1] 0.86ns  loc: Edited/2nd/AES_Encrypt.c:53
+.preheader:7  %j_2 = add i3 %j, 1
+
+ST_6: StgValue_72 (67)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:53
+.preheader:8  br i1 %exitcond, label %_ifconv24, label %_ifconv
+
+ST_6: tmp1 (69)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:53 (grouped into LUT with out node sum8)
+_ifconv:0  %tmp1 = xor i3 %j, -4
+
+ST_6: tmp29_cast (70)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:53 (grouped into LUT with out node sum8)
+_ifconv:1  %tmp29_cast = sext i3 %tmp1 to i8
+
+ST_6: sum8 (71)  [1/1] 0.95ns  loc: Edited/2nd/AES_Encrypt.c:53 (out node of the LUT)
+_ifconv:2  %sum8 = add i8 %tmp29_cast, %tmp_8
+
+ST_6: sum8_cast (72)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:53
+_ifconv:3  %sum8_cast = zext i8 %sum8 to i32
+
+ST_6: RoundKey_addr_4 (73)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:55
+_ifconv:4  %RoundKey_addr_4 = getelementptr [240 x i8]* %RoundKey, i32 0, i32 %sum8_cast
+
+ST_6: temp_0 (74)  [2/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:55
+_ifconv:5  %temp_0 = load i8* %RoundKey_addr_4, align 1
+
+ST_6: tmp_21 (75)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:53
+_ifconv:6  %tmp_21 = trunc i3 %j to i2
+
+ST_6: tmp_20 (89)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:51
+_ifconv24:0  %tmp_20 = trunc i6 %i_1 to i2
+
+ST_6: tmp_9 (90)  [1/1] 0.12ns  loc: Edited/2nd/AES_Encrypt.c:57
+_ifconv24:1  %tmp_9 = icmp eq i2 %tmp_20, 0
+
+ST_6: num_assign (91)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:76
+_ifconv24:2  %num_assign = zext i8 %temp_3_5 to i32
+
+ST_6: sbox_addr (92)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:27->Edited/2nd/AES_Encrypt.c:76
+_ifconv24:3  %sbox_addr = getelementptr [256 x i8]* @sbox, i32 0, i32 %num_assign
+
+ST_6: sbox_load (93)  [2/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:27->Edited/2nd/AES_Encrypt.c:76
+_ifconv24:4  %sbox_load = load i8* %sbox_addr, align 1
+
+ST_6: num_assign_1 (94)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:77
+_ifconv24:5  %num_assign_1 = zext i8 %temp_2_1 to i32
+
+ST_6: sbox_addr_1 (95)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:27->Edited/2nd/AES_Encrypt.c:77
+_ifconv24:6  %sbox_addr_1 = getelementptr [256 x i8]* @sbox, i32 0, i32 %num_assign_1
+
+ST_6: temp_1_31 (96)  [2/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:27->Edited/2nd/AES_Encrypt.c:77
+_ifconv24:7  %temp_1_31 = load i8* %sbox_addr_1, align 1
+
+ST_6: num_assign_2 (97)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:78
+_ifconv24:8  %num_assign_2 = zext i8 %temp_3_1 to i32
+
+ST_6: sbox_addr_2 (98)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:27->Edited/2nd/AES_Encrypt.c:78
+_ifconv24:9  %sbox_addr_2 = getelementptr [256 x i8]* @sbox, i32 0, i32 %num_assign_2
+
+ST_6: temp_2_32 (99)  [2/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:27->Edited/2nd/AES_Encrypt.c:78
+_ifconv24:10  %temp_2_32 = load i8* %sbox_addr_2, align 1
+
+ST_6: num_assign_3 (100)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:79
+_ifconv24:11  %num_assign_3 = zext i8 %temp_3_8 to i32
+
+ST_6: sbox_addr_3 (101)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:27->Edited/2nd/AES_Encrypt.c:79
+_ifconv24:12  %sbox_addr_3 = getelementptr [256 x i8]* @sbox, i32 0, i32 %num_assign_3
+
+ST_6: temp_3_33 (102)  [2/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:27->Edited/2nd/AES_Encrypt.c:79
+_ifconv24:13  %temp_3_33 = load i8* %sbox_addr_3, align 1
+
+ST_6: p_lshr_f_cast (103)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:82
+_ifconv24:14  %p_lshr_f_cast = call i4 @_ssdm_op_PartSelect.i4.i6.i32.i32(i6 %i_1, i32 2, i32 5)
+
+ST_6: tmp_s (104)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:82
+_ifconv24:15  %tmp_s = zext i4 %p_lshr_f_cast to i32
+
+ST_6: Rcon_addr (105)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:82
+_ifconv24:16  %Rcon_addr = getelementptr [255 x i8]* @Rcon, i32 0, i32 %tmp_s
+
+ST_6: Rcon_load (106)  [2/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:82
+_ifconv24:17  %Rcon_load = load i8* %Rcon_addr, align 1
+
+ST_6: sum (112)  [1/1] 0.95ns  loc: Edited/2nd/AES_Encrypt.c:55
+_ifconv24:23  %sum = add i8 -16, %tmp_8
+
+ST_6: sum_cast (113)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:55
+_ifconv24:24  %sum_cast = zext i8 %sum to i32
+
+ST_6: RoundKey_addr_5 (114)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:94
+_ifconv24:25  %RoundKey_addr_5 = getelementptr [240 x i8]* %RoundKey, i32 0, i32 %sum_cast
+
+ST_6: RoundKey_load (115)  [2/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:94
+_ifconv24:26  %RoundKey_load = load i8* %RoundKey_addr_5, align 1
+
+ST_6: sum1 (119)  [1/1] 0.95ns  loc: Edited/2nd/AES_Encrypt.c:55
+_ifconv24:30  %sum1 = add i8 -15, %tmp_8
+
+ST_6: sum1_cast (120)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:55
+_ifconv24:31  %sum1_cast = zext i8 %sum1 to i32
+
+ST_6: RoundKey_addr_7 (121)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:95
+_ifconv24:32  %RoundKey_addr_7 = getelementptr [240 x i8]* %RoundKey, i32 0, i32 %sum1_cast
+
+ST_6: RoundKey_load_1 (122)  [2/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:95
+_ifconv24:33  %RoundKey_load_1 = load i8* %RoundKey_addr_7, align 1
+
+ST_6: i_2 (146)  [1/1] 0.89ns  loc: Edited/2nd/AES_Encrypt.c:98
+_ifconv24:57  %i_2 = add i6 1, %i_1
+
+
+ <State 7>: 1.45ns
+ST_7: temp_0 (74)  [1/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:55
+_ifconv:5  %temp_0 = load i8* %RoundKey_addr_4, align 1
+
+ST_7: sel_tmp (76)  [1/1] 0.12ns  loc: Edited/2nd/AES_Encrypt.c:53
+_ifconv:7  %sel_tmp = icmp eq i2 %tmp_21, -2
+
+ST_7: sel_tmp2 (77)  [1/1] 0.12ns  loc: Edited/2nd/AES_Encrypt.c:53
+_ifconv:8  %sel_tmp2 = icmp eq i2 %tmp_21, 1
+
+ST_7: sel_tmp4 (78)  [1/1] 0.12ns  loc: Edited/2nd/AES_Encrypt.c:53
+_ifconv:9  %sel_tmp4 = icmp eq i2 %tmp_21, 0
+
+ST_7: or_cond (79)  [1/1] 0.06ns  loc: Edited/2nd/AES_Encrypt.c:53
+_ifconv:10  %or_cond = or i1 %sel_tmp4, %sel_tmp2
+
+ST_7: newSel (80)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:53 (grouped into LUT with out node temp_3_3)
+_ifconv:11  %newSel = select i1 %sel_tmp, i8 %temp_3_1, i8 %temp_0
+
+ST_7: temp_3_3 (81)  [1/1] 0.10ns  loc: Edited/2nd/AES_Encrypt.c:53 (out node of the LUT)
+_ifconv:12  %temp_3_3 = select i1 %or_cond, i8 %temp_3_1, i8 %newSel
+
+ST_7: newSel2 (82)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:53 (grouped into LUT with out node temp_3_4)
+_ifconv:13  %newSel2 = select i1 %sel_tmp, i8 %temp_0, i8 %temp_2_1
+
+ST_7: temp_3_4 (83)  [1/1] 0.10ns  loc: Edited/2nd/AES_Encrypt.c:53 (out node of the LUT)
+_ifconv:14  %temp_3_4 = select i1 %or_cond, i8 %temp_2_1, i8 %newSel2
+
+ST_7: temp_3_6 (84)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:53 (grouped into LUT with out node temp_3_7)
+_ifconv:15  %temp_3_6 = select i1 %sel_tmp2, i8 %temp_0, i8 %temp_3_5
+
+ST_7: temp_3_7 (85)  [1/1] 0.10ns  loc: Edited/2nd/AES_Encrypt.c:53 (out node of the LUT)
+_ifconv:16  %temp_3_7 = select i1 %sel_tmp4, i8 %temp_3_5, i8 %temp_3_6
+
+ST_7: temp_3_9 (86)  [1/1] 0.10ns  loc: Edited/2nd/AES_Encrypt.c:53
+_ifconv:17  %temp_3_9 = select i1 %sel_tmp4, i8 %temp_0, i8 %temp_3_8
+
+ST_7: StgValue_119 (87)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:53
+_ifconv:18  br label %.preheader
+
+
+ <State 8>: 2.30ns
+ST_8: sbox_load (93)  [1/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:27->Edited/2nd/AES_Encrypt.c:76
+_ifconv24:4  %sbox_load = load i8* %sbox_addr, align 1
+
+ST_8: temp_1_31 (96)  [1/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:27->Edited/2nd/AES_Encrypt.c:77
+_ifconv24:7  %temp_1_31 = load i8* %sbox_addr_1, align 1
+
+ST_8: temp_2_32 (99)  [1/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:27->Edited/2nd/AES_Encrypt.c:78
+_ifconv24:10  %temp_2_32 = load i8* %sbox_addr_2, align 1
+
+ST_8: temp_3_33 (102)  [1/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:27->Edited/2nd/AES_Encrypt.c:79
+_ifconv24:13  %temp_3_33 = load i8* %sbox_addr_3, align 1
+
+ST_8: Rcon_load (106)  [1/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:82
+_ifconv24:17  %Rcon_load = load i8* %Rcon_addr, align 1
+
+ST_8: temp_0_1 (107)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:82 (grouped into LUT with out node temp_0_2)
+_ifconv24:18  %temp_0_1 = xor i8 %Rcon_load, %sbox_load
+
+ST_8: temp_3_1_34 (108)  [1/1] 0.10ns  loc: Edited/2nd/AES_Encrypt.c:57
+_ifconv24:19  %temp_3_1_34 = select i1 %tmp_9, i8 %temp_3_33, i8 %temp_3_1
+
+ST_8: temp_2_1_35 (109)  [1/1] 0.10ns  loc: Edited/2nd/AES_Encrypt.c:57
+_ifconv24:20  %temp_2_1_35 = select i1 %tmp_9, i8 %temp_2_32, i8 %temp_2_1
+
+ST_8: temp_1_1 (110)  [1/1] 0.10ns  loc: Edited/2nd/AES_Encrypt.c:57
+_ifconv24:21  %temp_1_1 = select i1 %tmp_9, i8 %temp_1_31, i8 %temp_3_5
+
+ST_8: temp_0_2 (111)  [1/1] 0.10ns  loc: Edited/2nd/AES_Encrypt.c:57 (out node of the LUT)
+_ifconv24:22  %temp_0_2 = select i1 %tmp_9, i8 %temp_0_1, i8 %temp_3_8
+
+ST_8: RoundKey_load (115)  [1/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:94
+_ifconv24:26  %RoundKey_load = load i8* %RoundKey_addr_5, align 1
+
+ST_8: tmp_10 (116)  [1/1] 0.06ns  loc: Edited/2nd/AES_Encrypt.c:94
+_ifconv24:27  %tmp_10 = xor i8 %RoundKey_load, %temp_0_2
+
+ST_8: RoundKey_load_1 (122)  [1/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:95
+_ifconv24:33  %RoundKey_load_1 = load i8* %RoundKey_addr_7, align 1
+
+ST_8: tmp_11 (123)  [1/1] 0.06ns  loc: Edited/2nd/AES_Encrypt.c:95
+_ifconv24:34  %tmp_11 = xor i8 %RoundKey_load_1, %temp_1_1
+
+ST_8: sum2 (128)  [1/1] 0.95ns  loc: Edited/2nd/AES_Encrypt.c:55
+_ifconv24:39  %sum2 = add i8 -14, %tmp_8
+
+ST_8: sum2_cast (129)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:55
+_ifconv24:40  %sum2_cast = zext i8 %sum2 to i32
+
+ST_8: RoundKey_addr_9 (130)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:96
+_ifconv24:41  %RoundKey_addr_9 = getelementptr [240 x i8]* %RoundKey, i32 0, i32 %sum2_cast
+
+ST_8: RoundKey_load_2 (131)  [2/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:96
+_ifconv24:42  %RoundKey_load_2 = load i8* %RoundKey_addr_9, align 1
+
+ST_8: sum3 (137)  [1/1] 0.95ns  loc: Edited/2nd/AES_Encrypt.c:55
+_ifconv24:48  %sum3 = add i8 -13, %tmp_8
+
+ST_8: sum3_cast (138)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:55
+_ifconv24:49  %sum3_cast = zext i8 %sum3 to i32
+
+ST_8: RoundKey_addr_11 (139)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:97
+_ifconv24:50  %RoundKey_addr_11 = getelementptr [240 x i8]* %RoundKey, i32 0, i32 %sum3_cast
+
+ST_8: RoundKey_load_3 (140)  [2/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:97
+_ifconv24:51  %RoundKey_load_3 = load i8* %RoundKey_addr_11, align 1
+
+
+ <State 9>: 1.42ns
+ST_9: RoundKey_addr_6 (117)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:94
+_ifconv24:28  %RoundKey_addr_6 = getelementptr [240 x i8]* %RoundKey, i32 0, i32 %tmp_8_cast
+
+ST_9: StgValue_143 (118)  [1/1] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:94
+_ifconv24:29  store i8 %tmp_10, i8* %RoundKey_addr_6, align 1
+
+ST_9: tmp_12 (124)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:95
+_ifconv24:35  %tmp_12 = or i8 %tmp_8, 1
+
+ST_9: tmp_22_cast (125)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:95
+_ifconv24:36  %tmp_22_cast = zext i8 %tmp_12 to i32
+
+ST_9: RoundKey_addr_8 (126)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:95
+_ifconv24:37  %RoundKey_addr_8 = getelementptr [240 x i8]* %RoundKey, i32 0, i32 %tmp_22_cast
+
+ST_9: StgValue_147 (127)  [1/1] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:95
+_ifconv24:38  store i8 %tmp_11, i8* %RoundKey_addr_8, align 1
+
+ST_9: RoundKey_load_2 (131)  [1/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:96
+_ifconv24:42  %RoundKey_load_2 = load i8* %RoundKey_addr_9, align 1
+
+ST_9: tmp_13 (132)  [1/1] 0.06ns  loc: Edited/2nd/AES_Encrypt.c:96
+_ifconv24:43  %tmp_13 = xor i8 %RoundKey_load_2, %temp_2_1_35
+
+ST_9: RoundKey_load_3 (140)  [1/2] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:97
+_ifconv24:51  %RoundKey_load_3 = load i8* %RoundKey_addr_11, align 1
+
+ST_9: tmp_15 (141)  [1/1] 0.06ns  loc: Edited/2nd/AES_Encrypt.c:97
+_ifconv24:52  %tmp_15 = xor i8 %RoundKey_load_3, %temp_3_1_34
+
+
+ <State 10>: 1.35ns
+ST_10: tmp_14 (133)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:96
+_ifconv24:44  %tmp_14 = or i8 %tmp_8, 2
+
+ST_10: tmp_24_cast (134)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:96
+_ifconv24:45  %tmp_24_cast = zext i8 %tmp_14 to i32
+
+ST_10: RoundKey_addr_10 (135)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:96
+_ifconv24:46  %RoundKey_addr_10 = getelementptr [240 x i8]* %RoundKey, i32 0, i32 %tmp_24_cast
+
+ST_10: StgValue_155 (136)  [1/1] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:96
+_ifconv24:47  store i8 %tmp_13, i8* %RoundKey_addr_10, align 1
+
+ST_10: tmp_16 (142)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:97
+_ifconv24:53  %tmp_16 = or i8 %tmp_8, 3
+
+ST_10: tmp_26_cast (143)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:97
+_ifconv24:54  %tmp_26_cast = zext i8 %tmp_16 to i32
+
+ST_10: RoundKey_addr_12 (144)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:97
+_ifconv24:55  %RoundKey_addr_12 = getelementptr [240 x i8]* %RoundKey, i32 0, i32 %tmp_26_cast
+
+ST_10: StgValue_159 (145)  [1/1] 1.35ns  loc: Edited/2nd/AES_Encrypt.c:97
+_ifconv24:56  store i8 %tmp_15, i8* %RoundKey_addr_12, align 1
+
+ST_10: StgValue_160 (147)  [1/1] 0.00ns  loc: Edited/2nd/AES_Encrypt.c:99
+_ifconv24:58  br label %.preheader3
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.489ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i', Edited/2nd/AES_Encrypt.c:42) with incoming values : ('tmp_7', Edited/2nd/AES_Encrypt.c:42) [7]  (0.489 ns)
+
+ <State 2>: 1.35ns
+The critical path consists of the following:
+	'phi' operation ('i', Edited/2nd/AES_Encrypt.c:42) with incoming values : ('tmp_7', Edited/2nd/AES_Encrypt.c:42) [7]  (0 ns)
+	'getelementptr' operation ('Key_addr', Edited/2nd/AES_Encrypt.c:44) [16]  (0 ns)
+	'load' operation ('Key_load', Edited/2nd/AES_Encrypt.c:44) on array 'Key' [17]  (1.35 ns)
+
+ <State 3>: 2.7ns
+The critical path consists of the following:
+	'load' operation ('Key_load', Edited/2nd/AES_Encrypt.c:44) on array 'Key' [17]  (1.35 ns)
+	'store' operation (Edited/2nd/AES_Encrypt.c:44) of variable 'tmp_4', Edited/2nd/AES_Encrypt.c:44 on array 'RoundKey' [20]  (1.35 ns)
+
+ <State 4>: 2.7ns
+The critical path consists of the following:
+	'load' operation ('Key_load_2', Edited/2nd/AES_Encrypt.c:46) on array 'Key' [31]  (1.35 ns)
+	'store' operation (Edited/2nd/AES_Encrypt.c:46) of variable 'tmp_18', Edited/2nd/AES_Encrypt.c:46 on array 'RoundKey' [34]  (1.35 ns)
+
+ <State 5>: 0.841ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', Edited/2nd/AES_Encrypt.c:98) [50]  (0 ns)
+	'icmp' operation ('exitcond1', Edited/2nd/AES_Encrypt.c:51) [51]  (0.841 ns)
+
+ <State 6>: 2.3ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', Edited/2nd/AES_Encrypt.c:53) [63]  (0 ns)
+	'xor' operation ('tmp1', Edited/2nd/AES_Encrypt.c:53) [69]  (0 ns)
+	'add' operation ('sum8', Edited/2nd/AES_Encrypt.c:53) [71]  (0.945 ns)
+	'getelementptr' operation ('RoundKey_addr_4', Edited/2nd/AES_Encrypt.c:55) [73]  (0 ns)
+	'load' operation ('temp[0]', Edited/2nd/AES_Encrypt.c:55) on array 'RoundKey' [74]  (1.35 ns)
+
+ <State 7>: 1.45ns
+The critical path consists of the following:
+	'load' operation ('temp[0]', Edited/2nd/AES_Encrypt.c:55) on array 'RoundKey' [74]  (1.35 ns)
+	'select' operation ('newSel2', Edited/2nd/AES_Encrypt.c:53) [82]  (0 ns)
+	'select' operation ('temp[3]', Edited/2nd/AES_Encrypt.c:53) [83]  (0.1 ns)
+
+ <State 8>: 2.3ns
+The critical path consists of the following:
+	'add' operation ('sum2', Edited/2nd/AES_Encrypt.c:55) [128]  (0.945 ns)
+	'getelementptr' operation ('RoundKey_addr_9', Edited/2nd/AES_Encrypt.c:96) [130]  (0 ns)
+	'load' operation ('RoundKey_load_2', Edited/2nd/AES_Encrypt.c:96) on array 'RoundKey' [131]  (1.35 ns)
+
+ <State 9>: 1.42ns
+The critical path consists of the following:
+	'load' operation ('RoundKey_load_2', Edited/2nd/AES_Encrypt.c:96) on array 'RoundKey' [131]  (1.35 ns)
+	'xor' operation ('tmp_13', Edited/2nd/AES_Encrypt.c:96) [132]  (0.064 ns)
+
+ <State 10>: 1.35ns
+The critical path consists of the following:
+	'or' operation ('tmp_14', Edited/2nd/AES_Encrypt.c:96) [133]  (0 ns)
+	'getelementptr' operation ('RoundKey_addr_10', Edited/2nd/AES_Encrypt.c:96) [135]  (0 ns)
+	'store' operation (Edited/2nd/AES_Encrypt.c:96) of variable 'tmp_13', Edited/2nd/AES_Encrypt.c:96 on array 'RoundKey' [136]  (1.35 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

@@ -1,0 +1,126 @@
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+    <sourceFile name="">
+        <directive functionName="KeyExpansion" label="KeyExpansion_label5" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="KeyExpansion" label="KeyExpansion_label6" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="KeyExpansion" label="KeyExpansion_label7" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="KeyExpansion" label="KeyExpansion_label8" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="KeyExpansion" label="KeyExpansion_label9" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="AddRoundKey" label="AddRoundKey_label10" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="AddRoundKey" label="AddRoundKey_label11" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="AddRoundKey" label="AddRoundKey_label12" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="KeyExpansion" label="KeyExpansion_label13" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="AddRoundKey" label="AddRoundKey_label14" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="AddRoundKey" label="AddRoundKey_label15" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="AddRoundKey" label="AddRoundKey_label16" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="AddRoundKey" label="AddRoundKey_label18" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="SubBytes" label="SubBytes_label21" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="SubBytes" label="SubBytes_label22" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="SubBytes" label="SubBytes_label23" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="SubBytes" label="SubBytes_label25" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="MixColumns" label="MixColumns_label26" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="MixColumns" label="MixColumns_label27" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="SubBytes" label="SubBytes_label28" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="MixColumns" label="MixColumns_label29" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="SubBytes" label="SubBytes_label30" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="SubBytes" label="SubBytes_label31" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="Cipher" label="Cipher_label32" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="SubBytes" label="SubBytes_label1" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="SubBytes" label="SubBytes_label2" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="SubBytes" label="SubBytes_label3" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="SubBytes" label="SubBytes_label4" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="SubBytes" label="SubBytes_label5" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="Cipher" label="Cipher_label0" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="Cipher" label="Cipher_label1" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="KeyExpansion" label="KeyExpansion_label17" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="AddRoundKey" label="AddRoundKey_label19" functionLabel="">
+            <pragma name="UNROLL"/>
+        </directive>
+        <directive functionName="Cipher" label="Cipher_label34" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="KeyExpansion" label="KeyExpansion_label4" functionLabel="">
+            <pragma name="PIPELINE"/>
+        </directive>
+        <directive functionName="Cipher" label="" functionLabel="">
+            <pragma name="ARRAY_RESHAPE">
+                <option name="variable" value="state" positionalBoolean="4"/>
+                <option name="complete" value="" positionalBoolean="type"/>
+                <option name="factor" value="2"/>
+                <option name="dim" value="1"/>
+            </pragma>
+        </directive>
+        <directive functionName="getSBoxValue" label="" functionLabel="">
+            <pragma name="ARRAY_PARTITION">
+                <option name="variable" value="sbox" positionalBoolean="4"/>
+                <option name="complete" value="" positionalBoolean="type"/>
+                <option name="factor" value="2"/>
+                <option name="dim" value="1"/>
+            </pragma>
+        </directive>
+    </sourceFile>
+</AutoPilot:ProjectResources>
+

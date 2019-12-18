@@ -1,0 +1,51 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'aes_main'" level="0">
+<item name = "Date">Thu Dec  7 12:29:18 2017
+</item>
+<item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
+<item name = "Project">Third</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynquplus</item>
+<item name = "Target device">xczu7eg-ffvf1517-1l-i</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00, 5.51, 1.25</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">1092, 1092, 1093, 1093, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_MixColumn_AddRoundKe_fu_96">MixColumn_AddRoundKe, 30, 30, 30, 30, none</column>
+<column name="grp_KeySchedule_fu_106">KeySchedule, 562, 562, 562, 562, none</column>
+<column name="grp_ByteSub_ShiftRow_fu_118">ByteSub_ShiftRow, 15, 15, 15, 15, none</column>
+<column name="grp_AddRoundKey_fu_126">AddRoundKey, 17, 17, 17, 17, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- Loop 1">441, 441, 49, -, -, 9, no</column>
+<column name="- Loop 2">32, 32, 2, -, -, 16, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

@@ -1,0 +1,173 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'aes_main'" level="0">
+<item name = "Date">Thu Dec  7 12:29:21 2017
+</item>
+<item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
+<item name = "Project">Third</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynquplus</item>
+<item name = "Target device">xczu7eg-ffvf1517-1l-i</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Target clock period (ns)">10.00</item>
+<item name = "Clock uncertainty (ns)">1.25</item>
+<item name = "Estimated clock period (ns)">5.51</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">1092, 1092, 1093, 1093, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+<column name="grp_MixColumn_AddRoundKe_fu_96">MixColumn_AddRoundKe, 30, 30, 30, 30, none</column>
+<column name="grp_KeySchedule_fu_106">KeySchedule, 562, 562, 562, 562, none</column>
+<column name="grp_ByteSub_ShiftRow_fu_118">ByteSub_ShiftRow, 15, 15, 15, 15, none</column>
+<column name="grp_AddRoundKey_fu_126">AddRoundKey, 17, 17, 17, 17, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- Loop 1">441, 441, 49, -, -, 9, no</column>
+<column name="- Loop 2">32, 32, 2, -, -, 16, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, 37, 26, -</column>
+<column name="FIFO">-, -, -, -, -</column>
+<column name="Instance">4, -, 2060, 3153, -</column>
+<column name="Memory">2, -, 0, 0, -</column>
+<column name="Multiplexer">-, -, -, 371, -</column>
+<column name="Register">-, -, 40, -, -</column>
+<specialColumn name="Available">624, 1728, 460800, 230400, 96</specialColumn>
+<specialColumn name="Utilization (%)">~0, 0, ~0, 1, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="grp_AddRoundKey_fu_126">AddRoundKey, 0, 0, 225, 269</column>
+<column name="grp_ByteSub_ShiftRow_fu_118">ByteSub_ShiftRow, 1, 0, 112, 457</column>
+<column name="grp_KeySchedule_fu_106">KeySchedule, 1, 0, 1335, 810</column>
+<column name="grp_MixColumn_AddRoundKe_fu_96">MixColumn_AddRoundKe, 2, 0, 388, 1617</column>
+</table>
+</item>
+<item name = "DSP48"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="9">Memory, Module, BRAM_18K, FF, LUT, Words, Bits, Banks, W*Bits*Banks</keys>
+<column name="word_U">aes_main_word, 2, 0, 0, 480, 32, 1, 15360</column>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="7">Name, BRAM_18K, FF, LUT, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="i_fu_160_p2">+, 0, 20, 11, 5, 1</column>
+<column name="tmp_i_fu_143_p2">+, 0, 17, 10, 4, 1</column>
+<column name="exitcond2_i_fu_154_p2">icmp, 0, 0, 3, 5, 6</column>
+<column name="exitcond3_i_fu_137_p2">icmp, 0, 0, 2, 4, 4</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_NS_fsm">65, 14, 1, 14</column>
+<column name="grp_AddRoundKey_fu_126_n">15, 3, 6, 18</column>
+<column name="i_1_i_reg_85">9, 2, 5, 10</column>
+<column name="i_i_reg_73">9, 2, 4, 8</column>
+<column name="statemt_address0">27, 5, 5, 25</column>
+<column name="statemt_address1">21, 4, 5, 20</column>
+<column name="statemt_ce0">27, 5, 1, 5</column>
+<column name="statemt_ce1">21, 4, 1, 4</column>
+<column name="statemt_d0">21, 4, 32, 128</column>
+<column name="statemt_d1">21, 4, 32, 128</column>
+<column name="statemt_we0">21, 4, 1, 4</column>
+<column name="statemt_we1">21, 4, 1, 4</column>
+<column name="word_address0">21, 4, 9, 36</column>
+<column name="word_address1">21, 4, 9, 36</column>
+<column name="word_ce0">21, 4, 1, 4</column>
+<column name="word_ce1">21, 4, 1, 4</column>
+<column name="word_we0">9, 2, 1, 2</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="ap_CS_fsm">13, 0, 13, 0</column>
+<column name="ap_reg_grp_AddRoundKey_fu_126_ap_start">1, 0, 1, 0</column>
+<column name="ap_reg_grp_ByteSub_ShiftRow_fu_118_ap_start">1, 0, 1, 0</column>
+<column name="ap_reg_grp_KeySchedule_fu_106_ap_start">1, 0, 1, 0</column>
+<column name="ap_reg_grp_MixColumn_AddRoundKe_fu_96_ap_start">1, 0, 1, 0</column>
+<column name="i_1_i_cast1_reg_174">5, 0, 32, 27</column>
+<column name="i_1_i_reg_85">5, 0, 5, 0</column>
+<column name="i_i_reg_73">4, 0, 4, 0</column>
+<column name="i_reg_182">5, 0, 5, 0</column>
+<column name="tmp_i_reg_169">4, 0, 4, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, aes_main, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, aes_main, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, aes_main, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, aes_main, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, aes_main, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, aes_main, return value</column>
+<column name="statemt_address0">out, 5, ap_memory, statemt, array</column>
+<column name="statemt_ce0">out, 1, ap_memory, statemt, array</column>
+<column name="statemt_we0">out, 1, ap_memory, statemt, array</column>
+<column name="statemt_d0">out, 32, ap_memory, statemt, array</column>
+<column name="statemt_q0">in, 32, ap_memory, statemt, array</column>
+<column name="statemt_address1">out, 5, ap_memory, statemt, array</column>
+<column name="statemt_ce1">out, 1, ap_memory, statemt, array</column>
+<column name="statemt_we1">out, 1, ap_memory, statemt, array</column>
+<column name="statemt_d1">out, 32, ap_memory, statemt, array</column>
+<column name="statemt_q1">in, 32, ap_memory, statemt, array</column>
+<column name="key_address0">out, 5, ap_memory, key, array</column>
+<column name="key_ce0">out, 1, ap_memory, key, array</column>
+<column name="key_q0">in, 32, ap_memory, key, array</column>
+<column name="out_r_address0">out, 5, ap_memory, out_r, array</column>
+<column name="out_r_ce0">out, 1, ap_memory, out_r, array</column>
+<column name="out_r_we0">out, 1, ap_memory, out_r, array</column>
+<column name="out_r_d0">out, 32, ap_memory, out_r, array</column>
+</table>
+</item>
+</section>
+
+<section name = "Critical Path" level="0">
+<item name = "Max Delay">2.70</item>
+<item name = "Critical Path Table"><table name="Critical Path Table" hasTotal="0">
+<keys size="15">Name, Operator, Delay, Accumulated Delay, Store Source, Resource, Core, Interface, Type, Port, Array, Scope, Pointer, Callee, Phi Node</keys>
+<column name="'statemt_load', CCodedFiles/3rd/aes.c:122->CCodedFiles/3rd/aes.c:628">load, 1.35, 1.35, -, -, -, -, -, -, &apos;statemt&apos;, -, -, -, -</column>
+<column name="CCodedFiles/3rd/aes.c:122->CCodedFiles/3rd/aes.c:628">store, 1.35, 2.70, &apos;statemt_load&apos;, CCodedFiles/3rd/aes.c:122-&gt;CCodedFiles/3rd/aes.c:628, -, -, -, -, -, &apos;out_r&apos;, -, -, -, -</column>
+</table>
+</item>
+</section>
+</profile>

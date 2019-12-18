@@ -1,0 +1,2182 @@
+
+
+================================================================
+== Vivado HLS Report for 'encrypt_128_key_expand_inline_no_branch'
+================================================================
+* Date:           Tue Mar 27 22:16:41 2018
+
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Project:        First
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu7eg-ffvf1517-2l-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      2.06|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   51|   51|   52|   52|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |   45|   45|         5|          -|          -|     9|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 11
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / (!exitcond)
+	10  / (exitcond)
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	5  / true
+10 --> 
+	11  / true
+11 --> 
+* FSM state operations: 
+
+ <State 1>: 0.68ns
+ST_1: state_addr (7)  [1/1] 0.00ns
+:3  %state_addr = getelementptr [4 x i32]* %state, i32 0, i32 0
+
+ST_1: state_load (16)  [2/2] 0.68ns  loc: CCodedFiles/1st/aes.c:65
+:12  %state_load = load i32* %state_addr, align 4
+
+ST_1: state_addr_1 (19)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:66
+:15  %state_addr_1 = getelementptr [4 x i32]* %state, i32 0, i32 1
+
+ST_1: state_load_1 (20)  [2/2] 0.68ns  loc: CCodedFiles/1st/aes.c:66
+:16  %state_load_1 = load i32* %state_addr_1, align 4
+
+
+ <State 2>: 0.68ns
+ST_2: key_addr (6)  [1/1] 0.00ns
+:2  %key_addr = getelementptr [4 x i32]* %key, i32 0, i32 0
+
+ST_2: k0 (9)  [2/2] 0.68ns  loc: CCodedFiles/1st/aes.c:64
+:5  %k0 = load i32* %key_addr, align 4
+
+ST_2: key_addr_1 (10)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:64
+:6  %key_addr_1 = getelementptr [4 x i32]* %key, i32 0, i32 1
+
+ST_2: k1 (11)  [2/2] 0.68ns  loc: CCodedFiles/1st/aes.c:64
+:7  %k1 = load i32* %key_addr_1, align 4
+
+ST_2: state_load (16)  [1/2] 0.68ns  loc: CCodedFiles/1st/aes.c:65
+:12  %state_load = load i32* %state_addr, align 4
+
+ST_2: state_load_1 (20)  [1/2] 0.68ns  loc: CCodedFiles/1st/aes.c:66
+:16  %state_load_1 = load i32* %state_addr_1, align 4
+
+ST_2: state_addr_2 (23)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:67
+:19  %state_addr_2 = getelementptr [4 x i32]* %state, i32 0, i32 2
+
+ST_2: state_load_2 (24)  [2/2] 0.68ns  loc: CCodedFiles/1st/aes.c:67
+:20  %state_load_2 = load i32* %state_addr_2, align 4
+
+ST_2: state_addr_3 (27)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:68
+:23  %state_addr_3 = getelementptr [4 x i32]* %state, i32 0, i32 3
+
+ST_2: state_load_3 (28)  [2/2] 0.68ns  loc: CCodedFiles/1st/aes.c:68
+:24  %state_load_3 = load i32* %state_addr_3, align 4
+
+
+ <State 3>: 1.41ns
+ST_3: k0 (9)  [1/2] 0.68ns  loc: CCodedFiles/1st/aes.c:64
+:5  %k0 = load i32* %key_addr, align 4
+
+ST_3: k1 (11)  [1/2] 0.68ns  loc: CCodedFiles/1st/aes.c:64
+:7  %k1 = load i32* %key_addr_1, align 4
+
+ST_3: key_addr_2 (12)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:64
+:8  %key_addr_2 = getelementptr [4 x i32]* %key, i32 0, i32 2
+
+ST_3: k2 (13)  [2/2] 0.68ns  loc: CCodedFiles/1st/aes.c:64
+:9  %k2 = load i32* %key_addr_2, align 4
+
+ST_3: key_addr_3 (14)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:64
+:10  %key_addr_3 = getelementptr [4 x i32]* %key, i32 0, i32 3
+
+ST_3: k3 (15)  [2/2] 0.68ns  loc: CCodedFiles/1st/aes.c:64
+:11  %k3 = load i32* %key_addr_3, align 4
+
+ST_3: state_assign (17)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:65
+:13  %state_assign = xor i32 %state_load, %k0
+
+ST_3: StgValue_33 (18)  [1/1] 0.68ns  loc: CCodedFiles/1st/aes.c:65
+:14  store i32 %state_assign, i32* %state_addr, align 4
+
+ST_3: tmp (21)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:66
+:17  %tmp = xor i32 %state_load_1, %k1
+
+ST_3: StgValue_35 (22)  [1/1] 0.68ns  loc: CCodedFiles/1st/aes.c:66
+:18  store i32 %tmp, i32* %state_addr_1, align 4
+
+ST_3: state_load_2 (24)  [1/2] 0.68ns  loc: CCodedFiles/1st/aes.c:67
+:20  %state_load_2 = load i32* %state_addr_2, align 4
+
+ST_3: state_load_3 (28)  [1/2] 0.68ns  loc: CCodedFiles/1st/aes.c:68
+:24  %state_load_3 = load i32* %state_addr_3, align 4
+
+
+ <State 4>: 1.41ns
+ST_4: StgValue_38 (4)  [1/1] 0.00ns
+:0  call void (...)* @_ssdm_op_SpecBitsMap([4 x i32]* %state) nounwind, !map !7
+
+ST_4: StgValue_39 (5)  [1/1] 0.00ns
+:1  call void (...)* @_ssdm_op_SpecBitsMap([4 x i32]* %key) nounwind, !map !13
+
+ST_4: StgValue_40 (8)  [1/1] 0.00ns
+:4  call void (...)* @_ssdm_op_SpecTopModule([40 x i8]* @encrypt_128_key_expa) nounwind
+
+ST_4: k2 (13)  [1/2] 0.68ns  loc: CCodedFiles/1st/aes.c:64
+:9  %k2 = load i32* %key_addr_2, align 4
+
+ST_4: k3 (15)  [1/2] 0.68ns  loc: CCodedFiles/1st/aes.c:64
+:11  %k3 = load i32* %key_addr_3, align 4
+
+ST_4: tmp_1 (25)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:67
+:21  %tmp_1 = xor i32 %state_load_2, %k2
+
+ST_4: StgValue_44 (26)  [1/1] 0.68ns  loc: CCodedFiles/1st/aes.c:67
+:22  store i32 %tmp_1, i32* %state_addr_2, align 4
+
+ST_4: tmp_2 (29)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:68
+:25  %tmp_2 = xor i32 %state_load_3, %k3
+
+ST_4: StgValue_46 (30)  [1/1] 0.68ns  loc: CCodedFiles/1st/aes.c:68
+:26  store i32 %tmp_2, i32* %state_addr_3, align 4
+
+ST_4: StgValue_47 (31)  [1/1] 0.43ns  loc: CCodedFiles/1st/aes.c:74
+:27  br label %1
+
+
+ <State 5>: 0.81ns
+ST_5: p_in_in (33)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:67
+:0  %p_in_in = phi i32 [ %tmp_1, %0 ], [ %tmp_113, %2 ]
+
+ST_5: p_in89_in (34)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:66
+:1  %p_in89_in = phi i32 [ %tmp, %0 ], [ %tmp_108, %2 ]
+
+ST_5: p_in90_in (35)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:65
+:2  %p_in90_in = phi i32 [ %state_assign, %0 ], [ %tmp_103, %2 ]
+
+ST_5: p_in1 (36)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:68
+:3  %p_in1 = phi i32 [ %tmp_2, %0 ], [ %tmp_118, %2 ]
+
+ST_5: temp (37)  [1/1] 0.00ns
+:4  %temp = phi i32 [ %k3, %0 ], [ %k3_4, %2 ]
+
+ST_5: k (38)  [1/1] 0.00ns
+:5  %k = phi i32 [ %k2, %0 ], [ %k2_4, %2 ]
+
+ST_5: k4 (39)  [1/1] 0.00ns
+:6  %k4 = phi i32 [ %k1, %0 ], [ %k1_4, %2 ]
+
+ST_5: k5 (40)  [1/1] 0.00ns
+:7  %k5 = phi i32 [ %k0, %0 ], [ %k0_4, %2 ]
+
+ST_5: i (41)  [1/1] 0.00ns
+:8  %i = phi i4 [ 1, %0 ], [ %i_1, %2 ]
+
+ST_5: rcon (42)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:82
+:9  %rcon = phi i8 [ 1, %0 ], [ %tmp_96, %2 ]
+
+ST_5: tmp_8 (43)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:74
+:10  %tmp_8 = trunc i32 %temp to i24
+
+ST_5: tmp_9 (44)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:74
+:11  %tmp_9 = trunc i32 %temp to i16
+
+ST_5: exitcond (45)  [1/1] 0.44ns  loc: CCodedFiles/1st/aes.c:74
+:12  %exitcond = icmp eq i4 %i, -6
+
+ST_5: empty (46)  [1/1] 0.00ns
+:13  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 9, i64 9, i64 9) nounwind
+
+ST_5: StgValue_62 (47)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:74
+:14  br i1 %exitcond, label %3, label %2
+
+ST_5: tmp_85 (49)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:64
+:0  %tmp_85 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %temp, i32 8, i32 15)
+
+ST_5: tmp_86 (50)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:77
+:1  %tmp_86 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_85, i2 0)
+
+ST_5: tmp_116_cast (51)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:77
+:2  %tmp_116_cast = zext i10 %tmp_86 to i32
+
+ST_5: table_0_addr_20 (52)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:77
+:3  %table_0_addr_20 = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_116_cast
+
+ST_5: table_0_load_20 (53)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:77
+:4  %table_0_load_20 = load i8* %table_0_addr_20, align 1
+
+ST_5: tmp_87 (54)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:64
+:5  %tmp_87 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %temp, i32 16, i32 23)
+
+ST_5: tmp_88 (55)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:77
+:6  %tmp_88 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_87, i2 0)
+
+ST_5: tmp_120_cast (56)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:77
+:7  %tmp_120_cast = zext i10 %tmp_88 to i32
+
+ST_5: table_0_addr_21 (57)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:77
+:8  %table_0_addr_21 = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_120_cast
+
+ST_5: table_0_load_21 (58)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:77
+:9  %table_0_load_21 = load i8* %table_0_addr_21, align 1
+
+ST_5: tmp_89 (59)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:64
+:10  %tmp_89 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %temp, i32 24, i32 31)
+
+ST_5: tmp_90 (60)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:77
+:11  %tmp_90 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_89, i2 0)
+
+ST_5: tmp_124_cast (61)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:77
+:12  %tmp_124_cast = zext i10 %tmp_90 to i32
+
+ST_5: table_0_addr_22 (62)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:77
+:13  %table_0_addr_22 = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_124_cast
+
+ST_5: table_0_load_22 (63)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:77
+:14  %table_0_load_22 = load i8* %table_0_addr_22, align 1
+
+ST_5: tmp_94 (64)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:64
+:15  %tmp_94 = trunc i32 %temp to i8
+
+ST_5: tmp_92 (65)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:77
+:16  %tmp_92 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_94, i2 0)
+
+ST_5: tmp_127_cast (66)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:77
+:17  %tmp_127_cast = zext i10 %tmp_92 to i32
+
+ST_5: table_0_addr_23 (67)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:77
+:18  %table_0_addr_23 = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_127_cast
+
+ST_5: table_0_load_23 (68)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:77
+:19  %table_0_load_23 = load i8* %table_0_addr_23, align 1
+
+ST_5: state_load_4 (80)  [2/2] 0.68ns  loc: CCodedFiles/1st/aes.c:88
+:31  %state_load_4 = load i32* %state_addr, align 4
+
+ST_5: state_load_5 (153)  [2/2] 0.68ns  loc: CCodedFiles/1st/aes.c:90
+:104  %state_load_5 = load i32* %state_addr_1, align 4
+
+ST_5: i_1 (392)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:74
+:343  %i_1 = add i4 1, %i
+
+ST_5: tmp_3 (395)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:64
+:0  %tmp_3 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %temp, i32 8, i32 15)
+
+ST_5: tmp_s (396)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:102
+:1  %tmp_s = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_3, i2 0)
+
+ST_5: tmp_21_cast (397)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:102
+:2  %tmp_21_cast = zext i10 %tmp_s to i32
+
+ST_5: table_0_addr (398)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:102
+:3  %table_0_addr = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_21_cast
+
+ST_5: table_0_load (399)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:102
+:4  %table_0_load = load i8* %table_0_addr, align 1
+
+ST_5: tmp_4 (400)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:64
+:5  %tmp_4 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %temp, i32 16, i32 23)
+
+ST_5: tmp_5 (401)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:102
+:6  %tmp_5 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_4, i2 0)
+
+ST_5: tmp_25_cast (402)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:102
+:7  %tmp_25_cast = zext i10 %tmp_5 to i32
+
+ST_5: table_0_addr_1 (403)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:102
+:8  %table_0_addr_1 = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_25_cast
+
+ST_5: table_0_load_1 (404)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:102
+:9  %table_0_load_1 = load i8* %table_0_addr_1, align 1
+
+ST_5: tmp_6 (405)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:64
+:10  %tmp_6 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %temp, i32 24, i32 31)
+
+ST_5: tmp_7 (406)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:102
+:11  %tmp_7 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_6, i2 0)
+
+ST_5: tmp_29_cast (407)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:102
+:12  %tmp_29_cast = zext i10 %tmp_7 to i32
+
+ST_5: table_0_addr_2 (408)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:102
+:13  %table_0_addr_2 = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_29_cast
+
+ST_5: table_0_load_2 (409)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:102
+:14  %table_0_load_2 = load i8* %table_0_addr_2, align 1
+
+ST_5: tmp_11 (410)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:102
+:15  %tmp_11 = trunc i32 %temp to i8
+
+ST_5: tmp_10 (411)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:102
+:16  %tmp_10 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_11, i2 0)
+
+ST_5: tmp_32_cast (412)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:102
+:17  %tmp_32_cast = zext i10 %tmp_10 to i32
+
+ST_5: table_0_addr_3 (413)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:102
+:18  %table_0_addr_3 = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_32_cast
+
+ST_5: table_0_load_3 (414)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:102
+:19  %table_0_load_3 = load i8* %table_0_addr_3, align 1
+
+ST_5: tmp_40 (444)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:65
+:49  %tmp_40 = trunc i32 %p_in90_in to i8
+
+ST_5: tmp_26 (445)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:110
+:50  %tmp_26 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_40, i2 0)
+
+ST_5: tmp_41_cast (446)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:110
+:51  %tmp_41_cast = zext i10 %tmp_26 to i32
+
+ST_5: table_0_addr_4 (447)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:110
+:52  %table_0_addr_4 = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_41_cast
+
+ST_5: table_0_load_4 (448)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:110
+:53  %table_0_load_4 = load i8* %table_0_addr_4, align 1
+
+ST_5: tmp_28 (450)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:66
+:55  %tmp_28 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %p_in89_in, i32 8, i32 15)
+
+ST_5: tmp_29 (451)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:110
+:56  %tmp_29 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_28, i2 0)
+
+ST_5: tmp_44_cast (452)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:110
+:57  %tmp_44_cast = zext i10 %tmp_29 to i32
+
+ST_5: table_0_addr_5 (453)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:110
+:58  %table_0_addr_5 = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_44_cast
+
+ST_5: table_0_load_5 (454)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:110
+:59  %table_0_load_5 = load i8* %table_0_addr_5, align 1
+
+ST_5: tmp_32 (457)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:67
+:62  %tmp_32 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %p_in_in, i32 16, i32 23)
+
+ST_5: tmp_33 (458)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:110
+:63  %tmp_33 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_32, i2 0)
+
+ST_5: tmp_49_cast (459)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:110
+:64  %tmp_49_cast = zext i10 %tmp_33 to i32
+
+ST_5: table_0_addr_6 (460)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:110
+:65  %table_0_addr_6 = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_49_cast
+
+ST_5: table_0_load_6 (461)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:110
+:66  %table_0_load_6 = load i8* %table_0_addr_6, align 1
+
+ST_5: tmp_36 (464)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:68
+:69  %tmp_36 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %p_in1, i32 24, i32 31)
+
+ST_5: tmp_37 (465)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:110
+:70  %tmp_37 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_36, i2 0)
+
+ST_5: tmp_54_cast (466)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:110
+:71  %tmp_54_cast = zext i10 %tmp_37 to i32
+
+ST_5: table_0_addr_7 (467)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:110
+:72  %table_0_addr_7 = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_54_cast
+
+ST_5: table_0_load_7 (468)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:110
+:73  %table_0_load_7 = load i8* %table_0_addr_7, align 1
+
+ST_5: tmp_55 (472)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:66
+:77  %tmp_55 = trunc i32 %p_in89_in to i8
+
+ST_5: tmp_41 (473)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:112
+:78  %tmp_41 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_55, i2 0)
+
+ST_5: tmp_59_cast (474)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:112
+:79  %tmp_59_cast = zext i10 %tmp_41 to i32
+
+ST_5: table_0_addr_8 (475)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:112
+:80  %table_0_addr_8 = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_59_cast
+
+ST_5: table_0_load_8 (476)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:112
+:81  %table_0_load_8 = load i8* %table_0_addr_8, align 1
+
+ST_5: tmp_43 (478)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:67
+:83  %tmp_43 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %p_in_in, i32 8, i32 15)
+
+ST_5: tmp_44 (479)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:112
+:84  %tmp_44 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_43, i2 0)
+
+ST_5: tmp_62_cast (480)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:112
+:85  %tmp_62_cast = zext i10 %tmp_44 to i32
+
+ST_5: table_0_addr_9 (481)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:112
+:86  %table_0_addr_9 = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_62_cast
+
+ST_5: table_0_load_9 (482)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:112
+:87  %table_0_load_9 = load i8* %table_0_addr_9, align 1
+
+ST_5: tmp_47 (485)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:68
+:90  %tmp_47 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %p_in1, i32 16, i32 23)
+
+ST_5: tmp_48 (486)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:112
+:91  %tmp_48 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_47, i2 0)
+
+ST_5: tmp_67_cast (487)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:112
+:92  %tmp_67_cast = zext i10 %tmp_48 to i32
+
+ST_5: table_0_addr_10 (488)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:112
+:93  %table_0_addr_10 = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_67_cast
+
+ST_5: table_0_load_10 (489)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:112
+:94  %table_0_load_10 = load i8* %table_0_addr_10, align 1
+
+ST_5: tmp_51 (492)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:65
+:97  %tmp_51 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %p_in90_in, i32 24, i32 31)
+
+ST_5: tmp_52 (493)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:112
+:98  %tmp_52 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_51, i2 0)
+
+ST_5: tmp_72_cast (494)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:112
+:99  %tmp_72_cast = zext i10 %tmp_52 to i32
+
+ST_5: table_0_addr_11 (495)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:112
+:100  %table_0_addr_11 = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_72_cast
+
+ST_5: table_0_load_11 (496)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:112
+:101  %table_0_load_11 = load i8* %table_0_addr_11, align 1
+
+ST_5: tmp_70 (500)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:67
+:105  %tmp_70 = trunc i32 %p_in_in to i8
+
+ST_5: tmp_56 (501)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:114
+:106  %tmp_56 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_70, i2 0)
+
+ST_5: tmp_77_cast (502)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:114
+:107  %tmp_77_cast = zext i10 %tmp_56 to i32
+
+ST_5: table_0_addr_12 (503)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:114
+:108  %table_0_addr_12 = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_77_cast
+
+ST_5: table_0_load_12 (504)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:114
+:109  %table_0_load_12 = load i8* %table_0_addr_12, align 1
+
+ST_5: tmp_58 (506)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:68
+:111  %tmp_58 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %p_in1, i32 8, i32 15)
+
+ST_5: tmp_59 (507)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:114
+:112  %tmp_59 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_58, i2 0)
+
+ST_5: tmp_80_cast (508)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:114
+:113  %tmp_80_cast = zext i10 %tmp_59 to i32
+
+ST_5: table_0_addr_13 (509)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:114
+:114  %table_0_addr_13 = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_80_cast
+
+ST_5: table_0_load_13 (510)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:114
+:115  %table_0_load_13 = load i8* %table_0_addr_13, align 1
+
+ST_5: tmp_62 (513)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:65
+:118  %tmp_62 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %p_in90_in, i32 16, i32 23)
+
+ST_5: tmp_63 (514)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:114
+:119  %tmp_63 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_62, i2 0)
+
+ST_5: tmp_85_cast (515)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:114
+:120  %tmp_85_cast = zext i10 %tmp_63 to i32
+
+ST_5: table_0_addr_14 (516)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:114
+:121  %table_0_addr_14 = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_85_cast
+
+ST_5: table_0_load_14 (517)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:114
+:122  %table_0_load_14 = load i8* %table_0_addr_14, align 1
+
+ST_5: tmp_66 (520)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:66
+:125  %tmp_66 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %p_in89_in, i32 24, i32 31)
+
+ST_5: tmp_67 (521)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:114
+:126  %tmp_67 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_66, i2 0)
+
+ST_5: tmp_90_cast (522)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:114
+:127  %tmp_90_cast = zext i10 %tmp_67 to i32
+
+ST_5: table_0_addr_15 (523)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:114
+:128  %table_0_addr_15 = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_90_cast
+
+ST_5: table_0_load_15 (524)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:114
+:129  %table_0_load_15 = load i8* %table_0_addr_15, align 1
+
+ST_5: tmp_91 (528)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:68
+:133  %tmp_91 = trunc i32 %p_in1 to i8
+
+ST_5: tmp_71 (529)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:116
+:134  %tmp_71 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_91, i2 0)
+
+ST_5: tmp_95_cast (530)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:116
+:135  %tmp_95_cast = zext i10 %tmp_71 to i32
+
+ST_5: table_0_addr_16 (531)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:116
+:136  %table_0_addr_16 = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_95_cast
+
+ST_5: table_0_load_16 (532)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:116
+:137  %table_0_load_16 = load i8* %table_0_addr_16, align 1
+
+ST_5: tmp_73 (535)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:65
+:140  %tmp_73 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %p_in90_in, i32 8, i32 15)
+
+ST_5: tmp_74 (536)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:116
+:141  %tmp_74 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_73, i2 0)
+
+ST_5: tmp_99_cast (537)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:116
+:142  %tmp_99_cast = zext i10 %tmp_74 to i32
+
+ST_5: table_0_addr_17 (538)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:116
+:143  %table_0_addr_17 = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_99_cast
+
+ST_5: table_0_load_17 (539)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:116
+:144  %table_0_load_17 = load i8* %table_0_addr_17, align 1
+
+ST_5: tmp_77 (542)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:66
+:147  %tmp_77 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %p_in89_in, i32 16, i32 23)
+
+ST_5: tmp_78 (543)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:116
+:148  %tmp_78 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_77, i2 0)
+
+ST_5: tmp_104_cast (544)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:116
+:149  %tmp_104_cast = zext i10 %tmp_78 to i32
+
+ST_5: table_0_addr_18 (545)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:116
+:150  %table_0_addr_18 = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_104_cast
+
+ST_5: table_0_load_18 (546)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:116
+:151  %table_0_load_18 = load i8* %table_0_addr_18, align 1
+
+ST_5: tmp_81 (549)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:67
+:154  %tmp_81 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %p_in_in, i32 24, i32 31)
+
+ST_5: tmp_82 (550)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:116
+:155  %tmp_82 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_81, i2 0)
+
+ST_5: tmp_109_cast (551)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:116
+:156  %tmp_109_cast = zext i10 %tmp_82 to i32
+
+ST_5: table_0_addr_19 (552)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:116
+:157  %table_0_addr_19 = getelementptr inbounds [1024 x i8]* @table_0, i32 0, i32 %tmp_109_cast
+
+ST_5: table_0_load_19 (553)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:116
+:158  %table_0_load_19 = load i8* %table_0_addr_19, align 1
+
+
+ <State 6>: 0.68ns
+ST_6: table_0_load_20 (53)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:77
+:4  %table_0_load_20 = load i8* %table_0_addr_20, align 1
+
+ST_6: table_0_load_21 (58)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:77
+:9  %table_0_load_21 = load i8* %table_0_addr_21, align 1
+
+ST_6: table_0_load_22 (63)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:77
+:14  %table_0_load_22 = load i8* %table_0_addr_22, align 1
+
+ST_6: table_0_load_23 (68)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:77
+:19  %table_0_load_23 = load i8* %table_0_addr_23, align 1
+
+ST_6: temp_2 (69)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:77 (grouped into LUT with out node k0_4)
+:20  %temp_2 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %table_0_load_23, i8 %table_0_load_22, i8 %table_0_load_21, i8 %table_0_load_20)
+
+ST_6: tmp_93 (70)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:78 (grouped into LUT with out node k0_4)
+:21  %tmp_93 = zext i8 %rcon to i32
+
+ST_6: tmp_95 (71)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:82 (grouped into LUT with out node tmp_96)
+:22  %tmp_95 = shl i8 %rcon, 1
+
+ST_6: tmp_98 (72)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:81 (grouped into LUT with out node tmp_96)
+:23  %tmp_98 = call i1 @_ssdm_op_BitSelect.i1.i8.i32(i8 %rcon, i32 7)
+
+ST_6: tmp_131_cast_cast (73)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:81 (grouped into LUT with out node tmp_96)
+:24  %tmp_131_cast_cast = select i1 %tmp_98, i8 27, i8 0
+
+ST_6: tmp_96 (74)  [1/1] 0.08ns  loc: CCodedFiles/1st/aes.c:82 (out node of the LUT)
+:25  %tmp_96 = xor i8 %tmp_131_cast_cast, %tmp_95
+
+ST_6: tmp_97 (75)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:83 (grouped into LUT with out node k0_4)
+:26  %tmp_97 = xor i32 %tmp_93, %temp_2
+
+ST_6: k0_4 (76)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:83 (out node of the LUT)
+:27  %k0_4 = xor i32 %k5, %tmp_97
+
+ST_6: state_load_4 (80)  [1/2] 0.68ns  loc: CCodedFiles/1st/aes.c:88
+:31  %state_load_4 = load i32* %state_addr, align 4
+
+ST_6: tmp_99 (81)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:32  %tmp_99 = trunc i32 %state_load_4 to i8
+
+ST_6: tmp_100 (98)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:49  %tmp_100 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %state_load_4, i32 8, i32 15)
+
+ST_6: tmp_101 (115)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:66  %tmp_101 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %state_load_4, i32 16, i32 23)
+
+ST_6: tmp_102 (132)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:83  %tmp_102 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %state_load_4, i32 24, i32 31)
+
+ST_6: state_load_5 (153)  [1/2] 0.68ns  loc: CCodedFiles/1st/aes.c:90
+:104  %state_load_5 = load i32* %state_addr_1, align 4
+
+ST_6: tmp_104 (154)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:105  %tmp_104 = trunc i32 %state_load_5 to i8
+
+ST_6: tmp_105 (171)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:122  %tmp_105 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %state_load_5, i32 8, i32 15)
+
+ST_6: tmp_106 (188)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:139  %tmp_106 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %state_load_5, i32 16, i32 23)
+
+ST_6: tmp_107 (205)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:156  %tmp_107 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %state_load_5, i32 24, i32 31)
+
+ST_6: state_load_6 (226)  [2/2] 0.68ns  loc: CCodedFiles/1st/aes.c:92
+:177  %state_load_6 = load i32* %state_addr_2, align 4
+
+ST_6: state_load_7 (299)  [2/2] 0.68ns  loc: CCodedFiles/1st/aes.c:94
+:250  %state_load_7 = load i32* %state_addr_3, align 4
+
+
+ <State 7>: 2.06ns
+ST_7: cast_gep_index (82)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:33  %cast_gep_index = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_99, i2 0)
+
+ST_7: gepindex2707_cast (83)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:34  %gepindex2707_cast = zext i10 %cast_gep_index to i32
+
+ST_7: table_0_addr_24 (84)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:35  %table_0_addr_24 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %gepindex2707_cast
+
+ST_7: table_0_load_24 (85)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:36  %table_0_load_24 = load i8* %table_0_addr_24, align 1
+
+ST_7: new_index (86)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:88
+:37  %new_index = add i10 1, %cast_gep_index
+
+ST_7: new_index_cast (87)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:38  %new_index_cast = zext i10 %new_index to i32
+
+ST_7: table_0_addr_25 (88)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:39  %table_0_addr_25 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index_cast
+
+ST_7: table_0_load_25 (89)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:40  %table_0_load_25 = load i8* %table_0_addr_25, align 1
+
+ST_7: new_index1 (90)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:88
+:41  %new_index1 = add i10 2, %cast_gep_index
+
+ST_7: new_index710_cast (91)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:42  %new_index710_cast = zext i10 %new_index1 to i32
+
+ST_7: table_0_addr_26 (92)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:43  %table_0_addr_26 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index710_cast
+
+ST_7: table_0_load_26 (93)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:44  %table_0_load_26 = load i8* %table_0_addr_26, align 1
+
+ST_7: new_index2 (94)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:88
+:45  %new_index2 = add i10 3, %cast_gep_index
+
+ST_7: new_index713_cast (95)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:46  %new_index713_cast = zext i10 %new_index2 to i32
+
+ST_7: table_0_addr_27 (96)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:47  %table_0_addr_27 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index713_cast
+
+ST_7: table_0_load_27 (97)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:48  %table_0_load_27 = load i8* %table_0_addr_27, align 1
+
+ST_7: cast_gep_index1 (99)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:50  %cast_gep_index1 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_100, i2 0)
+
+ST_7: gepindex2722_cast (100)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:51  %gepindex2722_cast = zext i10 %cast_gep_index1 to i32
+
+ST_7: table_0_addr_28 (101)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:52  %table_0_addr_28 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %gepindex2722_cast
+
+ST_7: table_0_load_28 (102)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:53  %table_0_load_28 = load i8* %table_0_addr_28, align 1
+
+ST_7: new_index3 (103)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:88
+:54  %new_index3 = add i10 1, %cast_gep_index1
+
+ST_7: new_index725_cast (104)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:55  %new_index725_cast = zext i10 %new_index3 to i32
+
+ST_7: table_0_addr_29 (105)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:56  %table_0_addr_29 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index725_cast
+
+ST_7: table_0_load_29 (106)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:57  %table_0_load_29 = load i8* %table_0_addr_29, align 1
+
+ST_7: new_index4 (107)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:88
+:58  %new_index4 = add i10 2, %cast_gep_index1
+
+ST_7: new_index728_cast (108)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:59  %new_index728_cast = zext i10 %new_index4 to i32
+
+ST_7: table_0_addr_30 (109)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:60  %table_0_addr_30 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index728_cast
+
+ST_7: table_0_load_30 (110)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:61  %table_0_load_30 = load i8* %table_0_addr_30, align 1
+
+ST_7: new_index5 (111)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:88
+:62  %new_index5 = add i10 3, %cast_gep_index1
+
+ST_7: new_index731_cast (112)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:63  %new_index731_cast = zext i10 %new_index5 to i32
+
+ST_7: table_0_addr_31 (113)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:64  %table_0_addr_31 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index731_cast
+
+ST_7: table_0_load_31 (114)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:65  %table_0_load_31 = load i8* %table_0_addr_31, align 1
+
+ST_7: cast_gep_index2 (116)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:67  %cast_gep_index2 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_101, i2 0)
+
+ST_7: gepindex2740_cast (117)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:68  %gepindex2740_cast = zext i10 %cast_gep_index2 to i32
+
+ST_7: table_0_addr_32 (118)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:69  %table_0_addr_32 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %gepindex2740_cast
+
+ST_7: table_0_load_32 (119)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:70  %table_0_load_32 = load i8* %table_0_addr_32, align 1
+
+ST_7: new_index6 (120)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:88
+:71  %new_index6 = add i10 1, %cast_gep_index2
+
+ST_7: new_index743_cast (121)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:72  %new_index743_cast = zext i10 %new_index6 to i32
+
+ST_7: table_0_addr_33 (122)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:73  %table_0_addr_33 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index743_cast
+
+ST_7: table_0_load_33 (123)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:74  %table_0_load_33 = load i8* %table_0_addr_33, align 1
+
+ST_7: new_index7 (124)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:88
+:75  %new_index7 = add i10 2, %cast_gep_index2
+
+ST_7: new_index746_cast (125)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:76  %new_index746_cast = zext i10 %new_index7 to i32
+
+ST_7: table_0_addr_34 (126)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:77  %table_0_addr_34 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index746_cast
+
+ST_7: table_0_load_34 (127)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:78  %table_0_load_34 = load i8* %table_0_addr_34, align 1
+
+ST_7: new_index8 (128)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:88
+:79  %new_index8 = add i10 3, %cast_gep_index2
+
+ST_7: new_index749_cast (129)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:80  %new_index749_cast = zext i10 %new_index8 to i32
+
+ST_7: table_0_addr_35 (130)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:81  %table_0_addr_35 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index749_cast
+
+ST_7: table_0_load_35 (131)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:82  %table_0_load_35 = load i8* %table_0_addr_35, align 1
+
+ST_7: cast_gep_index3 (133)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:84  %cast_gep_index3 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_102, i2 0)
+
+ST_7: gepindex2758_cast (134)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:85  %gepindex2758_cast = zext i10 %cast_gep_index3 to i32
+
+ST_7: table_0_addr_36 (135)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:86  %table_0_addr_36 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %gepindex2758_cast
+
+ST_7: table_0_load_36 (136)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:87  %table_0_load_36 = load i8* %table_0_addr_36, align 1
+
+ST_7: new_index9 (137)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:88
+:88  %new_index9 = add i10 1, %cast_gep_index3
+
+ST_7: new_index761_cast (138)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:89  %new_index761_cast = zext i10 %new_index9 to i32
+
+ST_7: table_0_addr_37 (139)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:90  %table_0_addr_37 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index761_cast
+
+ST_7: table_0_load_37 (140)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:91  %table_0_load_37 = load i8* %table_0_addr_37, align 1
+
+ST_7: new_index10 (141)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:88
+:92  %new_index10 = add i10 2, %cast_gep_index3
+
+ST_7: new_index764_cast (142)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:93  %new_index764_cast = zext i10 %new_index10 to i32
+
+ST_7: table_0_addr_38 (143)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:94  %table_0_addr_38 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index764_cast
+
+ST_7: table_0_load_38 (144)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:95  %table_0_load_38 = load i8* %table_0_addr_38, align 1
+
+ST_7: new_index11 (145)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:88
+:96  %new_index11 = add i10 3, %cast_gep_index3
+
+ST_7: new_index767_cast (146)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:97  %new_index767_cast = zext i10 %new_index11 to i32
+
+ST_7: table_0_addr_39 (147)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88
+:98  %table_0_addr_39 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index767_cast
+
+ST_7: table_0_load_39 (148)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:99  %table_0_load_39 = load i8* %table_0_addr_39, align 1
+
+ST_7: cast_gep_index4 (155)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:106  %cast_gep_index4 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_104, i2 0)
+
+ST_7: gepindex2776_cast (156)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:107  %gepindex2776_cast = zext i10 %cast_gep_index4 to i32
+
+ST_7: table_0_addr_40 (157)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:108  %table_0_addr_40 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %gepindex2776_cast
+
+ST_7: table_0_load_40 (158)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:109  %table_0_load_40 = load i8* %table_0_addr_40, align 1
+
+ST_7: new_index12 (159)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:90
+:110  %new_index12 = add i10 1, %cast_gep_index4
+
+ST_7: new_index779_cast (160)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:111  %new_index779_cast = zext i10 %new_index12 to i32
+
+ST_7: table_0_addr_41 (161)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:112  %table_0_addr_41 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index779_cast
+
+ST_7: table_0_load_41 (162)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:113  %table_0_load_41 = load i8* %table_0_addr_41, align 1
+
+ST_7: new_index13 (163)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:90
+:114  %new_index13 = add i10 2, %cast_gep_index4
+
+ST_7: new_index782_cast (164)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:115  %new_index782_cast = zext i10 %new_index13 to i32
+
+ST_7: table_0_addr_42 (165)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:116  %table_0_addr_42 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index782_cast
+
+ST_7: table_0_load_42 (166)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:117  %table_0_load_42 = load i8* %table_0_addr_42, align 1
+
+ST_7: new_index14 (167)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:90
+:118  %new_index14 = add i10 3, %cast_gep_index4
+
+ST_7: new_index785_cast (168)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:119  %new_index785_cast = zext i10 %new_index14 to i32
+
+ST_7: table_0_addr_43 (169)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:120  %table_0_addr_43 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index785_cast
+
+ST_7: table_0_load_43 (170)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:121  %table_0_load_43 = load i8* %table_0_addr_43, align 1
+
+ST_7: cast_gep_index5 (172)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:123  %cast_gep_index5 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_105, i2 0)
+
+ST_7: gepindex2794_cast (173)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:124  %gepindex2794_cast = zext i10 %cast_gep_index5 to i32
+
+ST_7: table_0_addr_44 (174)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:125  %table_0_addr_44 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %gepindex2794_cast
+
+ST_7: table_0_load_44 (175)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:126  %table_0_load_44 = load i8* %table_0_addr_44, align 1
+
+ST_7: new_index15 (176)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:90
+:127  %new_index15 = add i10 1, %cast_gep_index5
+
+ST_7: new_index797_cast (177)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:128  %new_index797_cast = zext i10 %new_index15 to i32
+
+ST_7: table_0_addr_45 (178)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:129  %table_0_addr_45 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index797_cast
+
+ST_7: table_0_load_45 (179)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:130  %table_0_load_45 = load i8* %table_0_addr_45, align 1
+
+ST_7: new_index16 (180)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:90
+:131  %new_index16 = add i10 2, %cast_gep_index5
+
+ST_7: new_index800_cast (181)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:132  %new_index800_cast = zext i10 %new_index16 to i32
+
+ST_7: table_0_addr_46 (182)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:133  %table_0_addr_46 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index800_cast
+
+ST_7: table_0_load_46 (183)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:134  %table_0_load_46 = load i8* %table_0_addr_46, align 1
+
+ST_7: new_index17 (184)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:90
+:135  %new_index17 = add i10 3, %cast_gep_index5
+
+ST_7: new_index803_cast (185)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:136  %new_index803_cast = zext i10 %new_index17 to i32
+
+ST_7: table_0_addr_47 (186)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:137  %table_0_addr_47 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index803_cast
+
+ST_7: table_0_load_47 (187)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:138  %table_0_load_47 = load i8* %table_0_addr_47, align 1
+
+ST_7: cast_gep_index6 (189)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:140  %cast_gep_index6 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_106, i2 0)
+
+ST_7: gepindex2812_cast (190)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:141  %gepindex2812_cast = zext i10 %cast_gep_index6 to i32
+
+ST_7: table_0_addr_48 (191)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:142  %table_0_addr_48 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %gepindex2812_cast
+
+ST_7: table_0_load_48 (192)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:143  %table_0_load_48 = load i8* %table_0_addr_48, align 1
+
+ST_7: new_index18 (193)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:90
+:144  %new_index18 = add i10 1, %cast_gep_index6
+
+ST_7: new_index815_cast (194)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:145  %new_index815_cast = zext i10 %new_index18 to i32
+
+ST_7: table_0_addr_49 (195)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:146  %table_0_addr_49 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index815_cast
+
+ST_7: table_0_load_49 (196)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:147  %table_0_load_49 = load i8* %table_0_addr_49, align 1
+
+ST_7: new_index19 (197)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:90
+:148  %new_index19 = add i10 2, %cast_gep_index6
+
+ST_7: new_index818_cast (198)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:149  %new_index818_cast = zext i10 %new_index19 to i32
+
+ST_7: table_0_addr_50 (199)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:150  %table_0_addr_50 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index818_cast
+
+ST_7: table_0_load_50 (200)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:151  %table_0_load_50 = load i8* %table_0_addr_50, align 1
+
+ST_7: new_index20 (201)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:90
+:152  %new_index20 = add i10 3, %cast_gep_index6
+
+ST_7: new_index821_cast (202)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:153  %new_index821_cast = zext i10 %new_index20 to i32
+
+ST_7: table_0_addr_51 (203)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:154  %table_0_addr_51 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index821_cast
+
+ST_7: table_0_load_51 (204)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:155  %table_0_load_51 = load i8* %table_0_addr_51, align 1
+
+ST_7: cast_gep_index7 (206)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:157  %cast_gep_index7 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_107, i2 0)
+
+ST_7: gepindex2830_cast (207)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:158  %gepindex2830_cast = zext i10 %cast_gep_index7 to i32
+
+ST_7: table_0_addr_52 (208)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:159  %table_0_addr_52 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %gepindex2830_cast
+
+ST_7: table_0_load_52 (209)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:160  %table_0_load_52 = load i8* %table_0_addr_52, align 1
+
+ST_7: new_index21 (210)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:90
+:161  %new_index21 = add i10 1, %cast_gep_index7
+
+ST_7: new_index833_cast (211)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:162  %new_index833_cast = zext i10 %new_index21 to i32
+
+ST_7: table_0_addr_53 (212)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:163  %table_0_addr_53 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index833_cast
+
+ST_7: table_0_load_53 (213)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:164  %table_0_load_53 = load i8* %table_0_addr_53, align 1
+
+ST_7: new_index22 (214)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:90
+:165  %new_index22 = add i10 2, %cast_gep_index7
+
+ST_7: new_index836_cast (215)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:166  %new_index836_cast = zext i10 %new_index22 to i32
+
+ST_7: table_0_addr_54 (216)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:167  %table_0_addr_54 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index836_cast
+
+ST_7: table_0_load_54 (217)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:168  %table_0_load_54 = load i8* %table_0_addr_54, align 1
+
+ST_7: new_index23 (218)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:90
+:169  %new_index23 = add i10 3, %cast_gep_index7
+
+ST_7: new_index839_cast (219)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:170  %new_index839_cast = zext i10 %new_index23 to i32
+
+ST_7: table_0_addr_55 (220)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90
+:171  %table_0_addr_55 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index839_cast
+
+ST_7: table_0_load_55 (221)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:172  %table_0_load_55 = load i8* %table_0_addr_55, align 1
+
+ST_7: state_load_6 (226)  [1/2] 0.68ns  loc: CCodedFiles/1st/aes.c:92
+:177  %state_load_6 = load i32* %state_addr_2, align 4
+
+ST_7: tmp_109 (227)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:178  %tmp_109 = trunc i32 %state_load_6 to i8
+
+ST_7: cast_gep_index8 (228)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:179  %cast_gep_index8 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_109, i2 0)
+
+ST_7: gepindex2848_cast (229)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:180  %gepindex2848_cast = zext i10 %cast_gep_index8 to i32
+
+ST_7: table_0_addr_56 (230)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:181  %table_0_addr_56 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %gepindex2848_cast
+
+ST_7: table_0_load_56 (231)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:182  %table_0_load_56 = load i8* %table_0_addr_56, align 1
+
+ST_7: new_index24 (232)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:92
+:183  %new_index24 = add i10 1, %cast_gep_index8
+
+ST_7: new_index851_cast (233)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:184  %new_index851_cast = zext i10 %new_index24 to i32
+
+ST_7: table_0_addr_57 (234)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:185  %table_0_addr_57 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index851_cast
+
+ST_7: table_0_load_57 (235)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:186  %table_0_load_57 = load i8* %table_0_addr_57, align 1
+
+ST_7: new_index25 (236)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:92
+:187  %new_index25 = add i10 2, %cast_gep_index8
+
+ST_7: new_index854_cast (237)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:188  %new_index854_cast = zext i10 %new_index25 to i32
+
+ST_7: table_0_addr_58 (238)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:189  %table_0_addr_58 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index854_cast
+
+ST_7: table_0_load_58 (239)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:190  %table_0_load_58 = load i8* %table_0_addr_58, align 1
+
+ST_7: new_index26 (240)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:92
+:191  %new_index26 = add i10 3, %cast_gep_index8
+
+ST_7: new_index857_cast (241)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:192  %new_index857_cast = zext i10 %new_index26 to i32
+
+ST_7: table_0_addr_59 (242)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:193  %table_0_addr_59 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index857_cast
+
+ST_7: table_0_load_59 (243)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:194  %table_0_load_59 = load i8* %table_0_addr_59, align 1
+
+ST_7: tmp_110 (244)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:195  %tmp_110 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %state_load_6, i32 8, i32 15)
+
+ST_7: cast_gep_index9 (245)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:196  %cast_gep_index9 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_110, i2 0)
+
+ST_7: gepindex2866_cast (246)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:197  %gepindex2866_cast = zext i10 %cast_gep_index9 to i32
+
+ST_7: table_0_addr_60 (247)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:198  %table_0_addr_60 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %gepindex2866_cast
+
+ST_7: table_0_load_60 (248)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:199  %table_0_load_60 = load i8* %table_0_addr_60, align 1
+
+ST_7: new_index27 (249)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:92
+:200  %new_index27 = add i10 1, %cast_gep_index9
+
+ST_7: new_index869_cast (250)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:201  %new_index869_cast = zext i10 %new_index27 to i32
+
+ST_7: table_0_addr_61 (251)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:202  %table_0_addr_61 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index869_cast
+
+ST_7: table_0_load_61 (252)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:203  %table_0_load_61 = load i8* %table_0_addr_61, align 1
+
+ST_7: new_index28 (253)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:92
+:204  %new_index28 = add i10 2, %cast_gep_index9
+
+ST_7: new_index872_cast (254)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:205  %new_index872_cast = zext i10 %new_index28 to i32
+
+ST_7: table_0_addr_62 (255)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:206  %table_0_addr_62 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index872_cast
+
+ST_7: table_0_load_62 (256)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:207  %table_0_load_62 = load i8* %table_0_addr_62, align 1
+
+ST_7: new_index29 (257)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:92
+:208  %new_index29 = add i10 3, %cast_gep_index9
+
+ST_7: new_index875_cast (258)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:209  %new_index875_cast = zext i10 %new_index29 to i32
+
+ST_7: table_0_addr_63 (259)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:210  %table_0_addr_63 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index875_cast
+
+ST_7: table_0_load_63 (260)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:211  %table_0_load_63 = load i8* %table_0_addr_63, align 1
+
+ST_7: tmp_111 (261)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:212  %tmp_111 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %state_load_6, i32 16, i32 23)
+
+ST_7: cast_gep_index10 (262)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:213  %cast_gep_index10 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_111, i2 0)
+
+ST_7: gepindex2884_cast (263)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:214  %gepindex2884_cast = zext i10 %cast_gep_index10 to i32
+
+ST_7: table_0_addr_64 (264)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:215  %table_0_addr_64 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %gepindex2884_cast
+
+ST_7: table_0_load_64 (265)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:216  %table_0_load_64 = load i8* %table_0_addr_64, align 1
+
+ST_7: new_index30 (266)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:92
+:217  %new_index30 = add i10 1, %cast_gep_index10
+
+ST_7: new_index887_cast (267)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:218  %new_index887_cast = zext i10 %new_index30 to i32
+
+ST_7: table_0_addr_65 (268)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:219  %table_0_addr_65 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index887_cast
+
+ST_7: table_0_load_65 (269)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:220  %table_0_load_65 = load i8* %table_0_addr_65, align 1
+
+ST_7: new_index31 (270)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:92
+:221  %new_index31 = add i10 2, %cast_gep_index10
+
+ST_7: new_index890_cast (271)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:222  %new_index890_cast = zext i10 %new_index31 to i32
+
+ST_7: table_0_addr_66 (272)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:223  %table_0_addr_66 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index890_cast
+
+ST_7: table_0_load_66 (273)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:224  %table_0_load_66 = load i8* %table_0_addr_66, align 1
+
+ST_7: new_index32 (274)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:92
+:225  %new_index32 = add i10 3, %cast_gep_index10
+
+ST_7: new_index893_cast (275)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:226  %new_index893_cast = zext i10 %new_index32 to i32
+
+ST_7: table_0_addr_67 (276)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:227  %table_0_addr_67 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index893_cast
+
+ST_7: table_0_load_67 (277)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:228  %table_0_load_67 = load i8* %table_0_addr_67, align 1
+
+ST_7: tmp_112 (278)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:229  %tmp_112 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %state_load_6, i32 24, i32 31)
+
+ST_7: cast_gep_index11 (279)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:230  %cast_gep_index11 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_112, i2 0)
+
+ST_7: gepindex2902_cast (280)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:231  %gepindex2902_cast = zext i10 %cast_gep_index11 to i32
+
+ST_7: table_0_addr_68 (281)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:232  %table_0_addr_68 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %gepindex2902_cast
+
+ST_7: table_0_load_68 (282)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:233  %table_0_load_68 = load i8* %table_0_addr_68, align 1
+
+ST_7: new_index33 (283)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:92
+:234  %new_index33 = add i10 1, %cast_gep_index11
+
+ST_7: new_index905_cast (284)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:235  %new_index905_cast = zext i10 %new_index33 to i32
+
+ST_7: table_0_addr_69 (285)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:236  %table_0_addr_69 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index905_cast
+
+ST_7: table_0_load_69 (286)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:237  %table_0_load_69 = load i8* %table_0_addr_69, align 1
+
+ST_7: new_index34 (287)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:92
+:238  %new_index34 = add i10 2, %cast_gep_index11
+
+ST_7: new_index908_cast (288)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:239  %new_index908_cast = zext i10 %new_index34 to i32
+
+ST_7: table_0_addr_70 (289)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:240  %table_0_addr_70 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index908_cast
+
+ST_7: table_0_load_70 (290)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:241  %table_0_load_70 = load i8* %table_0_addr_70, align 1
+
+ST_7: new_index35 (291)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:92
+:242  %new_index35 = add i10 3, %cast_gep_index11
+
+ST_7: new_index911_cast (292)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:243  %new_index911_cast = zext i10 %new_index35 to i32
+
+ST_7: table_0_addr_71 (293)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92
+:244  %table_0_addr_71 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index911_cast
+
+ST_7: table_0_load_71 (294)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:245  %table_0_load_71 = load i8* %table_0_addr_71, align 1
+
+ST_7: state_load_7 (299)  [1/2] 0.68ns  loc: CCodedFiles/1st/aes.c:94
+:250  %state_load_7 = load i32* %state_addr_3, align 4
+
+ST_7: tmp_114 (300)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:251  %tmp_114 = trunc i32 %state_load_7 to i8
+
+ST_7: cast_gep_index12 (301)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:252  %cast_gep_index12 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_114, i2 0)
+
+ST_7: gepindex2920_cast (302)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:253  %gepindex2920_cast = zext i10 %cast_gep_index12 to i32
+
+ST_7: table_0_addr_72 (303)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:254  %table_0_addr_72 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %gepindex2920_cast
+
+ST_7: table_0_load_72 (304)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:255  %table_0_load_72 = load i8* %table_0_addr_72, align 1
+
+ST_7: new_index36 (305)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:94
+:256  %new_index36 = add i10 1, %cast_gep_index12
+
+ST_7: new_index923_cast (306)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:257  %new_index923_cast = zext i10 %new_index36 to i32
+
+ST_7: table_0_addr_73 (307)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:258  %table_0_addr_73 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index923_cast
+
+ST_7: table_0_load_73 (308)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:259  %table_0_load_73 = load i8* %table_0_addr_73, align 1
+
+ST_7: new_index37 (309)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:94
+:260  %new_index37 = add i10 2, %cast_gep_index12
+
+ST_7: new_index926_cast (310)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:261  %new_index926_cast = zext i10 %new_index37 to i32
+
+ST_7: table_0_addr_74 (311)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:262  %table_0_addr_74 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index926_cast
+
+ST_7: table_0_load_74 (312)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:263  %table_0_load_74 = load i8* %table_0_addr_74, align 1
+
+ST_7: new_index38 (313)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:94
+:264  %new_index38 = add i10 3, %cast_gep_index12
+
+ST_7: new_index929_cast (314)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:265  %new_index929_cast = zext i10 %new_index38 to i32
+
+ST_7: table_0_addr_75 (315)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:266  %table_0_addr_75 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index929_cast
+
+ST_7: table_0_load_75 (316)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:267  %table_0_load_75 = load i8* %table_0_addr_75, align 1
+
+ST_7: tmp_115 (317)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:268  %tmp_115 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %state_load_7, i32 8, i32 15)
+
+ST_7: cast_gep_index13 (318)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:269  %cast_gep_index13 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_115, i2 0)
+
+ST_7: gepindex2938_cast (319)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:270  %gepindex2938_cast = zext i10 %cast_gep_index13 to i32
+
+ST_7: table_0_addr_76 (320)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:271  %table_0_addr_76 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %gepindex2938_cast
+
+ST_7: table_0_load_76 (321)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:272  %table_0_load_76 = load i8* %table_0_addr_76, align 1
+
+ST_7: new_index39 (322)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:94
+:273  %new_index39 = add i10 1, %cast_gep_index13
+
+ST_7: new_index941_cast (323)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:274  %new_index941_cast = zext i10 %new_index39 to i32
+
+ST_7: table_0_addr_77 (324)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:275  %table_0_addr_77 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index941_cast
+
+ST_7: table_0_load_77 (325)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:276  %table_0_load_77 = load i8* %table_0_addr_77, align 1
+
+ST_7: new_index40 (326)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:94
+:277  %new_index40 = add i10 2, %cast_gep_index13
+
+ST_7: new_index944_cast (327)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:278  %new_index944_cast = zext i10 %new_index40 to i32
+
+ST_7: table_0_addr_78 (328)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:279  %table_0_addr_78 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index944_cast
+
+ST_7: table_0_load_78 (329)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:280  %table_0_load_78 = load i8* %table_0_addr_78, align 1
+
+ST_7: new_index41 (330)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:94
+:281  %new_index41 = add i10 3, %cast_gep_index13
+
+ST_7: new_index947_cast (331)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:282  %new_index947_cast = zext i10 %new_index41 to i32
+
+ST_7: table_0_addr_79 (332)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:283  %table_0_addr_79 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index947_cast
+
+ST_7: table_0_load_79 (333)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:284  %table_0_load_79 = load i8* %table_0_addr_79, align 1
+
+ST_7: tmp_116 (334)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:285  %tmp_116 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %state_load_7, i32 16, i32 23)
+
+ST_7: cast_gep_index14 (335)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:286  %cast_gep_index14 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_116, i2 0)
+
+ST_7: gepindex2956_cast (336)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:287  %gepindex2956_cast = zext i10 %cast_gep_index14 to i32
+
+ST_7: table_0_addr_80 (337)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:288  %table_0_addr_80 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %gepindex2956_cast
+
+ST_7: table_0_load_80 (338)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:289  %table_0_load_80 = load i8* %table_0_addr_80, align 1
+
+ST_7: new_index42 (339)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:94
+:290  %new_index42 = add i10 1, %cast_gep_index14
+
+ST_7: new_index959_cast (340)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:291  %new_index959_cast = zext i10 %new_index42 to i32
+
+ST_7: table_0_addr_81 (341)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:292  %table_0_addr_81 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index959_cast
+
+ST_7: table_0_load_81 (342)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:293  %table_0_load_81 = load i8* %table_0_addr_81, align 1
+
+ST_7: new_index43 (343)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:94
+:294  %new_index43 = add i10 2, %cast_gep_index14
+
+ST_7: new_index962_cast (344)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:295  %new_index962_cast = zext i10 %new_index43 to i32
+
+ST_7: table_0_addr_82 (345)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:296  %table_0_addr_82 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index962_cast
+
+ST_7: table_0_load_82 (346)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:297  %table_0_load_82 = load i8* %table_0_addr_82, align 1
+
+ST_7: new_index44 (347)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:94
+:298  %new_index44 = add i10 3, %cast_gep_index14
+
+ST_7: new_index965_cast (348)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:299  %new_index965_cast = zext i10 %new_index44 to i32
+
+ST_7: table_0_addr_83 (349)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:300  %table_0_addr_83 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index965_cast
+
+ST_7: table_0_load_83 (350)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:301  %table_0_load_83 = load i8* %table_0_addr_83, align 1
+
+ST_7: tmp_117 (351)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:302  %tmp_117 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %state_load_7, i32 24, i32 31)
+
+ST_7: cast_gep_index15 (352)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:303  %cast_gep_index15 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %tmp_117, i2 0)
+
+ST_7: gepindex2974_cast (353)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:304  %gepindex2974_cast = zext i10 %cast_gep_index15 to i32
+
+ST_7: table_0_addr_84 (354)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:305  %table_0_addr_84 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %gepindex2974_cast
+
+ST_7: table_0_load_84 (355)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:306  %table_0_load_84 = load i8* %table_0_addr_84, align 1
+
+ST_7: new_index45 (356)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:94
+:307  %new_index45 = add i10 1, %cast_gep_index15
+
+ST_7: new_index977_cast (357)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:308  %new_index977_cast = zext i10 %new_index45 to i32
+
+ST_7: table_0_addr_85 (358)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:309  %table_0_addr_85 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index977_cast
+
+ST_7: table_0_load_85 (359)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:310  %table_0_load_85 = load i8* %table_0_addr_85, align 1
+
+ST_7: new_index46 (360)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:94
+:311  %new_index46 = add i10 2, %cast_gep_index15
+
+ST_7: new_index980_cast (361)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:312  %new_index980_cast = zext i10 %new_index46 to i32
+
+ST_7: table_0_addr_86 (362)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:313  %table_0_addr_86 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index980_cast
+
+ST_7: table_0_load_86 (363)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:314  %table_0_load_86 = load i8* %table_0_addr_86, align 1
+
+ST_7: new_index47 (364)  [1/1] 0.81ns  loc: CCodedFiles/1st/aes.c:94
+:315  %new_index47 = add i10 3, %cast_gep_index15
+
+ST_7: new_index983_cast (365)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:316  %new_index983_cast = zext i10 %new_index47 to i32
+
+ST_7: table_0_addr_87 (366)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94
+:317  %table_0_addr_87 = getelementptr [1024 x i8]* @table_0, i32 0, i32 %new_index983_cast
+
+ST_7: table_0_load_87 (367)  [2/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:318  %table_0_load_87 = load i8* %table_0_addr_87, align 1
+
+
+ <State 8>: 1.30ns
+ST_8: k1_4 (77)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:84
+:28  %k1_4 = xor i32 %k0_4, %k4
+
+ST_8: k2_4 (78)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:85
+:29  %k2_4 = xor i32 %k1_4, %k
+
+ST_8: k3_4 (79)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:86
+:30  %k3_4 = xor i32 %k2_4, %temp
+
+ST_8: table_0_load_24 (85)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:36  %table_0_load_24 = load i8* %table_0_addr_24, align 1
+
+ST_8: table_0_load_25 (89)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:40  %table_0_load_25 = load i8* %table_0_addr_25, align 1
+
+ST_8: table_0_load_26 (93)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:44  %table_0_load_26 = load i8* %table_0_addr_26, align 1
+
+ST_8: table_0_load_27 (97)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:48  %table_0_load_27 = load i8* %table_0_addr_27, align 1
+
+ST_8: table_0_load_28 (102)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:53  %table_0_load_28 = load i8* %table_0_addr_28, align 1
+
+ST_8: table_0_load_29 (106)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:57  %table_0_load_29 = load i8* %table_0_addr_29, align 1
+
+ST_8: table_0_load_30 (110)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:61  %table_0_load_30 = load i8* %table_0_addr_30, align 1
+
+ST_8: table_0_load_31 (114)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:65  %table_0_load_31 = load i8* %table_0_addr_31, align 1
+
+ST_8: table_0_load_32 (119)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:70  %table_0_load_32 = load i8* %table_0_addr_32, align 1
+
+ST_8: table_0_load_33 (123)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:74  %table_0_load_33 = load i8* %table_0_addr_33, align 1
+
+ST_8: table_0_load_34 (127)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:78  %table_0_load_34 = load i8* %table_0_addr_34, align 1
+
+ST_8: table_0_load_35 (131)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:82  %table_0_load_35 = load i8* %table_0_addr_35, align 1
+
+ST_8: table_0_load_36 (136)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:87  %table_0_load_36 = load i8* %table_0_addr_36, align 1
+
+ST_8: table_0_load_37 (140)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:91  %table_0_load_37 = load i8* %table_0_addr_37, align 1
+
+ST_8: table_0_load_38 (144)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:95  %table_0_load_38 = load i8* %table_0_addr_38, align 1
+
+ST_8: table_0_load_39 (148)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:88
+:99  %table_0_load_39 = load i8* %table_0_addr_39, align 1
+
+ST_8: p3 (149)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88 (grouped into LUT with out node tmp_108)
+:100  %p3 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %table_0_load_39, i8 %table_0_load_38, i8 %table_0_load_37, i8 %table_0_load_36)
+
+ST_8: p0 (150)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88 (grouped into LUT with out node tmp_103)
+:101  %p0 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %table_0_load_26, i8 %table_0_load_25, i8 %table_0_load_24, i8 %table_0_load_27)
+
+ST_8: p1 (151)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88 (grouped into LUT with out node tmp_118)
+:102  %p1 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %table_0_load_29, i8 %table_0_load_28, i8 %table_0_load_31, i8 %table_0_load_30)
+
+ST_8: p2 (152)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:88 (grouped into LUT with out node tmp_113)
+:103  %p2 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %table_0_load_32, i8 %table_0_load_35, i8 %table_0_load_34, i8 %table_0_load_33)
+
+ST_8: table_0_load_40 (158)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:109  %table_0_load_40 = load i8* %table_0_addr_40, align 1
+
+ST_8: table_0_load_41 (162)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:113  %table_0_load_41 = load i8* %table_0_addr_41, align 1
+
+ST_8: table_0_load_42 (166)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:117  %table_0_load_42 = load i8* %table_0_addr_42, align 1
+
+ST_8: table_0_load_43 (170)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:121  %table_0_load_43 = load i8* %table_0_addr_43, align 1
+
+ST_8: table_0_load_44 (175)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:126  %table_0_load_44 = load i8* %table_0_addr_44, align 1
+
+ST_8: table_0_load_45 (179)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:130  %table_0_load_45 = load i8* %table_0_addr_45, align 1
+
+ST_8: table_0_load_46 (183)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:134  %table_0_load_46 = load i8* %table_0_addr_46, align 1
+
+ST_8: table_0_load_47 (187)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:138  %table_0_load_47 = load i8* %table_0_addr_47, align 1
+
+ST_8: table_0_load_48 (192)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:143  %table_0_load_48 = load i8* %table_0_addr_48, align 1
+
+ST_8: table_0_load_49 (196)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:147  %table_0_load_49 = load i8* %table_0_addr_49, align 1
+
+ST_8: table_0_load_50 (200)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:151  %table_0_load_50 = load i8* %table_0_addr_50, align 1
+
+ST_8: table_0_load_51 (204)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:155  %table_0_load_51 = load i8* %table_0_addr_51, align 1
+
+ST_8: table_0_load_52 (209)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:160  %table_0_load_52 = load i8* %table_0_addr_52, align 1
+
+ST_8: table_0_load_53 (213)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:164  %table_0_load_53 = load i8* %table_0_addr_53, align 1
+
+ST_8: table_0_load_54 (217)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:168  %table_0_load_54 = load i8* %table_0_addr_54, align 1
+
+ST_8: table_0_load_55 (221)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:90
+:172  %table_0_load_55 = load i8* %table_0_addr_55, align 1
+
+ST_8: p3_1 (222)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90 (grouped into LUT with out node tmp_113)
+:173  %p3_1 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %table_0_load_55, i8 %table_0_load_54, i8 %table_0_load_53, i8 %table_0_load_52)
+
+ST_8: p0_1 (223)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90 (grouped into LUT with out node tmp_108)
+:174  %p0_1 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %table_0_load_42, i8 %table_0_load_41, i8 %table_0_load_40, i8 %table_0_load_43)
+
+ST_8: p1_1 (224)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90 (grouped into LUT with out node tmp_103)
+:175  %p1_1 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %table_0_load_45, i8 %table_0_load_44, i8 %table_0_load_47, i8 %table_0_load_46)
+
+ST_8: p2_1 (225)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:90 (grouped into LUT with out node tmp_118)
+:176  %p2_1 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %table_0_load_48, i8 %table_0_load_51, i8 %table_0_load_50, i8 %table_0_load_49)
+
+ST_8: table_0_load_56 (231)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:182  %table_0_load_56 = load i8* %table_0_addr_56, align 1
+
+ST_8: table_0_load_57 (235)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:186  %table_0_load_57 = load i8* %table_0_addr_57, align 1
+
+ST_8: table_0_load_58 (239)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:190  %table_0_load_58 = load i8* %table_0_addr_58, align 1
+
+ST_8: table_0_load_59 (243)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:194  %table_0_load_59 = load i8* %table_0_addr_59, align 1
+
+ST_8: table_0_load_60 (248)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:199  %table_0_load_60 = load i8* %table_0_addr_60, align 1
+
+ST_8: table_0_load_61 (252)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:203  %table_0_load_61 = load i8* %table_0_addr_61, align 1
+
+ST_8: table_0_load_62 (256)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:207  %table_0_load_62 = load i8* %table_0_addr_62, align 1
+
+ST_8: table_0_load_63 (260)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:211  %table_0_load_63 = load i8* %table_0_addr_63, align 1
+
+ST_8: table_0_load_64 (265)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:216  %table_0_load_64 = load i8* %table_0_addr_64, align 1
+
+ST_8: table_0_load_65 (269)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:220  %table_0_load_65 = load i8* %table_0_addr_65, align 1
+
+ST_8: table_0_load_66 (273)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:224  %table_0_load_66 = load i8* %table_0_addr_66, align 1
+
+ST_8: table_0_load_67 (277)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:228  %table_0_load_67 = load i8* %table_0_addr_67, align 1
+
+ST_8: table_0_load_68 (282)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:233  %table_0_load_68 = load i8* %table_0_addr_68, align 1
+
+ST_8: table_0_load_69 (286)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:237  %table_0_load_69 = load i8* %table_0_addr_69, align 1
+
+ST_8: table_0_load_70 (290)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:241  %table_0_load_70 = load i8* %table_0_addr_70, align 1
+
+ST_8: table_0_load_71 (294)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:92
+:245  %table_0_load_71 = load i8* %table_0_addr_71, align 1
+
+ST_8: p3_2 (295)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92 (grouped into LUT with out node tmp_118)
+:246  %p3_2 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %table_0_load_71, i8 %table_0_load_70, i8 %table_0_load_69, i8 %table_0_load_68)
+
+ST_8: p0_2 (296)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92 (grouped into LUT with out node tmp_113)
+:247  %p0_2 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %table_0_load_58, i8 %table_0_load_57, i8 %table_0_load_56, i8 %table_0_load_59)
+
+ST_8: p1_2 (297)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92 (grouped into LUT with out node tmp_108)
+:248  %p1_2 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %table_0_load_61, i8 %table_0_load_60, i8 %table_0_load_63, i8 %table_0_load_62)
+
+ST_8: p2_2 (298)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:92 (grouped into LUT with out node tmp_103)
+:249  %p2_2 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %table_0_load_64, i8 %table_0_load_67, i8 %table_0_load_66, i8 %table_0_load_65)
+
+ST_8: table_0_load_72 (304)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:255  %table_0_load_72 = load i8* %table_0_addr_72, align 1
+
+ST_8: table_0_load_73 (308)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:259  %table_0_load_73 = load i8* %table_0_addr_73, align 1
+
+ST_8: table_0_load_74 (312)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:263  %table_0_load_74 = load i8* %table_0_addr_74, align 1
+
+ST_8: table_0_load_75 (316)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:267  %table_0_load_75 = load i8* %table_0_addr_75, align 1
+
+ST_8: table_0_load_76 (321)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:272  %table_0_load_76 = load i8* %table_0_addr_76, align 1
+
+ST_8: table_0_load_77 (325)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:276  %table_0_load_77 = load i8* %table_0_addr_77, align 1
+
+ST_8: table_0_load_78 (329)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:280  %table_0_load_78 = load i8* %table_0_addr_78, align 1
+
+ST_8: table_0_load_79 (333)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:284  %table_0_load_79 = load i8* %table_0_addr_79, align 1
+
+ST_8: table_0_load_80 (338)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:289  %table_0_load_80 = load i8* %table_0_addr_80, align 1
+
+ST_8: table_0_load_81 (342)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:293  %table_0_load_81 = load i8* %table_0_addr_81, align 1
+
+ST_8: table_0_load_82 (346)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:297  %table_0_load_82 = load i8* %table_0_addr_82, align 1
+
+ST_8: table_0_load_83 (350)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:301  %table_0_load_83 = load i8* %table_0_addr_83, align 1
+
+ST_8: table_0_load_84 (355)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:306  %table_0_load_84 = load i8* %table_0_addr_84, align 1
+
+ST_8: table_0_load_85 (359)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:310  %table_0_load_85 = load i8* %table_0_addr_85, align 1
+
+ST_8: table_0_load_86 (363)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:314  %table_0_load_86 = load i8* %table_0_addr_86, align 1
+
+ST_8: table_0_load_87 (367)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:94
+:318  %table_0_load_87 = load i8* %table_0_addr_87, align 1
+
+ST_8: p3_3 (368)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94 (grouped into LUT with out node tmp_103)
+:319  %p3_3 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %table_0_load_87, i8 %table_0_load_86, i8 %table_0_load_85, i8 %table_0_load_84)
+
+ST_8: p0_3 (369)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94 (grouped into LUT with out node tmp_118)
+:320  %p0_3 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %table_0_load_74, i8 %table_0_load_73, i8 %table_0_load_72, i8 %table_0_load_75)
+
+ST_8: p1_3 (370)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94 (grouped into LUT with out node tmp_113)
+:321  %p1_3 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %table_0_load_77, i8 %table_0_load_76, i8 %table_0_load_79, i8 %table_0_load_78)
+
+ST_8: p2_3 (371)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:94 (grouped into LUT with out node tmp_108)
+:322  %p2_3 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %table_0_load_80, i8 %table_0_load_83, i8 %table_0_load_82, i8 %table_0_load_81)
+
+ST_8: tmp3 (372)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:95 (grouped into LUT with out node tmp_103)
+:323  %tmp3 = xor i32 %p3_3, %p1_1
+
+ST_8: tmp5 (373)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:95 (grouped into LUT with out node tmp_103)
+:324  %tmp5 = xor i32 %k0_4, %p0
+
+ST_8: tmp4 (374)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:95 (grouped into LUT with out node tmp_103)
+:325  %tmp4 = xor i32 %tmp5, %p2_2
+
+ST_8: tmp_103 (375)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:95 (out node of the LUT)
+:326  %tmp_103 = xor i32 %tmp4, %tmp3
+
+ST_8: StgValue_563 (376)  [1/1] 0.68ns  loc: CCodedFiles/1st/aes.c:95
+:327  store i32 %tmp_103, i32* %state_addr, align 4
+
+ST_8: tmp8 (377)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:96 (grouped into LUT with out node tmp_108)
+:328  %tmp8 = xor i32 %p3, %p0_1
+
+ST_8: tmp10 (378)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:96 (grouped into LUT with out node tmp_108)
+:329  %tmp10 = xor i32 %k1_4, %p2_3
+
+ST_8: tmp9 (379)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:96 (grouped into LUT with out node tmp_108)
+:330  %tmp9 = xor i32 %tmp10, %p1_2
+
+ST_8: tmp_108 (380)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:96 (out node of the LUT)
+:331  %tmp_108 = xor i32 %tmp9, %tmp8
+
+ST_8: StgValue_568 (381)  [1/1] 0.68ns  loc: CCodedFiles/1st/aes.c:96
+:332  store i32 %tmp_108, i32* %state_addr_1, align 4
+
+ST_8: tmp13 (382)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:97 (grouped into LUT with out node tmp_113)
+:333  %tmp13 = xor i32 %p3_1, %k2_4
+
+ST_8: tmp15 (383)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:97 (grouped into LUT with out node tmp_113)
+:334  %tmp15 = xor i32 %p2, %p1_3
+
+ST_8: tmp14 (384)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:97 (grouped into LUT with out node tmp_113)
+:335  %tmp14 = xor i32 %tmp15, %p0_2
+
+ST_8: tmp_113 (385)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:97 (out node of the LUT)
+:336  %tmp_113 = xor i32 %tmp14, %tmp13
+
+ST_8: tmp18 (387)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:98 (grouped into LUT with out node tmp_118)
+:338  %tmp18 = xor i32 %p3_2, %k3_4
+
+ST_8: tmp20 (388)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:98 (grouped into LUT with out node tmp_118)
+:339  %tmp20 = xor i32 %p1, %p0_3
+
+ST_8: tmp19 (389)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:98 (grouped into LUT with out node tmp_118)
+:340  %tmp19 = xor i32 %tmp20, %p2_1
+
+ST_8: tmp_118 (390)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:98 (out node of the LUT)
+:341  %tmp_118 = xor i32 %tmp19, %tmp18
+
+
+ <State 9>: 0.68ns
+ST_9: StgValue_577 (386)  [1/1] 0.68ns  loc: CCodedFiles/1st/aes.c:97
+:337  store i32 %tmp_113, i32* %state_addr_2, align 4
+
+ST_9: StgValue_578 (391)  [1/1] 0.68ns  loc: CCodedFiles/1st/aes.c:98
+:342  store i32 %tmp_118, i32* %state_addr_3, align 4
+
+ST_9: StgValue_579 (393)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:74
+:344  br label %1
+
+
+ <State 10>: 1.40ns
+ST_10: table_0_load (399)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:102
+:4  %table_0_load = load i8* %table_0_addr, align 1
+
+ST_10: table_0_load_1 (404)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:102
+:9  %table_0_load_1 = load i8* %table_0_addr_1, align 1
+
+ST_10: table_0_load_2 (409)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:102
+:14  %table_0_load_2 = load i8* %table_0_addr_2, align 1
+
+ST_10: table_0_load_3 (414)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:102
+:19  %table_0_load_3 = load i8* %table_0_addr_3, align 1
+
+ST_10: temp_1 (415)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:102 (grouped into LUT with out node k0_1)
+:20  %temp_1 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %table_0_load_3, i8 %table_0_load_2, i8 %table_0_load_1, i8 %table_0_load)
+
+ST_10: tmp_14 (416)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:64 (grouped into LUT with out node tmp_16)
+:21  %tmp_14 = trunc i32 %k5 to i8
+
+ST_10: tmp_12 (417)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:102
+:22  %tmp_12 = call i24 @_ssdm_op_BitConcatenate.i24.i8.i8.i8(i8 %table_0_load_2, i8 %table_0_load_1, i8 %table_0_load)
+
+ST_10: tmp_13 (418)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:102
+:23  %tmp_13 = call i16 @_ssdm_op_BitConcatenate.i16.i8.i8(i8 %table_0_load_1, i8 %table_0_load)
+
+ST_10: tmp11 (419)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:104 (grouped into LUT with out node k0_1)
+:24  %tmp11 = xor i32 %temp_1, 54
+
+ST_10: tmp_15 (420)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:64
+:25  %tmp_15 = trunc i32 %k5 to i16
+
+ST_10: tmp_17 (421)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:64
+:26  %tmp_17 = trunc i32 %k5 to i24
+
+ST_10: k0_1 (422)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:104 (out node of the LUT)
+:27  %k0_1 = xor i32 %tmp11, %k5
+
+ST_10: k0_1_cast1 (423)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:104
+:28  %k0_1_cast1 = xor i24 %tmp_12, %tmp_17
+
+ST_10: k0_1_cast (424)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:104
+:29  %k0_1_cast = xor i16 %tmp_13, %tmp_15
+
+ST_10: tmp12 (425)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:64 (grouped into LUT with out node tmp_16)
+:30  %tmp12 = xor i8 %tmp_14, 54
+
+ST_10: tmp_16 (426)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:64 (out node of the LUT)
+:31  %tmp_16 = xor i8 %tmp12, %table_0_load
+
+ST_10: tmp_18 (427)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:64
+:32  %tmp_18 = trunc i32 %k4 to i8
+
+ST_10: tmp_19 (428)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:64
+:33  %tmp_19 = trunc i32 %k4 to i16
+
+ST_10: tmp_21 (429)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:64
+:34  %tmp_21 = trunc i32 %k4 to i24
+
+ST_10: k1_1 (430)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:105
+:35  %k1_1 = xor i32 %k0_1, %k4
+
+ST_10: k1_1_cast1 (431)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:105
+:36  %k1_1_cast1 = xor i24 %k0_1_cast1, %tmp_21
+
+ST_10: k1_1_cast (432)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:105
+:37  %k1_1_cast = xor i16 %k0_1_cast, %tmp_19
+
+ST_10: tmp_20 (433)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:64
+:38  %tmp_20 = xor i8 %tmp_16, %tmp_18
+
+ST_10: tmp_22 (434)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:64
+:39  %tmp_22 = trunc i32 %k to i8
+
+ST_10: tmp_23 (435)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:64
+:40  %tmp_23 = trunc i32 %k to i16
+
+ST_10: tmp_25 (436)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:64
+:41  %tmp_25 = trunc i32 %k to i24
+
+ST_10: k2_1 (437)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:106
+:42  %k2_1 = xor i32 %k1_1, %k
+
+ST_10: k2_1_cast1 (438)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:106
+:43  %k2_1_cast1 = xor i24 %k1_1_cast1, %tmp_25
+
+ST_10: k2_1_cast (439)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:106
+:44  %k2_1_cast = xor i16 %k1_1_cast, %tmp_23
+
+ST_10: tmp_24 (440)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:64
+:45  %tmp_24 = xor i8 %tmp_20, %tmp_22
+
+ST_10: k3_1 (441)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:107 (grouped into LUT with out node tmp_84)
+:46  %k3_1 = xor i32 %k2_1, %temp
+
+ST_10: k3_1_cast1 (442)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:107 (grouped into LUT with out node tmp_80)
+:47  %k3_1_cast1 = xor i24 %k2_1_cast1, %tmp_8
+
+ST_10: k3_1_cast (443)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:107 (grouped into LUT with out node tmp_76)
+:48  %k3_1_cast = xor i16 %k2_1_cast, %tmp_9
+
+ST_10: table_0_load_4 (448)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:110
+:53  %table_0_load_4 = load i8* %table_0_addr_4, align 1
+
+ST_10: tmp_27 (449)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:110
+:54  %tmp_27 = xor i8 %table_0_load_4, %tmp_16
+
+ST_10: table_0_load_5 (454)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:110
+:59  %table_0_load_5 = load i8* %table_0_addr_5, align 1
+
+ST_10: tmp_30 (455)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:110
+:60  %tmp_30 = call i8 @_ssdm_op_PartSelect.i8.i16.i32.i32(i16 %k0_1_cast, i32 8, i32 15)
+
+ST_10: tmp_31 (456)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:110
+:61  %tmp_31 = xor i8 %table_0_load_5, %tmp_30
+
+ST_10: table_0_load_6 (461)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:110
+:66  %table_0_load_6 = load i8* %table_0_addr_6, align 1
+
+ST_10: tmp_34 (462)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:110
+:67  %tmp_34 = call i8 @_ssdm_op_PartSelect.i8.i24.i32.i32(i24 %k0_1_cast1, i32 16, i32 23)
+
+ST_10: tmp_35 (463)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:110
+:68  %tmp_35 = xor i8 %table_0_load_6, %tmp_34
+
+ST_10: table_0_load_7 (468)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:110
+:73  %table_0_load_7 = load i8* %table_0_addr_7, align 1
+
+ST_10: tmp_38 (469)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:110
+:74  %tmp_38 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %k0_1, i32 24, i32 31)
+
+ST_10: tmp_39 (470)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:110
+:75  %tmp_39 = xor i8 %table_0_load_7, %tmp_38
+
+ST_10: k0_2 (471)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:110
+:76  %k0_2 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %tmp_39, i8 %tmp_35, i8 %tmp_31, i8 %tmp_27)
+
+ST_10: table_0_load_8 (476)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:112
+:81  %table_0_load_8 = load i8* %table_0_addr_8, align 1
+
+ST_10: tmp_42 (477)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:112
+:82  %tmp_42 = xor i8 %table_0_load_8, %tmp_20
+
+ST_10: table_0_load_9 (482)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:112
+:87  %table_0_load_9 = load i8* %table_0_addr_9, align 1
+
+ST_10: tmp_45 (483)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:112
+:88  %tmp_45 = call i8 @_ssdm_op_PartSelect.i8.i16.i32.i32(i16 %k1_1_cast, i32 8, i32 15)
+
+ST_10: tmp_46 (484)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:112
+:89  %tmp_46 = xor i8 %table_0_load_9, %tmp_45
+
+ST_10: table_0_load_10 (489)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:112
+:94  %table_0_load_10 = load i8* %table_0_addr_10, align 1
+
+ST_10: tmp_49 (490)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:112
+:95  %tmp_49 = call i8 @_ssdm_op_PartSelect.i8.i24.i32.i32(i24 %k1_1_cast1, i32 16, i32 23)
+
+ST_10: tmp_50 (491)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:112
+:96  %tmp_50 = xor i8 %table_0_load_10, %tmp_49
+
+ST_10: table_0_load_11 (496)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:112
+:101  %table_0_load_11 = load i8* %table_0_addr_11, align 1
+
+ST_10: tmp_53 (497)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:112
+:102  %tmp_53 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %k1_1, i32 24, i32 31)
+
+ST_10: tmp_54 (498)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:112
+:103  %tmp_54 = xor i8 %table_0_load_11, %tmp_53
+
+ST_10: k1_2 (499)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:112
+:104  %k1_2 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %tmp_54, i8 %tmp_50, i8 %tmp_46, i8 %tmp_42)
+
+ST_10: table_0_load_12 (504)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:114
+:109  %table_0_load_12 = load i8* %table_0_addr_12, align 1
+
+ST_10: tmp_57 (505)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:114
+:110  %tmp_57 = xor i8 %table_0_load_12, %tmp_24
+
+ST_10: table_0_load_13 (510)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:114
+:115  %table_0_load_13 = load i8* %table_0_addr_13, align 1
+
+ST_10: tmp_60 (511)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:114
+:116  %tmp_60 = call i8 @_ssdm_op_PartSelect.i8.i16.i32.i32(i16 %k2_1_cast, i32 8, i32 15)
+
+ST_10: tmp_61 (512)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:114
+:117  %tmp_61 = xor i8 %table_0_load_13, %tmp_60
+
+ST_10: table_0_load_14 (517)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:114
+:122  %table_0_load_14 = load i8* %table_0_addr_14, align 1
+
+ST_10: tmp_64 (518)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:114
+:123  %tmp_64 = call i8 @_ssdm_op_PartSelect.i8.i24.i32.i32(i24 %k2_1_cast1, i32 16, i32 23)
+
+ST_10: tmp_65 (519)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:114
+:124  %tmp_65 = xor i8 %table_0_load_14, %tmp_64
+
+ST_10: table_0_load_15 (524)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:114
+:129  %table_0_load_15 = load i8* %table_0_addr_15, align 1
+
+ST_10: tmp_68 (525)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:114
+:130  %tmp_68 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %k2_1, i32 24, i32 31)
+
+ST_10: tmp_69 (526)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:114
+:131  %tmp_69 = xor i8 %table_0_load_15, %tmp_68
+
+ST_10: table_0_load_16 (532)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:116
+:137  %table_0_load_16 = load i8* %table_0_addr_16, align 1
+
+ST_10: tmp23 (533)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:116 (grouped into LUT with out node tmp_72)
+:138  %tmp23 = xor i8 %tmp_24, %tmp_11
+
+ST_10: tmp_72 (534)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:116 (out node of the LUT)
+:139  %tmp_72 = xor i8 %tmp23, %table_0_load_16
+
+ST_10: table_0_load_17 (539)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:116
+:144  %table_0_load_17 = load i8* %table_0_addr_17, align 1
+
+ST_10: tmp_75 (540)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:116 (grouped into LUT with out node tmp_76)
+:145  %tmp_75 = call i8 @_ssdm_op_PartSelect.i8.i16.i32.i32(i16 %k3_1_cast, i32 8, i32 15)
+
+ST_10: tmp_76 (541)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:116 (out node of the LUT)
+:146  %tmp_76 = xor i8 %table_0_load_17, %tmp_75
+
+ST_10: table_0_load_18 (546)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:116
+:151  %table_0_load_18 = load i8* %table_0_addr_18, align 1
+
+ST_10: tmp_79 (547)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:116 (grouped into LUT with out node tmp_80)
+:152  %tmp_79 = call i8 @_ssdm_op_PartSelect.i8.i24.i32.i32(i24 %k3_1_cast1, i32 16, i32 23)
+
+ST_10: tmp_80 (548)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:116 (out node of the LUT)
+:153  %tmp_80 = xor i8 %table_0_load_18, %tmp_79
+
+ST_10: table_0_load_19 (553)  [1/2] 0.57ns  loc: CCodedFiles/1st/aes.c:116
+:158  %table_0_load_19 = load i8* %table_0_addr_19, align 1
+
+ST_10: tmp_83 (554)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:116 (grouped into LUT with out node tmp_84)
+:159  %tmp_83 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %k3_1, i32 24, i32 31)
+
+ST_10: tmp_84 (555)  [1/1] 0.05ns  loc: CCodedFiles/1st/aes.c:116 (out node of the LUT)
+:160  %tmp_84 = xor i8 %table_0_load_19, %tmp_83
+
+ST_10: StgValue_660 (557)  [1/1] 0.68ns  loc: CCodedFiles/1st/aes.c:117
+:162  store i32 %k0_2, i32* %state_addr, align 4
+
+ST_10: StgValue_661 (558)  [1/1] 0.68ns  loc: CCodedFiles/1st/aes.c:118
+:163  store i32 %k1_2, i32* %state_addr_1, align 4
+
+
+ <State 11>: 0.68ns
+ST_11: k2_2 (527)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:114
+:132  %k2_2 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %tmp_69, i8 %tmp_65, i8 %tmp_61, i8 %tmp_57)
+
+ST_11: k3_2 (556)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:116
+:161  %k3_2 = call i32 @_ssdm_op_BitConcatenate.i32.i8.i8.i8.i8(i8 %tmp_84, i8 %tmp_80, i8 %tmp_76, i8 %tmp_72)
+
+ST_11: StgValue_664 (559)  [1/1] 0.68ns  loc: CCodedFiles/1st/aes.c:119
+:164  store i32 %k2_2, i32* %state_addr_2, align 4
+
+ST_11: StgValue_665 (560)  [1/1] 0.68ns  loc: CCodedFiles/1st/aes.c:120
+:165  store i32 %k3_2, i32* %state_addr_3, align 4
+
+ST_11: StgValue_666 (561)  [1/1] 0.00ns  loc: CCodedFiles/1st/aes.c:122
+:166  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('state_addr') [7]  (0 ns)
+	'load' operation ('state_load', CCodedFiles/1st/aes.c:65) on array 'state' [16]  (0.677 ns)
+
+ <State 2>: 0.677ns
+The critical path consists of the following:
+	'getelementptr' operation ('key_addr') [6]  (0 ns)
+	'load' operation ('k0', CCodedFiles/1st/aes.c:64) on array 'key' [9]  (0.677 ns)
+
+ <State 3>: 1.41ns
+The critical path consists of the following:
+	'load' operation ('k0', CCodedFiles/1st/aes.c:64) on array 'key' [9]  (0.677 ns)
+	'xor' operation ('state_assign', CCodedFiles/1st/aes.c:65) [17]  (0.051 ns)
+	'store' operation (CCodedFiles/1st/aes.c:65) of variable 'state_assign', CCodedFiles/1st/aes.c:65 on array 'state' [18]  (0.677 ns)
+
+ <State 4>: 1.41ns
+The critical path consists of the following:
+	'load' operation ('k2', CCodedFiles/1st/aes.c:64) on array 'key' [13]  (0.677 ns)
+	'xor' operation ('tmp_1', CCodedFiles/1st/aes.c:67) [25]  (0.051 ns)
+	'store' operation (CCodedFiles/1st/aes.c:67) of variable 'tmp_1', CCodedFiles/1st/aes.c:67 on array 'state' [26]  (0.677 ns)
+
+ <State 5>: 0.805ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', CCodedFiles/1st/aes.c:74) [41]  (0 ns)
+	'add' operation ('i', CCodedFiles/1st/aes.c:74) [392]  (0.805 ns)
+
+ <State 6>: 0.677ns
+The critical path consists of the following:
+	'load' operation ('state_load_4', CCodedFiles/1st/aes.c:88) on array 'state' [80]  (0.677 ns)
+
+ <State 7>: 2.06ns
+The critical path consists of the following:
+	'load' operation ('state_load_6', CCodedFiles/1st/aes.c:92) on array 'state' [226]  (0.677 ns)
+	'add' operation ('new_index33', CCodedFiles/1st/aes.c:92) [283]  (0.812 ns)
+	'getelementptr' operation ('table_0_addr_69', CCodedFiles/1st/aes.c:92) [285]  (0 ns)
+	'load' operation ('table_0_load_69', CCodedFiles/1st/aes.c:92) on array 'table_0' [286]  (0.571 ns)
+
+ <State 8>: 1.3ns
+The critical path consists of the following:
+	'load' operation ('table_0_load_24', CCodedFiles/1st/aes.c:88) on array 'table_0' [85]  (0.571 ns)
+	'xor' operation ('tmp5', CCodedFiles/1st/aes.c:95) [373]  (0 ns)
+	'xor' operation ('tmp4', CCodedFiles/1st/aes.c:95) [374]  (0 ns)
+	'xor' operation ('tmp_103', CCodedFiles/1st/aes.c:95) [375]  (0.051 ns)
+	'store' operation (CCodedFiles/1st/aes.c:95) of variable 'tmp_103', CCodedFiles/1st/aes.c:95 on array 'state' [376]  (0.677 ns)
+
+ <State 9>: 0.677ns
+The critical path consists of the following:
+	'store' operation (CCodedFiles/1st/aes.c:97) of variable 'tmp_113', CCodedFiles/1st/aes.c:97 on array 'state' [386]  (0.677 ns)
+
+ <State 10>: 1.4ns
+The critical path consists of the following:
+	'load' operation ('table_0_load', CCodedFiles/1st/aes.c:102) on array 'table_0' [399]  (0.571 ns)
+	'xor' operation ('k0_1_cast1', CCodedFiles/1st/aes.c:104) [423]  (0.051 ns)
+	'xor' operation ('k1_1_cast1', CCodedFiles/1st/aes.c:105) [431]  (0.051 ns)
+	'xor' operation ('tmp_50', CCodedFiles/1st/aes.c:112) [491]  (0.051 ns)
+	'store' operation (CCodedFiles/1st/aes.c:118) of variable 'k1', CCodedFiles/1st/aes.c:112 on array 'state' [558]  (0.677 ns)
+
+ <State 11>: 0.677ns
+The critical path consists of the following:
+	'store' operation (CCodedFiles/1st/aes.c:119) of variable 'k2', CCodedFiles/1st/aes.c:114 on array 'state' [559]  (0.677 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

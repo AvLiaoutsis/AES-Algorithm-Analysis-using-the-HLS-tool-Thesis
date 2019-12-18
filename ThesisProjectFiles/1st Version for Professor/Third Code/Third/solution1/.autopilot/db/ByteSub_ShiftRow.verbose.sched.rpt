@@ -1,0 +1,642 @@
+
+
+================================================================
+== Vivado HLS Report for 'ByteSub_ShiftRow'
+================================================================
+* Date:           Thu Dec  7 12:29:16 2017
+
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Project:        Third
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu7eg-ffvf1517-1l-i
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      2.70|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |   15|   15|   15|   15|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 16
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+* FSM state operations: 
+
+ <State 1>: 1.35ns
+ST_1: statemt_addr_8 (4)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:232
+._crit_edge:1  %statemt_addr_8 = getelementptr [32 x i32]* %statemt, i32 0, i32 1
+
+ST_1: statemt_load (5)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:232
+._crit_edge:2  %statemt_load = load i32* %statemt_addr_8, align 4
+
+ST_1: statemt_addr_9 (9)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:233
+._crit_edge:6  %statemt_addr_9 = getelementptr [32 x i32]* %statemt, i32 0, i32 5
+
+ST_1: statemt_load_4 (10)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:233
+._crit_edge:7  %statemt_load_4 = load i32* %statemt_addr_9, align 4
+
+
+ <State 2>: 2.70ns
+ST_2: statemt_load (5)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:232
+._crit_edge:2  %statemt_load = load i32* %statemt_addr_8, align 4
+
+ST_2: Sbox_addr (6)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:232
+._crit_edge:3  %Sbox_addr = getelementptr [256 x i8]* @Sbox, i32 0, i32 %statemt_load
+
+ST_2: temp (7)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:232
+._crit_edge:4  %temp = load i8* %Sbox_addr, align 1
+
+ST_2: statemt_load_4 (10)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:233
+._crit_edge:7  %statemt_load_4 = load i32* %statemt_addr_9, align 4
+
+ST_2: Sbox_addr_1 (11)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:233
+._crit_edge:8  %Sbox_addr_1 = getelementptr [256 x i8]* @Sbox, i32 0, i32 %statemt_load_4
+
+ST_2: Sbox_load (12)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:233
+._crit_edge:9  %Sbox_load = load i8* %Sbox_addr_1, align 1
+
+ST_2: statemt_addr_10 (15)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:234
+._crit_edge:12  %statemt_addr_10 = getelementptr [32 x i32]* %statemt, i32 0, i32 9
+
+ST_2: statemt_load_5 (16)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:234
+._crit_edge:13  %statemt_load_5 = load i32* %statemt_addr_10, align 4
+
+ST_2: statemt_addr_11 (21)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:235
+._crit_edge:18  %statemt_addr_11 = getelementptr [32 x i32]* %statemt, i32 0, i32 13
+
+ST_2: statemt_load_6 (22)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:235
+._crit_edge:19  %statemt_load_6 = load i32* %statemt_addr_11, align 4
+
+
+ <State 3>: 2.70ns
+ST_3: temp (7)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:232
+._crit_edge:4  %temp = load i8* %Sbox_addr, align 1
+
+ST_3: Sbox_load (12)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:233
+._crit_edge:9  %Sbox_load = load i8* %Sbox_addr_1, align 1
+
+ST_3: statemt_load_5 (16)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:234
+._crit_edge:13  %statemt_load_5 = load i32* %statemt_addr_10, align 4
+
+ST_3: Sbox_addr_2 (17)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:234
+._crit_edge:14  %Sbox_addr_2 = getelementptr [256 x i8]* @Sbox, i32 0, i32 %statemt_load_5
+
+ST_3: Sbox_load_1 (18)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:234
+._crit_edge:15  %Sbox_load_1 = load i8* %Sbox_addr_2, align 1
+
+ST_3: statemt_load_6 (22)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:235
+._crit_edge:19  %statemt_load_6 = load i32* %statemt_addr_11, align 4
+
+ST_3: Sbox_addr_3 (23)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:235
+._crit_edge:20  %Sbox_addr_3 = getelementptr [256 x i8]* @Sbox, i32 0, i32 %statemt_load_6
+
+ST_3: Sbox_load_2 (24)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:235
+._crit_edge:21  %Sbox_load_2 = load i8* %Sbox_addr_3, align 1
+
+ST_3: statemt_addr_12 (28)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:238
+._crit_edge:25  %statemt_addr_12 = getelementptr [32 x i32]* %statemt, i32 0, i32 2
+
+ST_3: statemt_load_7 (29)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:238
+._crit_edge:26  %statemt_load_7 = load i32* %statemt_addr_12, align 4
+
+ST_3: statemt_addr_13 (33)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:239
+._crit_edge:30  %statemt_addr_13 = getelementptr [32 x i32]* %statemt, i32 0, i32 10
+
+ST_3: statemt_load_8 (34)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:239
+._crit_edge:31  %statemt_load_8 = load i32* %statemt_addr_13, align 4
+
+
+ <State 4>: 2.70ns
+ST_4: Sbox_load_1 (18)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:234
+._crit_edge:15  %Sbox_load_1 = load i8* %Sbox_addr_2, align 1
+
+ST_4: Sbox_load_2 (24)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:235
+._crit_edge:21  %Sbox_load_2 = load i8* %Sbox_addr_3, align 1
+
+ST_4: statemt_load_7 (29)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:238
+._crit_edge:26  %statemt_load_7 = load i32* %statemt_addr_12, align 4
+
+ST_4: Sbox_addr_4 (30)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:238
+._crit_edge:27  %Sbox_addr_4 = getelementptr [256 x i8]* @Sbox, i32 0, i32 %statemt_load_7
+
+ST_4: temp_1 (31)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:238
+._crit_edge:28  %temp_1 = load i8* %Sbox_addr_4, align 1
+
+ST_4: statemt_load_8 (34)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:239
+._crit_edge:31  %statemt_load_8 = load i32* %statemt_addr_13, align 4
+
+ST_4: Sbox_addr_5 (35)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:239
+._crit_edge:32  %Sbox_addr_5 = getelementptr [256 x i8]* @Sbox, i32 0, i32 %statemt_load_8
+
+ST_4: Sbox_load_4 (36)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:239
+._crit_edge:33  %Sbox_load_4 = load i8* %Sbox_addr_5, align 1
+
+ST_4: statemt_addr_14 (40)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:241
+._crit_edge:37  %statemt_addr_14 = getelementptr [32 x i32]* %statemt, i32 0, i32 6
+
+ST_4: statemt_load_9 (41)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:241
+._crit_edge:38  %statemt_load_9 = load i32* %statemt_addr_14, align 4
+
+ST_4: statemt_addr_15 (45)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:242
+._crit_edge:42  %statemt_addr_15 = getelementptr [32 x i32]* %statemt, i32 0, i32 14
+
+ST_4: statemt_load_10 (46)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:242
+._crit_edge:43  %statemt_load_10 = load i32* %statemt_addr_15, align 4
+
+
+ <State 5>: 2.70ns
+ST_5: temp_1 (31)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:238
+._crit_edge:28  %temp_1 = load i8* %Sbox_addr_4, align 1
+
+ST_5: Sbox_load_4 (36)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:239
+._crit_edge:33  %Sbox_load_4 = load i8* %Sbox_addr_5, align 1
+
+ST_5: statemt_load_9 (41)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:241
+._crit_edge:38  %statemt_load_9 = load i32* %statemt_addr_14, align 4
+
+ST_5: Sbox_addr_6 (42)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:241
+._crit_edge:39  %Sbox_addr_6 = getelementptr [256 x i8]* @Sbox, i32 0, i32 %statemt_load_9
+
+ST_5: temp_2 (43)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:241
+._crit_edge:40  %temp_2 = load i8* %Sbox_addr_6, align 1
+
+ST_5: statemt_load_10 (46)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:242
+._crit_edge:43  %statemt_load_10 = load i32* %statemt_addr_15, align 4
+
+ST_5: Sbox_addr_7 (47)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:242
+._crit_edge:44  %Sbox_addr_7 = getelementptr [256 x i8]* @Sbox, i32 0, i32 %statemt_load_10
+
+ST_5: Sbox_load_6 (48)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:242
+._crit_edge:45  %Sbox_load_6 = load i8* %Sbox_addr_7, align 1
+
+ST_5: statemt_addr_16 (52)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:245
+._crit_edge:49  %statemt_addr_16 = getelementptr [32 x i32]* %statemt, i32 0, i32 3
+
+ST_5: statemt_load_11 (53)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:245
+._crit_edge:50  %statemt_load_11 = load i32* %statemt_addr_16, align 4
+
+ST_5: statemt_addr_17 (57)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:246
+._crit_edge:54  %statemt_addr_17 = getelementptr [32 x i32]* %statemt, i32 0, i32 15
+
+ST_5: statemt_load_12 (58)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:246
+._crit_edge:55  %statemt_load_12 = load i32* %statemt_addr_17, align 4
+
+
+ <State 6>: 2.70ns
+ST_6: temp_2 (43)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:241
+._crit_edge:40  %temp_2 = load i8* %Sbox_addr_6, align 1
+
+ST_6: Sbox_load_6 (48)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:242
+._crit_edge:45  %Sbox_load_6 = load i8* %Sbox_addr_7, align 1
+
+ST_6: statemt_load_11 (53)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:245
+._crit_edge:50  %statemt_load_11 = load i32* %statemt_addr_16, align 4
+
+ST_6: Sbox_addr_8 (54)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:245
+._crit_edge:51  %Sbox_addr_8 = getelementptr [256 x i8]* @Sbox, i32 0, i32 %statemt_load_11
+
+ST_6: temp_3 (55)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:245
+._crit_edge:52  %temp_3 = load i8* %Sbox_addr_8, align 1
+
+ST_6: statemt_load_12 (58)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:246
+._crit_edge:55  %statemt_load_12 = load i32* %statemt_addr_17, align 4
+
+ST_6: Sbox_addr_9 (59)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:246
+._crit_edge:56  %Sbox_addr_9 = getelementptr [256 x i8]* @Sbox, i32 0, i32 %statemt_load_12
+
+ST_6: Sbox_load_8 (60)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:246
+._crit_edge:57  %Sbox_load_8 = load i8* %Sbox_addr_9, align 1
+
+ST_6: statemt_addr_18 (63)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:247
+._crit_edge:60  %statemt_addr_18 = getelementptr [32 x i32]* %statemt, i32 0, i32 11
+
+ST_6: statemt_load_13 (64)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:247
+._crit_edge:61  %statemt_load_13 = load i32* %statemt_addr_18, align 4
+
+ST_6: statemt_addr_19 (69)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:248
+._crit_edge:66  %statemt_addr_19 = getelementptr [32 x i32]* %statemt, i32 0, i32 7
+
+ST_6: statemt_load_14 (70)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:248
+._crit_edge:67  %statemt_load_14 = load i32* %statemt_addr_19, align 4
+
+
+ <State 7>: 2.70ns
+ST_7: statemt_addr (3)  [1/1] 0.00ns
+._crit_edge:0  %statemt_addr = getelementptr [32 x i32]* %statemt, i32 0, i32 0
+
+ST_7: temp_3 (55)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:245
+._crit_edge:52  %temp_3 = load i8* %Sbox_addr_8, align 1
+
+ST_7: Sbox_load_8 (60)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:246
+._crit_edge:57  %Sbox_load_8 = load i8* %Sbox_addr_9, align 1
+
+ST_7: statemt_load_13 (64)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:247
+._crit_edge:61  %statemt_load_13 = load i32* %statemt_addr_18, align 4
+
+ST_7: Sbox_addr_10 (65)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:247
+._crit_edge:62  %Sbox_addr_10 = getelementptr [256 x i8]* @Sbox, i32 0, i32 %statemt_load_13
+
+ST_7: Sbox_load_9 (66)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:247
+._crit_edge:63  %Sbox_load_9 = load i8* %Sbox_addr_10, align 1
+
+ST_7: statemt_load_14 (70)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:248
+._crit_edge:67  %statemt_load_14 = load i32* %statemt_addr_19, align 4
+
+ST_7: Sbox_addr_11 (71)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:248
+._crit_edge:68  %Sbox_addr_11 = getelementptr [256 x i8]* @Sbox, i32 0, i32 %statemt_load_14
+
+ST_7: Sbox_load_10 (72)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:248
+._crit_edge:69  %Sbox_load_10 = load i8* %Sbox_addr_11, align 1
+
+ST_7: statemt_load_15 (76)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:251
+._crit_edge:73  %statemt_load_15 = load i32* %statemt_addr, align 4
+
+ST_7: statemt_addr_20 (81)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:252
+._crit_edge:78  %statemt_addr_20 = getelementptr [32 x i32]* %statemt, i32 0, i32 4
+
+ST_7: statemt_load_16 (82)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:252
+._crit_edge:79  %statemt_load_16 = load i32* %statemt_addr_20, align 4
+
+
+ <State 8>: 2.70ns
+ST_8: Sbox_load_9 (66)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:247
+._crit_edge:63  %Sbox_load_9 = load i8* %Sbox_addr_10, align 1
+
+ST_8: Sbox_load_10 (72)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:248
+._crit_edge:69  %Sbox_load_10 = load i8* %Sbox_addr_11, align 1
+
+ST_8: statemt_load_15 (76)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:251
+._crit_edge:73  %statemt_load_15 = load i32* %statemt_addr, align 4
+
+ST_8: Sbox_addr_12 (77)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:251
+._crit_edge:74  %Sbox_addr_12 = getelementptr [256 x i8]* @Sbox, i32 0, i32 %statemt_load_15
+
+ST_8: Sbox_load_11 (78)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:251
+._crit_edge:75  %Sbox_load_11 = load i8* %Sbox_addr_12, align 1
+
+ST_8: statemt_load_16 (82)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:252
+._crit_edge:79  %statemt_load_16 = load i32* %statemt_addr_20, align 4
+
+ST_8: Sbox_addr_13 (83)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:252
+._crit_edge:80  %Sbox_addr_13 = getelementptr [256 x i8]* @Sbox, i32 0, i32 %statemt_load_16
+
+ST_8: Sbox_load_12 (84)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:252
+._crit_edge:81  %Sbox_load_12 = load i8* %Sbox_addr_13, align 1
+
+ST_8: statemt_addr_21 (87)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:253
+._crit_edge:84  %statemt_addr_21 = getelementptr [32 x i32]* %statemt, i32 0, i32 8
+
+ST_8: statemt_load_17 (88)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:253
+._crit_edge:85  %statemt_load_17 = load i32* %statemt_addr_21, align 4
+
+ST_8: statemt_addr_22 (93)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:254
+._crit_edge:90  %statemt_addr_22 = getelementptr [32 x i32]* %statemt, i32 0, i32 12
+
+ST_8: statemt_load_18 (94)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:254
+._crit_edge:91  %statemt_load_18 = load i32* %statemt_addr_22, align 4
+
+
+ <State 9>: 2.70ns
+ST_9: Sbox_load_cast (13)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:233
+._crit_edge:10  %Sbox_load_cast = zext i8 %Sbox_load to i32
+
+ST_9: StgValue_104 (14)  [1/1] 1.35ns  loc: CCodedFiles/3rd/aes.c:233
+._crit_edge:11  store i32 %Sbox_load_cast, i32* %statemt_addr_8, align 4
+
+ST_9: Sbox_load_1_cast (19)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:234
+._crit_edge:16  %Sbox_load_1_cast = zext i8 %Sbox_load_1 to i32
+
+ST_9: StgValue_106 (20)  [1/1] 1.35ns  loc: CCodedFiles/3rd/aes.c:234
+._crit_edge:17  store i32 %Sbox_load_1_cast, i32* %statemt_addr_9, align 4
+
+ST_9: Sbox_load_11 (78)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:251
+._crit_edge:75  %Sbox_load_11 = load i8* %Sbox_addr_12, align 1
+
+ST_9: Sbox_load_12 (84)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:252
+._crit_edge:81  %Sbox_load_12 = load i8* %Sbox_addr_13, align 1
+
+ST_9: statemt_load_17 (88)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:253
+._crit_edge:85  %statemt_load_17 = load i32* %statemt_addr_21, align 4
+
+ST_9: Sbox_addr_14 (89)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:253
+._crit_edge:86  %Sbox_addr_14 = getelementptr [256 x i8]* @Sbox, i32 0, i32 %statemt_load_17
+
+ST_9: Sbox_load_13 (90)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:253
+._crit_edge:87  %Sbox_load_13 = load i8* %Sbox_addr_14, align 1
+
+ST_9: statemt_load_18 (94)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:254
+._crit_edge:91  %statemt_load_18 = load i32* %statemt_addr_22, align 4
+
+ST_9: Sbox_addr_15 (95)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:254
+._crit_edge:92  %Sbox_addr_15 = getelementptr [256 x i8]* @Sbox, i32 0, i32 %statemt_load_18
+
+ST_9: Sbox_load_14 (96)  [2/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:254
+._crit_edge:93  %Sbox_load_14 = load i8* %Sbox_addr_15, align 1
+
+
+ <State 10>: 1.35ns
+ST_10: temp_cast (8)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:232
+._crit_edge:5  %temp_cast = zext i8 %temp to i32
+
+ST_10: Sbox_load_2_cast (25)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:235
+._crit_edge:22  %Sbox_load_2_cast = zext i8 %Sbox_load_2 to i32
+
+ST_10: StgValue_117 (26)  [1/1] 1.35ns  loc: CCodedFiles/3rd/aes.c:235
+._crit_edge:23  store i32 %Sbox_load_2_cast, i32* %statemt_addr_10, align 4
+
+ST_10: StgValue_118 (27)  [1/1] 1.35ns  loc: CCodedFiles/3rd/aes.c:236
+._crit_edge:24  store i32 %temp_cast, i32* %statemt_addr_11, align 4
+
+ST_10: Sbox_load_13 (90)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:253
+._crit_edge:87  %Sbox_load_13 = load i8* %Sbox_addr_14, align 1
+
+ST_10: Sbox_load_14 (96)  [1/2] 1.35ns  loc: CCodedFiles/3rd/aes.c:254
+._crit_edge:93  %Sbox_load_14 = load i8* %Sbox_addr_15, align 1
+
+
+ <State 11>: 1.35ns
+ST_11: temp_1_cast (32)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:238
+._crit_edge:29  %temp_1_cast = zext i8 %temp_1 to i32
+
+ST_11: Sbox_load_4_cast (37)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:239
+._crit_edge:34  %Sbox_load_4_cast = zext i8 %Sbox_load_4 to i32
+
+ST_11: StgValue_123 (38)  [1/1] 1.35ns  loc: CCodedFiles/3rd/aes.c:239
+._crit_edge:35  store i32 %Sbox_load_4_cast, i32* %statemt_addr_12, align 4
+
+ST_11: StgValue_124 (39)  [1/1] 1.35ns  loc: CCodedFiles/3rd/aes.c:240
+._crit_edge:36  store i32 %temp_1_cast, i32* %statemt_addr_13, align 4
+
+
+ <State 12>: 1.35ns
+ST_12: temp_2_cast (44)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:241
+._crit_edge:41  %temp_2_cast = zext i8 %temp_2 to i32
+
+ST_12: Sbox_load_6_cast (49)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:242
+._crit_edge:46  %Sbox_load_6_cast = zext i8 %Sbox_load_6 to i32
+
+ST_12: StgValue_127 (50)  [1/1] 1.35ns  loc: CCodedFiles/3rd/aes.c:242
+._crit_edge:47  store i32 %Sbox_load_6_cast, i32* %statemt_addr_14, align 4
+
+ST_12: StgValue_128 (51)  [1/1] 1.35ns  loc: CCodedFiles/3rd/aes.c:243
+._crit_edge:48  store i32 %temp_2_cast, i32* %statemt_addr_15, align 4
+
+
+ <State 13>: 1.35ns
+ST_13: Sbox_load_8_cast (61)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:246
+._crit_edge:58  %Sbox_load_8_cast = zext i8 %Sbox_load_8 to i32
+
+ST_13: StgValue_130 (62)  [1/1] 1.35ns  loc: CCodedFiles/3rd/aes.c:246
+._crit_edge:59  store i32 %Sbox_load_8_cast, i32* %statemt_addr_16, align 4
+
+ST_13: Sbox_load_9_cast (67)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:247
+._crit_edge:64  %Sbox_load_9_cast = zext i8 %Sbox_load_9 to i32
+
+ST_13: StgValue_132 (68)  [1/1] 1.35ns  loc: CCodedFiles/3rd/aes.c:247
+._crit_edge:65  store i32 %Sbox_load_9_cast, i32* %statemt_addr_17, align 4
+
+
+ <State 14>: 1.35ns
+ST_14: temp_3_cast (56)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:245
+._crit_edge:53  %temp_3_cast = zext i8 %temp_3 to i32
+
+ST_14: Sbox_load_10_cast (73)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:248
+._crit_edge:70  %Sbox_load_10_cast = zext i8 %Sbox_load_10 to i32
+
+ST_14: StgValue_135 (74)  [1/1] 1.35ns  loc: CCodedFiles/3rd/aes.c:248
+._crit_edge:71  store i32 %Sbox_load_10_cast, i32* %statemt_addr_18, align 4
+
+ST_14: StgValue_136 (75)  [1/1] 1.35ns  loc: CCodedFiles/3rd/aes.c:249
+._crit_edge:72  store i32 %temp_3_cast, i32* %statemt_addr_19, align 4
+
+
+ <State 15>: 1.35ns
+ST_15: Sbox_load_11_cast (79)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:251
+._crit_edge:76  %Sbox_load_11_cast = zext i8 %Sbox_load_11 to i32
+
+ST_15: StgValue_138 (80)  [1/1] 1.35ns  loc: CCodedFiles/3rd/aes.c:251
+._crit_edge:77  store i32 %Sbox_load_11_cast, i32* %statemt_addr, align 4
+
+ST_15: Sbox_load_12_cast (85)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:252
+._crit_edge:82  %Sbox_load_12_cast = zext i8 %Sbox_load_12 to i32
+
+ST_15: StgValue_140 (86)  [1/1] 1.35ns  loc: CCodedFiles/3rd/aes.c:252
+._crit_edge:83  store i32 %Sbox_load_12_cast, i32* %statemt_addr_20, align 4
+
+
+ <State 16>: 1.35ns
+ST_16: Sbox_load_13_cast (91)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:253
+._crit_edge:88  %Sbox_load_13_cast = zext i8 %Sbox_load_13 to i32
+
+ST_16: StgValue_142 (92)  [1/1] 1.35ns  loc: CCodedFiles/3rd/aes.c:253
+._crit_edge:89  store i32 %Sbox_load_13_cast, i32* %statemt_addr_21, align 4
+
+ST_16: Sbox_load_14_cast (97)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:254
+._crit_edge:94  %Sbox_load_14_cast = zext i8 %Sbox_load_14 to i32
+
+ST_16: StgValue_144 (98)  [1/1] 1.35ns  loc: CCodedFiles/3rd/aes.c:254
+._crit_edge:95  store i32 %Sbox_load_14_cast, i32* %statemt_addr_22, align 4
+
+ST_16: StgValue_145 (99)  [1/1] 0.00ns  loc: CCodedFiles/3rd/aes.c:335
+._crit_edge:96  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.35ns
+The critical path consists of the following:
+	'getelementptr' operation ('statemt_addr_8', CCodedFiles/3rd/aes.c:232) [4]  (0 ns)
+	'load' operation ('statemt_load', CCodedFiles/3rd/aes.c:232) on array 'statemt' [5]  (1.35 ns)
+
+ <State 2>: 2.7ns
+The critical path consists of the following:
+	'load' operation ('statemt_load', CCodedFiles/3rd/aes.c:232) on array 'statemt' [5]  (1.35 ns)
+	'getelementptr' operation ('Sbox_addr', CCodedFiles/3rd/aes.c:232) [6]  (0 ns)
+	'load' operation ('temp', CCodedFiles/3rd/aes.c:232) on array 'Sbox' [7]  (1.35 ns)
+
+ <State 3>: 2.7ns
+The critical path consists of the following:
+	'load' operation ('statemt_load_5', CCodedFiles/3rd/aes.c:234) on array 'statemt' [16]  (1.35 ns)
+	'getelementptr' operation ('Sbox_addr_2', CCodedFiles/3rd/aes.c:234) [17]  (0 ns)
+	'load' operation ('Sbox_load_1', CCodedFiles/3rd/aes.c:234) on array 'Sbox' [18]  (1.35 ns)
+
+ <State 4>: 2.7ns
+The critical path consists of the following:
+	'load' operation ('statemt_load_7', CCodedFiles/3rd/aes.c:238) on array 'statemt' [29]  (1.35 ns)
+	'getelementptr' operation ('Sbox_addr_4', CCodedFiles/3rd/aes.c:238) [30]  (0 ns)
+	'load' operation ('temp', CCodedFiles/3rd/aes.c:238) on array 'Sbox' [31]  (1.35 ns)
+
+ <State 5>: 2.7ns
+The critical path consists of the following:
+	'load' operation ('statemt_load_9', CCodedFiles/3rd/aes.c:241) on array 'statemt' [41]  (1.35 ns)
+	'getelementptr' operation ('Sbox_addr_6', CCodedFiles/3rd/aes.c:241) [42]  (0 ns)
+	'load' operation ('temp', CCodedFiles/3rd/aes.c:241) on array 'Sbox' [43]  (1.35 ns)
+
+ <State 6>: 2.7ns
+The critical path consists of the following:
+	'load' operation ('statemt_load_11', CCodedFiles/3rd/aes.c:245) on array 'statemt' [53]  (1.35 ns)
+	'getelementptr' operation ('Sbox_addr_8', CCodedFiles/3rd/aes.c:245) [54]  (0 ns)
+	'load' operation ('temp', CCodedFiles/3rd/aes.c:245) on array 'Sbox' [55]  (1.35 ns)
+
+ <State 7>: 2.7ns
+The critical path consists of the following:
+	'load' operation ('statemt_load_13', CCodedFiles/3rd/aes.c:247) on array 'statemt' [64]  (1.35 ns)
+	'getelementptr' operation ('Sbox_addr_10', CCodedFiles/3rd/aes.c:247) [65]  (0 ns)
+	'load' operation ('Sbox_load_9', CCodedFiles/3rd/aes.c:247) on array 'Sbox' [66]  (1.35 ns)
+
+ <State 8>: 2.7ns
+The critical path consists of the following:
+	'load' operation ('statemt_load_15', CCodedFiles/3rd/aes.c:251) on array 'statemt' [76]  (1.35 ns)
+	'getelementptr' operation ('Sbox_addr_12', CCodedFiles/3rd/aes.c:251) [77]  (0 ns)
+	'load' operation ('Sbox_load_11', CCodedFiles/3rd/aes.c:251) on array 'Sbox' [78]  (1.35 ns)
+
+ <State 9>: 2.7ns
+The critical path consists of the following:
+	'load' operation ('statemt_load_17', CCodedFiles/3rd/aes.c:253) on array 'statemt' [88]  (1.35 ns)
+	'getelementptr' operation ('Sbox_addr_14', CCodedFiles/3rd/aes.c:253) [89]  (0 ns)
+	'load' operation ('Sbox_load_13', CCodedFiles/3rd/aes.c:253) on array 'Sbox' [90]  (1.35 ns)
+
+ <State 10>: 1.35ns
+The critical path consists of the following:
+	'store' operation (CCodedFiles/3rd/aes.c:236) of variable 'temp_cast', CCodedFiles/3rd/aes.c:232 on array 'statemt' [27]  (1.35 ns)
+
+ <State 11>: 1.35ns
+The critical path consists of the following:
+	'store' operation (CCodedFiles/3rd/aes.c:240) of variable 'temp_1_cast', CCodedFiles/3rd/aes.c:238 on array 'statemt' [39]  (1.35 ns)
+
+ <State 12>: 1.35ns
+The critical path consists of the following:
+	'store' operation (CCodedFiles/3rd/aes.c:243) of variable 'temp_2_cast', CCodedFiles/3rd/aes.c:241 on array 'statemt' [51]  (1.35 ns)
+
+ <State 13>: 1.35ns
+The critical path consists of the following:
+	'store' operation (CCodedFiles/3rd/aes.c:246) of variable 'Sbox_load_8_cast', CCodedFiles/3rd/aes.c:246 on array 'statemt' [62]  (1.35 ns)
+
+ <State 14>: 1.35ns
+The critical path consists of the following:
+	'store' operation (CCodedFiles/3rd/aes.c:249) of variable 'temp_3_cast', CCodedFiles/3rd/aes.c:245 on array 'statemt' [75]  (1.35 ns)
+
+ <State 15>: 1.35ns
+The critical path consists of the following:
+	'store' operation (CCodedFiles/3rd/aes.c:251) of variable 'Sbox_load_11_cast', CCodedFiles/3rd/aes.c:251 on array 'statemt' [80]  (1.35 ns)
+
+ <State 16>: 1.35ns
+The critical path consists of the following:
+	'store' operation (CCodedFiles/3rd/aes.c:253) of variable 'Sbox_load_13_cast', CCodedFiles/3rd/aes.c:253 on array 'statemt' [92]  (1.35 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

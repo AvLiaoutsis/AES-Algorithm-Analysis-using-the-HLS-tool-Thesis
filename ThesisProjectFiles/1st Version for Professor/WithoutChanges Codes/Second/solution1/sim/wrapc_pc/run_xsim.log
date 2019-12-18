@@ -1,0 +1,131 @@
+
+Text after encryption:
+69 c4 e0 d8 6a 7b 04 30 d8 cd b7 80 70 b4 c5 5a 
+
+
+C:\Users\Lincoln\Desktop\ThesisSuccess\Second\solution1\sim\verilog>call C:/Xilinx/Vivado/2017.2/bin/xelab xil_defaultlib.apatb_Cipher_top -prj Cipher.prj -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 --initfile "C:/Xilinx/Vivado/2017.2/data/xsim/ip/xsim_ip.ini" --lib "ieee_proposed=./ieee_proposed" -s Cipher  
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "C:/Xilinx/Vivado/2017.2/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2017.2
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2017.2/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_Cipher_top -prj Cipher.prj -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 --initfile C:/Xilinx/Vivado/2017.2/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s Cipher 
+Multi-threading is on. Using 4 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisSuccess/Second/solution1/sim/verilog/AddRoundKey.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AddRoundKey
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisSuccess/Second/solution1/sim/verilog/AESL_automem_out_r.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_out_r
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisSuccess/Second/solution1/sim/verilog/Cipher.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_Cipher_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisSuccess/Second/solution1/sim/verilog/Cipher.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Cipher
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisSuccess/Second/solution1/sim/verilog/Cipher_in.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Cipher_in_ram
+INFO: [VRFC 10-311] analyzing module Cipher_in
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisSuccess/Second/solution1/sim/verilog/Cipher_Key.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Cipher_Key_ram
+INFO: [VRFC 10-311] analyzing module Cipher_Key
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisSuccess/Second/solution1/sim/verilog/Cipher_RoundKey.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Cipher_RoundKey_ram
+INFO: [VRFC 10-311] analyzing module Cipher_RoundKey
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisSuccess/Second/solution1/sim/verilog/Cipher_sdiv_32ns_cud.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Cipher_sdiv_32ns_cud_div_u
+INFO: [VRFC 10-311] analyzing module Cipher_sdiv_32ns_cud_div
+INFO: [VRFC 10-311] analyzing module Cipher_sdiv_32ns_cud
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisSuccess/Second/solution1/sim/verilog/Cipher_srem_32ns_bkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Cipher_srem_32ns_bkb_div_u
+INFO: [VRFC 10-311] analyzing module Cipher_srem_32ns_bkb_div
+INFO: [VRFC 10-311] analyzing module Cipher_srem_32ns_bkb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisSuccess/Second/solution1/sim/verilog/Cipher_state.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Cipher_state_ram
+INFO: [VRFC 10-311] analyzing module Cipher_state
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisSuccess/Second/solution1/sim/verilog/Cipher_temp1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Cipher_temp1_rom
+INFO: [VRFC 10-311] analyzing module Cipher_temp1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisSuccess/Second/solution1/sim/verilog/Cipher_temp22.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Cipher_temp22_rom
+INFO: [VRFC 10-311] analyzing module Cipher_temp22
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisSuccess/Second/solution1/sim/verilog/KeyExpansion.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeyExpansion
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisSuccess/Second/solution1/sim/verilog/KeyExpansion_Rcon.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeyExpansion_Rcon_rom
+INFO: [VRFC 10-311] analyzing module KeyExpansion_Rcon
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisSuccess/Second/solution1/sim/verilog/KeyExpansion_sbox.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeyExpansion_sbox_rom
+INFO: [VRFC 10-311] analyzing module KeyExpansion_sbox
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisSuccess/Second/solution1/sim/verilog/SubBytes.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SubBytes
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/Lincoln/Desktop/ThesisSuccess/Second/solution1/sim/verilog/SubBytes_sbox.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SubBytes_sbox_rom
+INFO: [VRFC 10-311] analyzing module SubBytes_sbox
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.Cipher_temp1_rom
+Compiling module xil_defaultlib.Cipher_temp1(DataWidth=4,Address...
+Compiling module xil_defaultlib.Cipher_temp22_rom
+Compiling module xil_defaultlib.Cipher_temp22(DataWidth=8,Addres...
+Compiling module xil_defaultlib.Cipher_state_ram
+Compiling module xil_defaultlib.Cipher_state(DataWidth=8,Address...
+Compiling module xil_defaultlib.Cipher_RoundKey_ram
+Compiling module xil_defaultlib.Cipher_RoundKey(DataWidth=8,Addr...
+Compiling module xil_defaultlib.Cipher_Key_ram
+Compiling module xil_defaultlib.Cipher_Key(DataWidth=4,AddressRa...
+Compiling module xil_defaultlib.Cipher_in_ram
+Compiling module xil_defaultlib.Cipher_in(DataWidth=8,AddressRan...
+Compiling module xil_defaultlib.KeyExpansion_sbox_rom
+Compiling module xil_defaultlib.KeyExpansion_sbox(DataWidth=8,Ad...
+Compiling module xil_defaultlib.KeyExpansion_Rcon_rom
+Compiling module xil_defaultlib.KeyExpansion_Rcon(DataWidth=8,Ad...
+Compiling module xil_defaultlib.Cipher_srem_32ns_bkb_div_u(in0_W...
+Compiling module xil_defaultlib.Cipher_srem_32ns_bkb_div(in0_WID...
+Compiling module xil_defaultlib.Cipher_srem_32ns_bkb(ID=1,NUM_ST...
+Compiling module xil_defaultlib.Cipher_sdiv_32ns_cud_div_u(in0_W...
+Compiling module xil_defaultlib.Cipher_sdiv_32ns_cud_div(in0_WID...
+Compiling module xil_defaultlib.Cipher_sdiv_32ns_cud(ID=1,NUM_ST...
+Compiling module xil_defaultlib.KeyExpansion
+Compiling module xil_defaultlib.AddRoundKey
+Compiling module xil_defaultlib.SubBytes_sbox_rom
+Compiling module xil_defaultlib.SubBytes_sbox(DataWidth=8,Addres...
+Compiling module xil_defaultlib.SubBytes
+Compiling module xil_defaultlib.Cipher
+Compiling module xil_defaultlib.AESL_automem_out_r
+Compiling module xil_defaultlib.apatb_Cipher_top
+Built simulation snapshot Cipher
+
+****** Webtalk v2017.2 (64-bit)
+  **** SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+  **** IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source C:/Users/Lincoln/Desktop/ThesisSuccess/Second/solution1/sim/verilog/xsim.dir/Cipher/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] 'C:/Users/Lincoln/Desktop/ThesisSuccess/Second/solution1/sim/verilog/xsim.dir/Cipher/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Thu Dec  7 12:27:48 2017. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2017.2/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Thu Dec  7 12:27:48 2017...
+
+****** xsim v2017.2 (64-bit)
+  **** SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+  **** IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/Cipher/xsim_script.tcl
+# xsim {Cipher} -autoloadwcfg -tclbatch {Cipher.tcl}
+Vivado Simulator 2017.2
+Time resolution is 1 ps
+source Cipher.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [n/a] @ "125000"
+// RTL Simulation : 1 / 1 [n/a] @ "37805000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 37845 ns : File "C:/Users/Lincoln/Desktop/ThesisSuccess/Second/solution1/sim/verilog/Cipher.autotb.v" Line 337
+## quit
+INFO: [Common 17-206] Exiting xsim at Thu Dec  7 12:27:59 2017...
+
+Text after encryption:
+69 c4 e0 d8 6a 7b 04 30 d8 cd b7 80 70 b4 c5 5a 
+

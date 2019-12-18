@@ -1,0 +1,11 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+make: `csim.exe' is up to date.
+AES-128 test case:
+
+plaintext: 128'h2900000023000000be00000084000000
+key:       128'he10000006c000000d6000000ae000000
+ciphertext:128'h1b593500aa5ed53f32549630cd2d86c7
+
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

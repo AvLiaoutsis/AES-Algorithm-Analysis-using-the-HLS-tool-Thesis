@@ -1,0 +1,24 @@
+   Build using "C:/Xilinx/Vivado_HLS/2017.2/msys/bin/g++.exe"
+   Compiling apatb_Cipher.cpp
+   Compiling (apcc) AES_Encrypt.c_pre.c.tb.c
+INFO: [HLS 200-10] Running 'c:/Xilinx/Vivado_HLS/2017.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'Lincoln' on host 'desktop-cof76il' (Windows NT_amd64 version 6.2) on Thu Mar 29 23:31:54 +0300 2018
+INFO: [HLS 200-10] In directory 'C:/Users/Lincoln/Desktop/ThesisSuccess/Second/solution1/sim/wrapc'
+clang: warning: argument unused during compilation: '-fno-builtin-isinf'
+clang: warning: argument unused during compilation: '-fno-builtin-isnan'
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Compiling (apcc) test.c_pre.c.tb.c
+INFO: [HLS 200-10] Running 'c:/Xilinx/Vivado_HLS/2017.2/bin/unwrapped/win64.o/apcc.exe'
+INFO: [HLS 200-10] For user 'Lincoln' on host 'desktop-cof76il' (Windows NT_amd64 version 6.2) on Thu Mar 29 23:32:01 +0300 2018
+INFO: [HLS 200-10] In directory 'C:/Users/Lincoln/Desktop/ThesisSuccess/Second/solution1/sim/wrapc'
+clang: warning: argument unused during compilation: '-fno-builtin-isinf'
+clang: warning: argument unused during compilation: '-fno-builtin-isnan'
+C:/Users/Lincoln/Desktop/ThesisSuccess/CCodedFiles/2nd/test.c:4:30: warning: declaration specifier missing, defaulting to 'int'
+void Cipher(word state[4][4],wordKey[32]);
+                             ^~~~~~~
+                             int
+1 warning generated.
+INFO: [APCC 202-3] Tmp directory is apcc_db
+INFO: [APCC 202-1] APCC is done.
+   Generating cosim.tv.exe

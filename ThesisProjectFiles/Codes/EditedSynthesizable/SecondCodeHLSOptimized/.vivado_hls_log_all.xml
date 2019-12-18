@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] RTL name 'Cipher_mux_2568_3bkb' is changed to 'Cipher_mux_2568_3bkb_x' due to conflict." projectName="Second" solutionName="solution1" date="2018-07-04T11:23:19.949+0300" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('state_load_2', CCodedFiles/2nd/AES_Encrypt.c:104) on array 'state' due to limited memory ports." projectName="Second" solutionName="solution1" date="2018-07-04T11:23:16.001+0300" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)&#xD;&#xA;   between 'store' operation (CCodedFiles/2nd/AES_Encrypt.c:160) of variable 'tmp_80', CCodedFiles/2nd/AES_Encrypt.c:160 on array 'state' and 'load' operation ('state_load', CCodedFiles/2nd/AES_Encrypt.c:104) on array 'state'." projectName="Second" solutionName="solution1" date="2018-07-04T11:23:15.501+0300" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)&#xD;&#xA;   between 'store' operation (CCodedFiles/2nd/AES_Encrypt.c:125) of variable 'tmp_s', CCodedFiles/2nd/AES_Encrypt.c:125 on array 'state' and 'load' operation ('state_load', CCodedFiles/2nd/AES_Encrypt.c:104) on array 'state'." projectName="Second" solutionName="solution1" date="2018-07-04T11:23:15.401+0300" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('RoundKey_load', CCodedFiles/2nd/AES_Encrypt.c:51) on array 'RoundKey' due to limited memory ports." projectName="Second" solutionName="solution1" date="2018-07-04T11:23:14.519+0300" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)&#xD;&#xA;   between 'store' operation (CCodedFiles/2nd/AES_Encrypt.c:73) of variable 'tmp_19', CCodedFiles/2nd/AES_Encrypt.c:73 on array 'RoundKey' and 'load' operation ('RoundKey_load', CCodedFiles/2nd/AES_Encrypt.c:51) on array 'RoundKey'." projectName="Second" solutionName="solution1" date="2018-07-04T11:23:14.489+0300" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-104] Completely partitioning array 'sbox'  accessed through non-constant indices on dimension 1 (CCodedFiles/2nd/AES_Encrypt.c:23:2), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead." projectName="Second" solutionName="solution1" date="2018-07-04T11:23:09.459+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'UNROLL' cannot be applied: Label 'Cipher_label1' does not exist in function 'Cipher'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.444+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'UNROLL' cannot be applied: Label 'Cipher_label0' does not exist in function 'Cipher'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.430+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'UNROLL' cannot be applied: Label 'SubBytes_label5' does not exist in function 'SubBytes'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.414+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'PIPELINE' cannot be applied: Label 'SubBytes_label4' does not exist in function 'SubBytes'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.400+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'UNROLL' cannot be applied: Label 'SubBytes_label3' does not exist in function 'SubBytes'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.390+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'UNROLL' cannot be applied: Label 'SubBytes_label2' does not exist in function 'SubBytes'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.374+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'UNROLL' cannot be applied: Label 'SubBytes_label1' does not exist in function 'SubBytes'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.341+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'PIPELINE' cannot be applied: Label 'Cipher_label32' does not exist in function 'Cipher'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.331+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'UNROLL' cannot be applied: Label 'SubBytes_label31' does not exist in function 'SubBytes'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.317+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'UNROLL' cannot be applied: Label 'SubBytes_label30' does not exist in function 'SubBytes'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.302+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'PIPELINE' cannot be applied: Function 'MixColumns' does not exist in any synthesis source file." projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.224+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'UNROLL' cannot be applied: Label 'SubBytes_label28' does not exist in function 'SubBytes'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.210+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'PIPELINE' cannot be applied: Function 'MixColumns' does not exist in any synthesis source file." projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.192+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'UNROLL' cannot be applied: Function 'MixColumns' does not exist in any synthesis source file." projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.179+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'UNROLL' cannot be applied: Label 'SubBytes_label25' does not exist in function 'SubBytes'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.170+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'UNROLL' cannot be applied: Label 'SubBytes_label23' does not exist in function 'SubBytes'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.154+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'PIPELINE' cannot be applied: Label 'SubBytes_label22' does not exist in function 'SubBytes'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.140+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'UNROLL' cannot be applied: Label 'SubBytes_label21' does not exist in function 'SubBytes'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.124+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'UNROLL' cannot be applied: Label 'AddRoundKey_label18' does not exist in function 'AddRoundKey'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.113+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'UNROLL' cannot be applied: Label 'AddRoundKey_label16' does not exist in function 'AddRoundKey'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.092+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'UNROLL' cannot be applied: Label 'AddRoundKey_label15' does not exist in function 'AddRoundKey'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.084+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'PIPELINE' cannot be applied: Label 'AddRoundKey_label14' does not exist in function 'AddRoundKey'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.070+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'UNROLL' cannot be applied: Label 'KeyExpansion_label13' does not exist in function 'KeyExpansion'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.060+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'PIPELINE' cannot be applied: Label 'AddRoundKey_label12' does not exist in function 'AddRoundKey'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.044+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'PIPELINE' cannot be applied: Label 'AddRoundKey_label11' does not exist in function 'AddRoundKey'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.034+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'PIPELINE' cannot be applied: Label 'AddRoundKey_label10' does not exist in function 'AddRoundKey'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.019+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'UNROLL' cannot be applied: Label 'KeyExpansion_label9' does not exist in function 'KeyExpansion'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:03.010+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'UNROLL' cannot be applied: Label 'KeyExpansion_label8' does not exist in function 'KeyExpansion'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:02.999+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'PIPELINE' cannot be applied: Label 'KeyExpansion_label7' does not exist in function 'KeyExpansion'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:02.990+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'UNROLL' cannot be applied: Label 'KeyExpansion_label6' does not exist in function 'KeyExpansion'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:02.980+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'UNROLL' cannot be applied: Label 'KeyExpansion_label5' does not exist in function 'KeyExpansion'. " projectName="Second" solutionName="solution1" date="2018-07-04T11:23:02.970+0300" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

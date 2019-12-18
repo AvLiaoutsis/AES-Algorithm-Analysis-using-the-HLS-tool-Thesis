@@ -1,0 +1,196 @@
+
+
+================================================================
+== Vivado HLS Report for 'aes_main'
+================================================================
+* Date:           Fri Apr  6 15:28:28 2018
+
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Project:        trito
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu7eg-ffvf1517-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      4.26|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +------+------+------+------+---------+
+    |   Latency   |   Interval  | Pipeline|
+    |  min |  max |  min |  max |   Type  |
+    +------+------+------+------+---------+
+    |  1092|  1092|  1093|  1093|   none  |
+    +------+------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        +--------------------------------+----------------------+-----+-----+-----+-----+---------+
+        |                                |                      |  Latency  |  Interval | Pipeline|
+        |            Instance            |        Module        | min | max | min | max |   Type  |
+        +--------------------------------+----------------------+-----+-----+-----+-----+---------+
+        |grp_MixColumn_AddRoundKe_fu_96  |MixColumn_AddRoundKe  |   30|   30|   30|   30|   none  |
+        |grp_KeySchedule_fu_106          |KeySchedule           |  562|  562|  562|  562|   none  |
+        |grp_ByteSub_ShiftRow_fu_118     |ByteSub_ShiftRow      |   15|   15|   15|   15|   none  |
+        |grp_AddRoundKey_fu_126          |AddRoundKey           |   17|   17|   17|   17|   none  |
+        +--------------------------------+----------------------+-----+-----+-----+-----+---------+
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |  441|  441|        49|          -|          -|     9|    no    |
+        |- Loop 2  |   32|   32|         2|          -|          -|    16|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|      37|      26|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        4|      -|    2059|    3119|    -|
+|Memory           |        2|      -|       0|       0|    -|
+|Multiplexer      |        -|      -|       -|     325|    -|
+|Register         |        -|      -|      40|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        6|      0|    2136|    3470|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      624|   1728|  460800|  230400|   96|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |    ~0   |      0|   ~0   |       1|    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +--------------------------------+----------------------+---------+-------+------+------+
+    |            Instance            |        Module        | BRAM_18K| DSP48E|  FF  |  LUT |
+    +--------------------------------+----------------------+---------+-------+------+------+
+    |grp_AddRoundKey_fu_126          |AddRoundKey           |        0|      0|   225|   261|
+    |grp_ByteSub_ShiftRow_fu_118     |ByteSub_ShiftRow      |        1|      0|   112|   457|
+    |grp_KeySchedule_fu_106          |KeySchedule           |        1|      0|  1334|   800|
+    |grp_MixColumn_AddRoundKe_fu_96  |MixColumn_AddRoundKe  |        2|      0|   388|  1601|
+    +--------------------------------+----------------------+---------+-------+------+------+
+    |Total                           |                      |        4|      0|  2059|  3119|
+    +--------------------------------+----------------------+---------+-------+------+------+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    +---------+----------------+---------+---+----+------+-----+------+-------------+
+    |  Memory |     Module     | BRAM_18K| FF| LUT| Words| Bits| Banks| W*Bits*Banks|
+    +---------+----------------+---------+---+----+------+-----+------+-------------+
+    |worda_U  |aes_main_worda  |        2|  0|   0|   480|   32|     1|        15360|
+    +---------+----------------+---------+---+----+------+-----+------+-------------+
+    |Total    |                |        2|  0|   0|   480|   32|     1|        15360|
+    +---------+----------------+---------+---+----+------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------+----------+-------+----+----+------------+------------+
+    |     Variable Name     | Operation| DSP48E| FF | LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------+----------+-------+----+----+------------+------------+
+    |i_fu_160_p2            |     +    |      0|  20|  11|           5|           1|
+    |tmp_i_fu_143_p2        |     +    |      0|  17|  10|           4|           1|
+    |exitcond2_i_fu_154_p2  |   icmp   |      0|   0|   3|           5|           6|
+    |exitcond3_i_fu_137_p2  |   icmp   |      0|   0|   2|           4|           4|
+    +-----------------------+----------+-------+----+----+------------+------------+
+    |Total                  |          |      0|  37|  26|          18|          12|
+    +-----------------------+----------+-------+----+----+------------+------------+
+
+    * Multiplexer: 
+    +--------------------------+----+-----------+-----+-----------+
+    |           Name           | LUT| Input Size| Bits| Total Bits|
+    +--------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                 |  65|         14|    1|         14|
+    |grp_AddRoundKey_fu_126_n  |  13|          3|    6|         18|
+    |i_1_i_reg_85              |   9|          2|    5|         10|
+    |i_i_reg_73                |   9|          2|    4|          8|
+    |statemt_address0          |  25|          5|    5|         25|
+    |statemt_address1          |  17|          4|    5|         20|
+    |statemt_ce0               |  25|          5|    1|          5|
+    |statemt_ce1               |  17|          4|    1|          4|
+    |statemt_d0                |  17|          4|   32|        128|
+    |statemt_d1                |  17|          4|   32|        128|
+    |statemt_we0               |  17|          4|    1|          4|
+    |statemt_we1               |  17|          4|    1|          4|
+    |worda_address0            |  17|          4|    9|         36|
+    |worda_address1            |  17|          4|    9|         36|
+    |worda_ce0                 |  17|          4|    1|          4|
+    |worda_ce1                 |  17|          4|    1|          4|
+    |worda_we0                 |   9|          2|    1|          2|
+    +--------------------------+----+-----------+-----+-----------+
+    |Total                     | 325|         73|  115|        450|
+    +--------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +------------------------------------------------+----+----+-----+-----------+
+    |                      Name                      | FF | LUT| Bits| Const Bits|
+    +------------------------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                                       |  13|   0|   13|          0|
+    |ap_reg_grp_AddRoundKey_fu_126_ap_start          |   1|   0|    1|          0|
+    |ap_reg_grp_ByteSub_ShiftRow_fu_118_ap_start     |   1|   0|    1|          0|
+    |ap_reg_grp_KeySchedule_fu_106_ap_start          |   1|   0|    1|          0|
+    |ap_reg_grp_MixColumn_AddRoundKe_fu_96_ap_start  |   1|   0|    1|          0|
+    |i_1_i_cast1_reg_174                             |   5|   0|   32|         27|
+    |i_1_i_reg_85                                    |   5|   0|    5|          0|
+    |i_i_reg_73                                      |   4|   0|    4|          0|
+    |i_reg_182                                       |   5|   0|    5|          0|
+    |tmp_i_reg_169                                   |   4|   0|    4|          0|
+    +------------------------------------------------+----+----+-----+-----------+
+    |Total                                           |  40|   0|   67|         27|
+    +------------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------+-----+-----+------------+--------------+--------------+
+|     RTL Ports    | Dir | Bits|  Protocol  | Source Object|    C Type    |
++------------------+-----+-----+------------+--------------+--------------+
+|ap_clk            |  in |    1| ap_ctrl_hs |   aes_main   | return value |
+|ap_rst            |  in |    1| ap_ctrl_hs |   aes_main   | return value |
+|ap_start          |  in |    1| ap_ctrl_hs |   aes_main   | return value |
+|ap_done           | out |    1| ap_ctrl_hs |   aes_main   | return value |
+|ap_idle           | out |    1| ap_ctrl_hs |   aes_main   | return value |
+|ap_ready          | out |    1| ap_ctrl_hs |   aes_main   | return value |
+|statemt_address0  | out |    5|  ap_memory |    statemt   |     array    |
+|statemt_ce0       | out |    1|  ap_memory |    statemt   |     array    |
+|statemt_we0       | out |    1|  ap_memory |    statemt   |     array    |
+|statemt_d0        | out |   32|  ap_memory |    statemt   |     array    |
+|statemt_q0        |  in |   32|  ap_memory |    statemt   |     array    |
+|statemt_address1  | out |    5|  ap_memory |    statemt   |     array    |
+|statemt_ce1       | out |    1|  ap_memory |    statemt   |     array    |
+|statemt_we1       | out |    1|  ap_memory |    statemt   |     array    |
+|statemt_d1        | out |   32|  ap_memory |    statemt   |     array    |
+|statemt_q1        |  in |   32|  ap_memory |    statemt   |     array    |
+|key_address0      | out |    5|  ap_memory |      key     |     array    |
+|key_ce0           | out |    1|  ap_memory |      key     |     array    |
+|key_q0            |  in |   32|  ap_memory |      key     |     array    |
+|out_r_address0    | out |    5|  ap_memory |     out_r    |     array    |
+|out_r_ce0         | out |    1|  ap_memory |     out_r    |     array    |
+|out_r_we0         | out |    1|  ap_memory |     out_r    |     array    |
+|out_r_d0          | out |   32|  ap_memory |     out_r    |     array    |
++------------------+-----+-----+------------+--------------+--------------+
+

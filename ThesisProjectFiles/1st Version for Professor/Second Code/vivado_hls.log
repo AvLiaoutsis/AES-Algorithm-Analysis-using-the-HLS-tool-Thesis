@@ -1,0 +1,123 @@
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado_HLS/2017.2/bin/unwrapped/win64.o/vivado_hls.exe'
+INFO: [HLS 200-10] For user 'Lincoln' on host 'desktop-cof76il' (Windows NT_amd64 version 6.2) on Fri Apr 06 17:58:32 +0300 2018
+INFO: [HLS 200-10] In directory 'C:/Users/Lincoln/Desktop/Professor/Second'
+INFO: [HLS 200-10] Opening project 'C:/Users/Lincoln/Desktop/Professor/Second/Second'.
+INFO: [HLS 200-10] Adding design file 'CCodedFiles/2nd/AES_Encrypt.c' to the project
+INFO: [HLS 200-10] Adding test bench file 'CCodedFiles/2nd/test.c' to the project
+INFO: [HLS 200-10] Opening solution 'C:/Users/Lincoln/Desktop/Professor/Second/Second/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xczu7eg-ffvf1517-1l-i'
+INFO: [HLS 200-10] Analyzing design file 'CCodedFiles/2nd/AES_Encrypt.c' ... 
+INFO: [HLS 200-10] Validating synthesis directives ...
+WARNING: [HLS 200-40] Directive 'UNROLL' cannot be applied: Label 'Unroll' does not exist in function 'KeyExpansion'. 
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 96.297 ; gain = 46.813
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 96.316 ; gain = 46.832
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 100.137 ; gain = 50.652
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'getSBoxValue' into 'KeyExpansion' (CCodedFiles/2nd/AES_Encrypt.c:60) automatically.
+INFO: [XFORM 203-602] Inlining function 'getSBoxValue' into 'SubBytes' (CCodedFiles/2nd/AES_Encrypt.c:104) automatically.
+INFO: [XFORM 203-602] Inlining function 'AddRoundKey' into 'Cipher' (CCodedFiles/2nd/AES_Encrypt.c:208) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 100.137 ; gain = 50.652
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'SubBytes' (CCodedFiles/2nd/AES_Encrypt.c:97).
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'KeyExpansion_label4' (CCodedFiles/2nd/AES_Encrypt.c:48) in function 'KeyExpansion' for pipelining.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1' (CCodedFiles/2nd/AES_Encrypt.c:100) in function 'SubBytes' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-1.1' (CCodedFiles/2nd/AES_Encrypt.c:102) in function 'SubBytes' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-2' (CCodedFiles/2nd/AES_Encrypt.c:136) in function 'SubBytes' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-3' (CCodedFiles/2nd/AES_Encrypt.c:146) in function 'SubBytes' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-3.1' (CCodedFiles/2nd/AES_Encrypt.c:148) in function 'SubBytes' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-4' (CCodedFiles/2nd/AES_Encrypt.c:156) in function 'SubBytes' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-4.1' (CCodedFiles/2nd/AES_Encrypt.c:158) in function 'SubBytes' completely.
+INFO: [XFORM 203-501] Unrolling loop 'AddRoundKey_label19' (CCodedFiles/2nd/AES_Encrypt.c:89) in function 'AddRoundKey' completely.
+INFO: [XFORM 203-501] Unrolling loop 'KeyExpansion_label17' (CCodedFiles/2nd/AES_Encrypt.c:39) in function 'KeyExpansion' completely.
+INFO: [XFORM 203-501] Unrolling loop 'Loop-2.1' (CCodedFiles/2nd/AES_Encrypt.c:49) in function 'KeyExpansion' completely.
+INFO: [XFORM 203-102] Partitioning array 'temp' (CCodedFiles/2nd/AES_Encrypt.c:35) automatically.
+INFO: [XFORM 203-602] Inlining function 'getSBoxValue' into 'KeyExpansion' (CCodedFiles/2nd/AES_Encrypt.c:60) automatically.
+INFO: [XFORM 203-602] Inlining function 'getSBoxValue' into 'SubBytes' (CCodedFiles/2nd/AES_Encrypt.c:104) automatically.
+INFO: [XFORM 203-602] Inlining function 'AddRoundKey' into 'Cipher' (CCodedFiles/2nd/AES_Encrypt.c:208) automatically.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (CCodedFiles/2nd/AES_Encrypt.c:48:3) to (CCodedFiles/2nd/AES_Encrypt.c:78:2) in function 'KeyExpansion'... converting 3 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'SubBytes' (CCodedFiles/2nd/AES_Encrypt.c:97)...12 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 120.473 ; gain = 70.988
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 133.676 ; gain = 84.191
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'Cipher' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'KeyExpansion' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'KeyExpansion_label4'.
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between 'store' operation (CCodedFiles/2nd/AES_Encrypt.c:73) of variable 'tmp_19', CCodedFiles/2nd/AES_Encrypt.c:73 on array 'RoundKey' and 'load' operation ('RoundKey_load', CCodedFiles/2nd/AES_Encrypt.c:51) on array 'RoundKey'.
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between 'store' operation (CCodedFiles/2nd/AES_Encrypt.c:76) of variable 'tmp_27', CCodedFiles/2nd/AES_Encrypt.c:76 on array 'RoundKey' and 'load' operation ('RoundKey_load_33', CCodedFiles/2nd/AES_Encrypt.c:51) on array 'RoundKey'.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('RoundKey_load_32', CCodedFiles/2nd/AES_Encrypt.c:51) on array 'RoundKey' due to limited memory ports.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 6, Depth: 6.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 11.68 seconds; current allocated memory: 96.522 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.243 seconds; current allocated memory: 97.020 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'SubBytes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'SubBytes'.
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between 'store' operation (CCodedFiles/2nd/AES_Encrypt.c:104) of variable 'sbox_load_cast', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104 on array 'state' and 'load' operation ('num', CCodedFiles/2nd/AES_Encrypt.c:104) on array 'state'.
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)
+   between 'store' operation (CCodedFiles/2nd/AES_Encrypt.c:104) of variable 'sbox_load_cast', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104 on array 'state' and 'load' operation ('num', CCodedFiles/2nd/AES_Encrypt.c:104) on array 'state'.
+WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1)
+   between 'store' operation (CCodedFiles/2nd/AES_Encrypt.c:160) of variable 'tmp_48', CCodedFiles/2nd/AES_Encrypt.c:160 on array 'state' and 'load' operation ('num', CCodedFiles/2nd/AES_Encrypt.c:104) on array 'state'.
+WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('num', CCodedFiles/2nd/AES_Encrypt.c:104) on array 'state' due to limited memory ports.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 24, Depth: 24.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 1.117 seconds; current allocated memory: 98.052 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.388 seconds; current allocated memory: 99.260 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Implementing module 'Cipher' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'Cipher_label34'.
+INFO: [SCHED 204-61] Pipelining result: Target II: 1, Final II: 24, Depth: 25.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.508 seconds; current allocated memory: 99.817 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.412 seconds; current allocated memory: 100.275 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'KeyExpansion' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'KeyExpansion'.
+INFO: [HLS 200-111]  Elapsed time: 0.478 seconds; current allocated memory: 101.154 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'SubBytes' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'SubBytes'.
+INFO: [HLS 200-111]  Elapsed time: 0.87 seconds; current allocated memory: 103.275 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Cipher' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'Cipher/state' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'Cipher/Key' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'Cipher' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Cipher'.
+INFO: [HLS 200-111]  Elapsed time: 1.923 seconds; current allocated memory: 105.429 MB.
+INFO: [RTMG 210-279] Implementing memory 'KeyExpansion_sbox_rom' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'KeyExpansion_Rcon_rom' using auto ROMs.
+INFO: [RTMG 210-278] Implementing memory 'Cipher_RoundKey_ram' using block RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:08 ; elapsed = 00:00:20 . Memory (MB): peak = 157.016 ; gain = 107.531
+INFO: [SYSC 207-301] Generating SystemC RTL for Cipher.
+INFO: [VHDL 208-304] Generating VHDL RTL for Cipher.
+INFO: [VLOG 209-307] Generating Verilog RTL for Cipher.
+INFO: [HLS 200-112] Total elapsed time: 19.596 seconds; peak allocated memory: 105.429 MB.

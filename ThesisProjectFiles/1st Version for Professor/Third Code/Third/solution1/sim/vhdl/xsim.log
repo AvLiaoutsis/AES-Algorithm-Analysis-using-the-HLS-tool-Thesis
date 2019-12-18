@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# xsim v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Thu Dec  7 12:30:14 2017
+# Process ID: 1324
+# Current directory: C:/Users/Lincoln/Desktop/ThesisSuccess/Third/solution1/sim/vhdl
+# Command line: xsim.exe -mode tcl -source {xsim.dir/aes_main/xsim_script.tcl}
+# Log file: C:/Users/Lincoln/Desktop/ThesisSuccess/Third/solution1/sim/vhdl/xsim.log
+# Journal file: C:/Users/Lincoln/Desktop/ThesisSuccess/Third/solution1/sim/vhdl\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/aes_main/xsim_script.tcl
+# xsim {aes_main} -autoloadwcfg -tclbatch {aes_main.tcl}
+Vivado Simulator 2017.2
+Time resolution is 1 ps
+source aes_main.tcl
+## run all
+Note: simulation done!
+Time: 11105 ns  Iteration: 1  Process: /apatb_aes_main_top/generate_sim_done_proc  File: C:/Users/Lincoln/Desktop/ThesisSuccess/Third/solution1/sim/vhdl/aes_main.autotb.vhd
+Failure: NORMAL EXIT (note: failure is to force the simulator to stop)
+Time: 11105 ns  Iteration: 1  Process: /apatb_aes_main_top/generate_sim_done_proc  File: C:/Users/Lincoln/Desktop/ThesisSuccess/Third/solution1/sim/vhdl/aes_main.autotb.vhd
+$finish called at time : 11105 ns
+## quit
+INFO: [Common 17-206] Exiting xsim at Thu Dec  7 12:30:22 2017...

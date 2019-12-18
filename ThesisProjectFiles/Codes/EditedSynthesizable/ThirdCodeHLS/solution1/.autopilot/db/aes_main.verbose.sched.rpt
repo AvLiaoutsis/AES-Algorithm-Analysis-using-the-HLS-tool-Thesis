@@ -1,0 +1,329 @@
+
+
+================================================================
+== Vivado HLS Report for 'aes_main'
+================================================================
+* Date:           Fri Apr  6 15:28:24 2018
+
+* Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
+* Project:        trito
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu7eg-ffvf1517-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      4.26|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +------+------+------+------+---------+
+    |   Latency   |   Interval  | Pipeline|
+    |  min |  max |  min |  max |   Type  |
+    +------+------+------+------+---------+
+    |  1092|  1092|  1093|  1093|   none  |
+    +------+------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |          |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name| min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Loop 1  |  441|  441|        49|          -|          -|     9|    no    |
+        |- Loop 2  |   32|   32|         2|          -|          -|    16|    no    |
+        +----------+-----+-----+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 13
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / (!exitcond3_i)
+	9  / (exitcond3_i)
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	5  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	13  / (!exitcond2_i)
+13 --> 
+	12  / true
+* FSM state operations: 
+
+ <State 1>: 0.00ns
+ST_1: StgValue_14 (11)  [2/2] 0.00ns  loc: Edited/3rd/aes.c:106->Edited/3rd/aes.c:629
+:4  call fastcc void @KeySchedule([32 x i32]* %key) nounwind
+
+
+ <State 2>: 0.00ns
+ST_2: StgValue_15 (11)  [1/2] 0.00ns  loc: Edited/3rd/aes.c:106->Edited/3rd/aes.c:629
+:4  call fastcc void @KeySchedule([32 x i32]* %key) nounwind
+
+
+ <State 3>: 0.43ns
+ST_3: StgValue_16 (12)  [2/2] 0.43ns  loc: Edited/3rd/aes.c:110->Edited/3rd/aes.c:629
+:5  call fastcc void @AddRoundKey([32 x i32]* %statemt, i6 0) nounwind
+
+
+ <State 4>: 0.43ns
+ST_4: StgValue_17 (7)  [1/1] 0.00ns
+:0  call void (...)* @_ssdm_op_SpecBitsMap([32 x i32]* %statemt) nounwind, !map !44
+
+ST_4: StgValue_18 (8)  [1/1] 0.00ns
+:1  call void (...)* @_ssdm_op_SpecBitsMap([32 x i32]* %key) nounwind, !map !50
+
+ST_4: StgValue_19 (9)  [1/1] 0.00ns
+:2  call void (...)* @_ssdm_op_SpecBitsMap([32 x i32]* %out_r) nounwind, !map !54
+
+ST_4: StgValue_20 (10)  [1/1] 0.00ns
+:3  call void (...)* @_ssdm_op_SpecTopModule([9 x i8]* @aes_main_str) nounwind
+
+ST_4: StgValue_21 (12)  [1/2] 0.00ns  loc: Edited/3rd/aes.c:110->Edited/3rd/aes.c:629
+:5  call fastcc void @AddRoundKey([32 x i32]* %statemt, i6 0) nounwind
+
+ST_4: StgValue_22 (13)  [1/1] 0.43ns  loc: Edited/3rd/aes.c:112->Edited/3rd/aes.c:629
+:6  br label %1
+
+
+ <State 5>: 0.44ns
+ST_5: i_i (15)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:112->Edited/3rd/aes.c:629
+:0  %i_i = phi i4 [ 1, %0 ], [ %tmp_i, %2 ]
+
+ST_5: exitcond3_i (16)  [1/1] 0.44ns  loc: Edited/3rd/aes.c:112->Edited/3rd/aes.c:629
+:1  %exitcond3_i = icmp eq i4 %i_i, -6
+
+ST_5: empty (17)  [1/1] 0.00ns
+:2  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 9, i64 9, i64 9) nounwind
+
+ST_5: StgValue_26 (18)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:112->Edited/3rd/aes.c:629
+:3  br i1 %exitcond3_i, label %3, label %2
+
+ST_5: StgValue_27 (20)  [2/2] 0.43ns  loc: Edited/3rd/aes.c:114->Edited/3rd/aes.c:629
+:0  call fastcc void @ByteSub_ShiftRow([32 x i32]* %statemt) nounwind
+
+ST_5: StgValue_28 (25)  [2/2] 0.43ns  loc: Edited/3rd/aes.c:117->Edited/3rd/aes.c:629
+:0  call fastcc void @ByteSub_ShiftRow([32 x i32]* %statemt) nounwind
+
+
+ <State 6>: 0.00ns
+ST_6: StgValue_29 (20)  [1/2] 0.00ns  loc: Edited/3rd/aes.c:114->Edited/3rd/aes.c:629
+:0  call fastcc void @ByteSub_ShiftRow([32 x i32]* %statemt) nounwind
+
+
+ <State 7>: 0.81ns
+ST_7: StgValue_30 (21)  [2/2] 0.00ns  loc: Edited/3rd/aes.c:115->Edited/3rd/aes.c:629
+:1  call fastcc void @MixColumn_AddRoundKe([32 x i32]* %statemt, i4 %i_i) nounwind
+
+ST_7: tmp_i (22)  [1/1] 0.81ns  loc: Edited/3rd/aes.c:112->Edited/3rd/aes.c:629
+:2  %tmp_i = add i4 %i_i, 1
+
+
+ <State 8>: 0.00ns
+ST_8: StgValue_32 (21)  [1/2] 0.00ns  loc: Edited/3rd/aes.c:115->Edited/3rd/aes.c:629
+:1  call fastcc void @MixColumn_AddRoundKe([32 x i32]* %statemt, i4 %i_i) nounwind
+
+ST_8: StgValue_33 (23)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:112->Edited/3rd/aes.c:629
+:3  br label %1
+
+
+ <State 9>: 0.00ns
+ST_9: StgValue_34 (25)  [1/2] 0.00ns  loc: Edited/3rd/aes.c:117->Edited/3rd/aes.c:629
+:0  call fastcc void @ByteSub_ShiftRow([32 x i32]* %statemt) nounwind
+
+
+ <State 10>: 0.43ns
+ST_10: StgValue_35 (26)  [2/2] 0.43ns  loc: Edited/3rd/aes.c:118->Edited/3rd/aes.c:629
+:1  call fastcc void @AddRoundKey([32 x i32]* %statemt, i6 10) nounwind
+
+
+ <State 11>: 0.43ns
+ST_11: StgValue_36 (26)  [1/2] 0.00ns  loc: Edited/3rd/aes.c:118->Edited/3rd/aes.c:629
+:1  call fastcc void @AddRoundKey([32 x i32]* %statemt, i6 10) nounwind
+
+ST_11: StgValue_37 (27)  [1/1] 0.43ns  loc: Edited/3rd/aes.c:121->Edited/3rd/aes.c:629
+:2  br label %4
+
+
+ <State 12>: 1.24ns
+ST_12: i_1_i (29)  [1/1] 0.00ns
+:0  %i_1_i = phi i5 [ 0, %3 ], [ %i, %5 ]
+
+ST_12: i_1_i_cast1 (30)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:121->Edited/3rd/aes.c:629
+:1  %i_1_i_cast1 = zext i5 %i_1_i to i32
+
+ST_12: exitcond2_i (31)  [1/1] 0.39ns  loc: Edited/3rd/aes.c:121->Edited/3rd/aes.c:629
+:2  %exitcond2_i = icmp eq i5 %i_1_i, -16
+
+ST_12: empty_9 (32)  [1/1] 0.00ns
+:3  %empty_9 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 16) nounwind
+
+ST_12: i (33)  [1/1] 0.78ns  loc: Edited/3rd/aes.c:121->Edited/3rd/aes.c:629
+:4  %i = add i5 %i_1_i, 1
+
+ST_12: StgValue_43 (34)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:121->Edited/3rd/aes.c:629
+:5  br i1 %exitcond2_i, label %encrypt.exit, label %5
+
+ST_12: statemt_addr (36)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:123->Edited/3rd/aes.c:629
+:0  %statemt_addr = getelementptr [32 x i32]* %statemt, i32 0, i32 %i_1_i_cast1
+
+ST_12: statemt_load (37)  [2/2] 1.24ns  loc: Edited/3rd/aes.c:123->Edited/3rd/aes.c:629
+:1  %statemt_load = load i32* %statemt_addr, align 4
+
+ST_12: StgValue_46 (42)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:632
+encrypt.exit:0  ret void
+
+
+ <State 13>: 2.47ns
+ST_13: statemt_load (37)  [1/2] 1.24ns  loc: Edited/3rd/aes.c:123->Edited/3rd/aes.c:629
+:1  %statemt_load = load i32* %statemt_addr, align 4
+
+ST_13: out_addr (38)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:123->Edited/3rd/aes.c:629
+:2  %out_addr = getelementptr [32 x i32]* %out_r, i32 0, i32 %i_1_i_cast1
+
+ST_13: StgValue_49 (39)  [1/1] 1.24ns  loc: Edited/3rd/aes.c:123->Edited/3rd/aes.c:629
+:3  store i32 %statemt_load, i32* %out_addr, align 4
+
+ST_13: StgValue_50 (40)  [1/1] 0.00ns  loc: Edited/3rd/aes.c:121->Edited/3rd/aes.c:629
+:4  br label %4
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 0ns
+The critical path consists of the following:
+
+ <State 2>: 0ns
+The critical path consists of the following:
+
+ <State 3>: 0.427ns
+The critical path consists of the following:
+	'call' operation (Edited/3rd/aes.c:110->Edited/3rd/aes.c:629) to 'AddRoundKey' [12]  (0.427 ns)
+
+ <State 4>: 0.427ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i_i', Edited/3rd/aes.c:112->Edited/3rd/aes.c:629) with incoming values : ('tmp_i', Edited/3rd/aes.c:112->Edited/3rd/aes.c:629) [15]  (0.427 ns)
+
+ <State 5>: 0.441ns
+The critical path consists of the following:
+	'phi' operation ('i_i', Edited/3rd/aes.c:112->Edited/3rd/aes.c:629) with incoming values : ('tmp_i', Edited/3rd/aes.c:112->Edited/3rd/aes.c:629) [15]  (0 ns)
+	'icmp' operation ('exitcond3_i', Edited/3rd/aes.c:112->Edited/3rd/aes.c:629) [16]  (0.441 ns)
+
+ <State 6>: 0ns
+The critical path consists of the following:
+
+ <State 7>: 0.805ns
+The critical path consists of the following:
+	'add' operation ('tmp_i', Edited/3rd/aes.c:112->Edited/3rd/aes.c:629) [22]  (0.805 ns)
+
+ <State 8>: 0ns
+The critical path consists of the following:
+
+ <State 9>: 0ns
+The critical path consists of the following:
+
+ <State 10>: 0.427ns
+The critical path consists of the following:
+	'call' operation (Edited/3rd/aes.c:118->Edited/3rd/aes.c:629) to 'AddRoundKey' [26]  (0.427 ns)
+
+ <State 11>: 0.427ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', Edited/3rd/aes.c:121->Edited/3rd/aes.c:629) [29]  (0.427 ns)
+
+ <State 12>: 1.24ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', Edited/3rd/aes.c:121->Edited/3rd/aes.c:629) [29]  (0 ns)
+	'getelementptr' operation ('statemt_addr', Edited/3rd/aes.c:123->Edited/3rd/aes.c:629) [36]  (0 ns)
+	'load' operation ('statemt_load', Edited/3rd/aes.c:123->Edited/3rd/aes.c:629) on array 'statemt' [37]  (1.24 ns)
+
+ <State 13>: 2.47ns
+The critical path consists of the following:
+	'load' operation ('statemt_load', Edited/3rd/aes.c:123->Edited/3rd/aes.c:629) on array 'statemt' [37]  (1.24 ns)
+	'store' operation (Edited/3rd/aes.c:123->Edited/3rd/aes.c:629) of variable 'statemt_load', Edited/3rd/aes.c:123->Edited/3rd/aes.c:629 on array 'out_r' [39]  (1.24 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

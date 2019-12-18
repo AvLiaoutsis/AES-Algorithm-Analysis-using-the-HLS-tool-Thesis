@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('num', CCodedFiles/2nd/AES_Encrypt.c:104) on array 'state' due to limited memory ports." projectName="Second" solutionName="solution1" date="2018-04-06T17:58:44.425+0300" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1)&#xD;&#xA;   between 'store' operation (CCodedFiles/2nd/AES_Encrypt.c:160) of variable 'tmp_48', CCodedFiles/2nd/AES_Encrypt.c:160 on array 'state' and 'load' operation ('num', CCodedFiles/2nd/AES_Encrypt.c:104) on array 'state'." projectName="Second" solutionName="solution1" date="2018-04-06T17:58:44.069+0300" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)&#xD;&#xA;   between 'store' operation (CCodedFiles/2nd/AES_Encrypt.c:104) of variable 'sbox_load_cast', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104 on array 'state' and 'load' operation ('num', CCodedFiles/2nd/AES_Encrypt.c:104) on array 'state'." projectName="Second" solutionName="solution1" date="2018-04-06T17:58:43.767+0300" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)&#xD;&#xA;   between 'store' operation (CCodedFiles/2nd/AES_Encrypt.c:104) of variable 'sbox_load_cast', CCodedFiles/2nd/AES_Encrypt.c:23->CCodedFiles/2nd/AES_Encrypt.c:104 on array 'state' and 'load' operation ('num', CCodedFiles/2nd/AES_Encrypt.c:104) on array 'state'." projectName="Second" solutionName="solution1" date="2018-04-06T17:58:43.756+0300" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-69] Unable to schedule 'load' operation ('RoundKey_load_32', CCodedFiles/2nd/AES_Encrypt.c:51) on array 'RoundKey' due to limited memory ports." projectName="Second" solutionName="solution1" date="2018-04-06T17:58:43.090+0300" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1)&#xD;&#xA;   between 'store' operation (CCodedFiles/2nd/AES_Encrypt.c:76) of variable 'tmp_27', CCodedFiles/2nd/AES_Encrypt.c:76 on array 'RoundKey' and 'load' operation ('RoundKey_load_33', CCodedFiles/2nd/AES_Encrypt.c:51) on array 'RoundKey'." projectName="Second" solutionName="solution1" date="2018-04-06T17:58:43.029+0300" type="Warning"/>
+        <logs message="WARNING: [SCHED 204-68] Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)&#xD;&#xA;   between 'store' operation (CCodedFiles/2nd/AES_Encrypt.c:73) of variable 'tmp_19', CCodedFiles/2nd/AES_Encrypt.c:73 on array 'RoundKey' and 'load' operation ('RoundKey_load', CCodedFiles/2nd/AES_Encrypt.c:51) on array 'RoundKey'." projectName="Second" solutionName="solution1" date="2018-04-06T17:58:43.017+0300" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Directive 'UNROLL' cannot be applied: Label 'Unroll' does not exist in function 'KeyExpansion'. " projectName="Second" solutionName="solution1" date="2018-04-06T17:58:37.458+0300" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>
